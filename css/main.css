@@ -1082,6 +1082,7 @@ pre code {
   display: flex;
   flex-shrink: 0;
   padding: 0 10px;
+background
 }
 .use-motion .header,
 .use-motion .site-brand-container .toggle {
@@ -1106,9 +1107,16 @@ pre code {
 }
 .brand {
   border-bottom: 0;
+/*
   color: var(--brand-color);
   display: inline-block;
   padding: 0 40px;
+*/
+  color: #ebf5fb;
+  display: inline-block;
+  line-height: 1.375em;
+  padding: 0 40px;
+  position: relative;
 }
 .brand:hover {
   color: var(--brand-hover-color);
@@ -2545,7 +2553,7 @@ mark.search-keyword {
   }
 }
 .site-brand-container {
-  background: var(--theme-color);
+  background: url("../images/2.jpg");
 }
 @media (max-width: 991px) {
   .site-nav-on .site-brand-container {
