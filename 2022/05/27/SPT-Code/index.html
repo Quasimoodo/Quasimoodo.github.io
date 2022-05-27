@@ -20,25 +20,36 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Metaphysics and Substance">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MetaExistential">
-<meta property="og:url" content="https://quasimoodo.github.io/index.html">
+    <meta name="description" content="这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记 AbstractPre-trained models 用于代码相关下游任务的应用时的 问题？  仅用了Pre-trained encoder 但生成任务需要两个部件都预训练 现在许多Pre-trained model 包括T5，只是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPT-Code">
+<meta property="og:url" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/index.html">
 <meta property="og:site_name" content="MetaExistential">
-<meta property="og:description" content="Metaphysics and Substance">
+<meta property="og:description" content="这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记 AbstractPre-trained models 用于代码相关下游任务的应用时的 问题？  仅用了Pre-trained encoder 但生成任务需要两个部件都预训练 现在许多Pre-trained model 包括T5，只是">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527230530594.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527231806850.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527232629535.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527233143119.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527233752649.png">
+<meta property="article:published_time" content="2022-05-27T07:58:33.000Z">
+<meta property="article:modified_time" content="2022-05-27T19:19:07.740Z">
 <meta property="article:author" content="Quasimoodo">
+<meta property="article:tag" content="ICSE 2022">
+<meta property="article:tag" content="Code generation">
+<meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527230530594.png">
 
 
-<link rel="canonical" href="https://quasimoodo.github.io/">
+<link rel="canonical" href="https://quasimoodo.github.io/2022/05/27/SPT-Code/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://quasimoodo.github.io/2022/05/27/SPT-Code/","path":"2022/05/27/SPT-Code/","title":"SPT-Code"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>MetaExistential</title>
+<title>SPT-Code | MetaExistential</title>
   
 
 
@@ -68,7 +79,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">MetaExistential</h1>
+      <p class="site-title">MetaExistential</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -127,7 +138,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -140,6 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">3.2.</span> <span class="nav-text">输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code%EF%BC%9A"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AST"><span class="nav-number">3.2.2.</span> <span class="nav-text">AST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NL"><span class="nav-number">3.2.3.</span> <span class="nav-text">NL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">预训练任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-AST-Prediction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Code-AST Prediction.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MASS"><span class="nav-number">3.3.2.</span> <span class="nav-text">MASS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Name-Generation"><span class="nav-number">3.3.3.</span> <span class="nav-text">Method Name Generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83"><span class="nav-number">3.4.</span> <span class="nav-text">微调</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">4.1.</span> <span class="nav-text">预训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E5%BE%AE%E8%B0%83"><span class="nav-number">4.2.</span> <span class="nav-text">下游任务微调</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,16 +205,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/05/27/SPT-Code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,13 +229,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MetaExistential">
+      <meta itemprop="name" content="SPT-Code | MetaExistential">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/27/SPT-Code/" class="post-title-link" itemprop="url">SPT-Code</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          SPT-Code
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -261,7 +274,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
+        <p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
 <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Pre-trained models 用于代码相关下游任务的应用时的 问题？</p>
 <ol>
 <li>仅用了Pre-trained encoder 但生成任务需要两个部件都预训练</li>
@@ -380,7 +393,6 @@
 <p>Tokenizer Encoding 用的BPE对CODE和NL，在预训练data上干过 每个下游任务照用</p>
 <p>问题：不是都有token了 还tokenize？</p>
 <h2 id="下游任务微调"><a href="#下游任务微调" class="headerlink" title="下游任务微调"></a>下游任务微调</h2>
-      
     </div>
 
     
@@ -388,181 +400,27 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/ICSE-2022/" rel="tag"># ICSE 2022</a>
+              <a href="/tags/Code-generation/" rel="tag"># Code generation</a>
+              <a href="/tags/Note/" rel="tag"># Note</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/24/About-Moby-Dick/" rel="prev" title="About Moby Dick">
+                  <i class="fa fa-chevron-left"></i> About Moby Dick
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/05/24/About-Moby-Dick/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/taffy.png">
-      <meta itemprop="name" content="Quasimoodo">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MetaExistential">
-      <meta itemprop="description" content="Metaphysics and Substance">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MetaExistential">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/24/About-Moby-Dick/" class="post-title-link" itemprop="url">About Moby Dick</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-05-24 03:07:49 / Modified: 03:23:38" itemprop="dateCreated datePublished" datetime="2022-05-24T03:07:49+08:00">2022-05-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Metaphysics/" itemprop="url" rel="index"><span itemprop="name">Metaphysics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>现在，除了一艘轻轻摇晃的船赋予你的摇摆不定的生命，你没有生命；船的生命借自于大海；大海的生命借自于上帝神秘难测的潮汐。可是，当这睡眠，这幻梦将你笼罩，你的手或脚要是稍微挪动一下——你的双手彻底松开——你就会在惊恐中能够恢复自己的本性。你就盘旋在笛卡尔的涡流之上了。而也许，恰当正午，又是响晴的天气，你便随着一声半带窒息的尖叫，穿过透明的空气，坠入夏天的海洋，再也没有浮上来。好好留神吧，你们这些泛神论者！——《白鲸》桅顶瞭望</p>
-</blockquote>
-<blockquote>
-<p>There is no life in thee, now, expect that rocking life imparted by a gently rolling ship; by her, borrowed from the sea; by the sea, from the inscrutable tides of God. But while this sleep, this dream is on ye, move your foot or hand an inch, slip your hold at all; and your identity comes back in horror. Over Descartian vortices you hover. And perhaps, at mid-day, in the fairest weather, with one half-throttled shriek you drop through that transparent air into the summer sea, no more to rise for ever. Heed it well, ye Pantheists! ——&lt;Moby dick&gt; CHAPTER 35 The Mast-Head</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/05/23/testpic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/taffy.png">
-      <meta itemprop="name" content="Quasimoodo">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MetaExistential">
-      <meta itemprop="description" content="Metaphysics and Substance">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | MetaExistential">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/23/testpic/" class="post-title-link" itemprop="url">Follow Ace Taffy Meow！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-23 20:33:42" itemprop="dateCreated datePublished" datetime="2022-05-23T20:33:42+08:00">2022-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-24 02:14:10" itemprop="dateModified" datetime="2022-05-24T02:14:10+08:00">2022-05-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Meow/" itemprop="url" rel="index"><span itemprop="name">Meow</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Follow Ace Taffy thanks Meow!&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/05/23/testpic/image-20220524021029166.png" alt="image-20220524021029166"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
