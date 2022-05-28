@@ -3,7 +3,7 @@
   <entry>
     <title>About Moby Dick</title>
     <url>/2022/05/24/About-Moby-Dick/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>现在，除了一艘轻轻摇晃的船赋予你的摇摆不定的生命，你没有生命；船的生命借自于大海；大海的生命借自于上帝神秘难测的潮汐。可是，当这睡眠，这幻梦将你笼罩，你的手或脚要是稍微挪动一下——你的双手彻底松开——你就会在惊恐中能够恢复自己的本性。你就盘旋在笛卡尔的涡流之上了。而也许，恰当正午，又是响晴的天气，你便随着一声半带窒息的尖叫，穿过透明的空气，坠入夏天的海洋，再也没有浮上来。好好留神吧，你们这些泛神论者！——《白鲸》桅顶瞭望</p>
 </blockquote>
 <blockquote>
@@ -21,7 +21,7 @@
   <entry>
     <title>SPT-Code</title>
     <url>/2022/05/27/SPT-Code/</url>
-    <content><![CDATA[<p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
 <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Pre-trained models 用于代码相关下游任务的应用时的 问题？</p>
 <ol>
 <li>仅用了Pre-trained encoder 但生成任务需要两个部件都预训练</li>
@@ -150,9 +150,27 @@
       </tags>
   </entry>
   <entry>
+    <title>火柴</title>
+    <url>/2022/05/29/%E7%81%AB%E6%9F%B4/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>我在<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="火柴梗快要烧完的时候，会因为火焰过分接近而忍不住松手">[6]</span></a></sup>水中桥下<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="「尾生與女子期於梁下，女子不來，水至不去，抱樑柱而死。」《莊子·盜跖》
+">[1]</span></a></sup> 饮酒<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label=" 「夢飲酒者，旦而哭泣；夢哭泣者，旦而田獵。方其夢也，不知其夢也。」《莊子·齊物論》
+">[2]</span></a></sup>&#x2F;忘相泉涸<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="「泉涸，魚相與處於陸，相呴以溼，相濡以沫，不如相忘於江湖。」《莊子·大宗師》">[4]</span></a></sup>前日的红烛<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="「蠟炬成灰淚始幹」 李商隐
+">[5]</span></a></sup>泪眼<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="「文侯與虞人期獵。是日，飲酒樂，天雨。文侯將出，左右曰：「今日飲酒樂，天又雨，公將焉之？」文侯曰：「吾與虞人期獵，雖樂，豈可不一會期哉！」乃往，身自罷之。」《戰國策·魏策》
+">[3]</span></a></sup></p>
+<p>自己写完还解诗的人肯定是天下第一无聊 但这只不过是记录灵感媾和时的一些脉络和取舍。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">「尾生與女子期於梁下，女子不來，水至不去，抱樑柱而死。」《莊子·盜跖》<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">「夢飲酒者，旦而哭泣；夢哭泣者，旦而田獵。方其夢也，不知其夢也。」《莊子·齊物論》<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">「文侯與虞人期獵。是日，飲酒樂，天雨。文侯將出，左右曰：「今日飲酒樂，天又雨，公將焉之？」文侯曰：「吾與虞人期獵，雖樂，豈可不一會期哉！」乃往，身自罷之。」《戰國策·魏策》<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">「泉涸，魚相與處於陸，相呴以溼，相濡以沫，不如相忘於江湖。」《莊子·大宗師》<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">「蠟炬成灰淚始幹」 李商隐<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">火柴梗快要烧完的时候，会因为火焰过分接近而忍不住松手<a href="#fnref:6" rev="footnote"> ↩</a></span></li></ol></div></div></p>
+]]></content>
+      <categories>
+        <category>Metaphysics</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+        <tag>Self</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Follow Ace Taffy Meow！</title>
     <url>/2022/05/23/testpic/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Follow Ace Taffy thanks Meow!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Follow Ace Taffy thanks Meow!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/05/23/testpic/image-20220524021029166.png" alt="image-20220524021029166"></p>
 ]]></content>
       <categories>
