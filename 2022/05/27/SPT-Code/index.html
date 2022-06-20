@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记">
 <meta property="og:type" content="article">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527233143119.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2022/05/27/SPT-Code/image-20220527233752649.png">
 <meta property="article:published_time" content="2022-05-27T07:58:33.000Z">
-<meta property="article:modified_time" content="2022-05-30T18:07:02.709Z">
+<meta property="article:modified_time" content="2022-06-20T11:16:09.617Z">
 <meta property="article:author" content="Quasimoodo">
 <meta property="article:tag" content="ICSE 2022">
 <meta property="article:tag" content="Code generation">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">3.2.</span> <span class="nav-text">输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code%EF%BC%9A"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AST"><span class="nav-number">3.2.2.</span> <span class="nav-text">AST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NL"><span class="nav-number">3.2.3.</span> <span class="nav-text">NL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">预训练任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-AST-Prediction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Code-AST Prediction.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MASS"><span class="nav-number">3.3.2.</span> <span class="nav-text">MASS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Name-Generation"><span class="nav-number">3.3.3.</span> <span class="nav-text">Method Name Generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83"><span class="nav-number">3.4.</span> <span class="nav-text">微调</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">4.1.</span> <span class="nav-text">预训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E5%BE%AE%E8%B0%83"><span class="nav-number">4.2.</span> <span class="nav-text">下游任务微调</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">3.2.</span> <span class="nav-text">输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code%EF%BC%9A"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AST"><span class="nav-number">3.2.2.</span> <span class="nav-text">AST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NL"><span class="nav-number">3.2.3.</span> <span class="nav-text">NL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">预训练任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-AST-Prediction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Code-AST Prediction.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MASS"><span class="nav-number">3.3.2.</span> <span class="nav-text">MASS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Name-Generation"><span class="nav-number">3.3.3.</span> <span class="nav-text">Method Name Generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83"><span class="nav-number">3.4.</span> <span class="nav-text">微调</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">4.1.</span> <span class="nav-text">预训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E5%BE%AE%E8%B0%83"><span class="nav-number">4.2.</span> <span class="nav-text">下游任务微调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0"><span class="nav-number">4.3.</span> <span class="nav-text">评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%80%A7%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9A%E9%87%8F%E5%88%86%E6%9E%90"><span class="nav-number">4.4.</span> <span class="nav-text">定性分析与定量分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A8%81%E8%83%81%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">威胁分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">总结：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,18 +166,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -252,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-31 02:07:02" itemprop="dateModified" datetime="2022-05-31T02:07:02+08:00">2022-05-31</time>
+      <time title="Modified: 2022-06-20 19:16:09" itemprop="dateModified" datetime="2022-06-20T19:16:09+08:00">2022-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
+        <p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
 <span id="more"></span>
 
 
@@ -366,7 +366,6 @@
     一种类似中序遍历的说法 来自那篇论文忘了 反正绝对看过
 </center>
 
-
 </li>
 <li><p>本文的方法：X-SBT：XML-like SBT</p>
 <p>可以减少超过一半的长度</p>
@@ -377,13 +376,14 @@
 <img src="/2022/05/27/SPT-Code/image-20220527233752649.png" alt="image-20220527233752649" style="zoom:50%;">
 
 <p><strong>这种优化为可接受的，为什么呢？下面这个说得很漂亮：</strong></p>
-<p>AST中包含了语法信息和词法信息，舍弃掉终结符丢失了词法信息，但之前的token都是词法单元，所以这个信息是没有丢掉的，因此改进可接受</p>
+<p>AST中包含了语法信息和词法信息，舍弃掉终结符丢失了词法信息，但之前的token（Input中Code的部分）都是词法单元，所以这个信息是没有丢掉的，因此改进可接受</p>
 </li>
 </ul>
 <h3 id="NL"><a href="#NL" class="headerlink" title="NL"></a>NL</h3><p>难点：从仅有CODE中提取NL</p>
 <p>方法：获取方法名与调用的API序列</p>
 <p>对驼峰和下划线命名掰开</p>
 <p>问题：怎么提取的API序列：从AST里偷出来的？</p>
+<p>——应该就是</p>
 <h2 id="预训练任务"><a href="#预训练任务" class="headerlink" title="预训练任务"></a>预训练任务</h2><p>𝐼𝑛𝑝𝑢𝑡 &#x3D; 𝐶,[SEP],𝐴,[SEP],𝑁 </p>
 <h3 id="Code-AST-Prediction"><a href="#Code-AST-Prediction" class="headerlink" title="Code-AST Prediction."></a>Code-AST Prediction.</h3><p>这是第一个</p>
 <p>在构建输入𝐼𝑛𝑝𝑢𝑡 时，一半是对应的AST,一半是随机的AST</p>
@@ -395,8 +395,33 @@
 <h2 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h2><p>端到端 根据不同任务分成两类，分类或生成，不同任务就缺掉一点输入</p>
 <h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h2><p>交代了数据集的数据使用，任务顺序，epoches，用的cross-entropy loss和Adam-W，batchsize和显卡（……）</p>
 <p>Tokenizer Encoding 用的BPE对CODE和NL，在预训练data上干过 每个下游任务照用</p>
+<p>预训练任务的任务量都是每个任务几十个Epoches的量级。</p>
 <p>问题：不是都有token了 还tokenize？</p>
-<h2 id="下游任务微调"><a href="#下游任务微调" class="headerlink" title="下游任务微调"></a>下游任务微调</h2>
+<p>——低级问题，前面的应该是tokenize，这里进行token&#x3D;&gt;input_ids的步骤</p>
+<h2 id="下游任务微调"><a href="#下游任务微调" class="headerlink" title="下游任务微调"></a>下游任务微调</h2><p>介绍了五个任务 其中介绍部分有点尴尬</p>
+<h2 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h2><p>RQ1:相比于其他较好的基线 这个性能在下游任务如何？</p>
+<p>列个表 比不上人家的扯一点</p>
+<p>RQ2:三个预训练任务对五个下游任务分别有什么贡献？</p>
+<p>——消融实验</p>
+<p>有趣的是 删除掉MNG （生成 方法的token）在代码完成和代码修复上性能有所提高：</p>
+<ul>
+<li>MNG是目标自然语言的预训练，而这两项任务都是代码到代码</li>
+</ul>
+<p>分析一下 什么任务对什么下游有影响</p>
+<p><strong>稍微有点水平的问题</strong></p>
+<p>RQ3: 可以利用更多无标记的资料是不是本模型的优点呢？</p>
+<p>相较于别的预训练模型，由于它的设计，可以使用无标注数据。更好的性能是不是来自于更多的数据呢？（而不是模型本身厉害？）</p>
+<p>在同样的数据集上训练——把它当作无标注的——其实和别的比还算吃亏——也能够取得相对别的模型更好的结果。</p>
+<p>可以说是赢两遍了。</p>
+<p>RQ4:微调阶段的数据量对下游任务有什么影响？</p>
+<p>虽然越小越坏，但是很小也和别的模型差不多 说明真好</p>
+<h2 id="定性分析与定量分析"><a href="#定性分析与定量分析" class="headerlink" title="定性分析与定量分析"></a>定性分析与定量分析</h2><p>定量：志愿者评估，多个样本分类列表个</p>
+<p>定性：在哪些任务哪些方面表现好 不好的怎么不好</p>
+<h1 id="威胁分析"><a href="#威胁分析" class="headerlink" title="威胁分析"></a>威胁分析</h1><p>构造：数据集可能有重复</p>
+<p>内部：没调过超参数：所以可能有更好的</p>
+<p>外部：只用了CodesearchNet</p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>我们介绍了SPT-Code，这是一个基于编码器架构的源代码的大型型号。首先，我们为预训练SPT代码设计了三个特定代码的预训练任务。其次，我们提出了一种新的输入表示形式，它是第一个考虑自然语言和AST形式的方法，我们还提出了AST遍历方法的改进版本XSBT。我们的预训练任务和输入表示形式都允许在完全未标记的数据集上预先训练SPT代码。然后，对五个与代码相关的下游任务进行了微调。结果表明，微调SPT代码使其能够在五个与代码相关的下游任务上实现最新性能。消融实验表明，这三个预训练任务对不同的下游任务具有不同程度的影响，AST和自然语言输入也有助于提高SPTCODE的性能。为了促进未来的研究，我们还可以在<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> nougatca&#x2F;spt-code上公开提供代码和其他。</p>
+
     </div>
 
     
