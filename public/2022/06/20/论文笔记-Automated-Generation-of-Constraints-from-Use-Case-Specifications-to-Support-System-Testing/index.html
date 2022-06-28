@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mine-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mine-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="后记： 这篇文章真没搞懂 看的时候觉得实在有点车轱辘话嗯说 前面说UMTG只要RUCM和OCL 后面说OCLgen的输入还需要类图…… 前面说verbnet里也不全是同义词 后面又说都是同义词 前面说这个可以转换所有语言 后面就是简单推测了一下用较少规则可以转换好多 而现在还只实现了较少的较少…… 当然 也可能是我水平还不够看得颠三倒四 总之 就只是把他非常「作为手段地」分析了一通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing">
+<meta property="og:url" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/index.html">
+<meta property="og:site_name" content="MetaExistential">
+<meta property="og:description" content="后记： 这篇文章真没搞懂 看的时候觉得实在有点车轱辘话嗯说 前面说UMTG只要RUCM和OCL 后面说OCLgen的输入还需要类图…… 前面说verbnet里也不全是同义词 后面又说都是同义词 前面说这个可以转换所有语言 后面就是简单推测了一下用较少规则可以转换好多 而现在还只实现了较少的较少…… 当然 也可能是我水平还不够看得颠三倒四 总之 就只是把他非常「作为手段地」分析了一通">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220628194141482.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220628194155803.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625173337030.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625181049650.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625212958549.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184416896.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184653142.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184748233.png">
+<meta property="article:published_time" content="2022-06-20T14:43:42.000Z">
+<meta property="article:modified_time" content="2022-06-28T11:45:20.079Z">
+<meta property="article:author" content="Quasimoodo">
+<meta property="article:tag" content="Code generation">
+<meta property="article:tag" content="ICST">
+<meta property="article:tag" content="OCL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220628194141482.png">
+
+
+<link rel="canonical" href="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/","path":"2022/06/20/论文笔记-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/","title":"论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing | MetaExistential</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MetaExistential</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OCL%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">OCL约束的格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">3.</span> <span class="nav-text">转换规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VI-%E8%AF%86%E5%88%AB%E8%A6%81%E7%94%A8%E5%88%B0OCL%E5%B7%A6%E4%BE%A7%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">VI 识别要用到OCL左侧的变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VII-%E8%AF%86%E5%88%AB%E5%8F%B3%E4%BE%A7%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">5.</span> <span class="nav-text">VII 识别右侧的变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VIII-%E8%AF%86%E5%88%AB%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">6.</span> <span class="nav-text">VIII 识别操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IX-%E6%89%93%E5%88%86"><span class="nav-number">7.</span> <span class="nav-text">IX 打分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#X-%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E6%99%AE%E9%81%8D%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">X 完整性和普遍性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XI-%E7%BB%8F%E9%AA%8C%E8%AF%84%E4%BC%B0"><span class="nav-number">9.</span> <span class="nav-text">XI 经验评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RQ1-%E7%94%9F%E6%88%90%E7%9A%84OCL%E7%BA%A6%E6%9D%9F%E5%AF%B9%E5%90%97%EF%BC%9F"><span class="nav-number">9.1.</span> <span class="nav-text">RQ1: 生成的OCL约束对吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RQ2-%E5%AF%B9%E4%BA%8E%E7%94%A8%E4%BE%8B%E8%A7%84%E8%8C%83-oclgen%E7%9A%84%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%95%88%E6%9E%9C%E5%A6%82%E4%BD%95%EF%BC%9F"><span class="nav-number">9.2.</span> <span class="nav-text">RQ2: 对于用例规范 oclgen的自动生成效果如何？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RQ3-%E9%99%90%E5%88%B6%E7%94%9F%E6%88%90%E6%95%88%E7%8E%87%E7%9A%84%E8%A6%81%E7%B4%A0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">9.3.</span> <span class="nav-text">RQ3: 限制生成效率的要素是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Threats-to-Validity"><span class="nav-number">10.</span> <span class="nav-text">Threats to Validity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">11.</span> <span class="nav-text">相关工作</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Quasimoodo"
+      src="/images/taffy.png">
+  <p class="site-author-name" itemprop="name">Quasimoodo</p>
+  <div class="site-description" itemprop="description">Metaphysics and Substance</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/taffy.png">
+      <meta itemprop="name" content="Quasimoodo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MetaExistential">
+      <meta itemprop="description" content="Metaphysics and Substance">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing | MetaExistential">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-20 22:43:42" itemprop="dateCreated datePublished" datetime="2022-06-20T22:43:42+08:00">2022-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-28 19:45:20" itemprop="dateModified" datetime="2022-06-28T19:45:20+08:00">2022-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Substance/" itemprop="url" rel="index"><span itemprop="name">Substance</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>后记：</p>
+<p>这篇文章真没搞懂 看的时候觉得实在有点车轱辘话嗯说 前面说UMTG只要RUCM和OCL 后面说OCLgen的输入还需要类图……</p>
+<p>前面说verbnet里也不全是同义词 后面又说都是同义词</p>
+<p>前面说这个可以转换所有语言 后面就是简单推测了一下用较少规则可以转换好多 而现在还只实现了较少的较少……</p>
+<p>当然 也可能是我水平还不够看得颠三倒四 总之 就只是把他非常「作为手段地」分析了一通</p>
+<span id="more"></span>
+
+<ul>
+<li><p>这篇文章要解决什么问题？</p>
+<ul>
+<li>需要从自然语言的需求规范中自动生成可执行测试用例，使用UMTG工具</li>
+<li>UMTG需要的东西：RUCM的自然语言规范和OCL写的约束</li>
+<li>OCLgen就要生成OCL约束——主要是前后置条件</li>
+</ul>
+</li>
+<li><p>OCLgen的输入输出是什么？</p>
+<ul>
+<li>输入：UMTG一致(?)——RUCM的NL和UML类图的系统领域模型</li>
+<li>输出：每一个用例步骤对应的OCL约束</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220628194141482.png" alt="image-20220628194141482"></p>
+<img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220628194155803.png" alt="image-20220628194155803" style="zoom: 33%;">
+
+<ul>
+<li><p>它厉害在哪里？</p>
+<ul>
+<li>别人的方法 要使用CNL（受控的自然语言）来写软件要求，即，采用有限的动词</li>
+<li>他的方法——需要UMTG格式的语言——但不限制动词，还需要类图</li>
+<li>在测试的工业案例中，可以达到75%的正确</li>
+<li>使用了语义标注和同义词合并的方法，使得只需要很少的规则就可以实现大范围的转换</li>
+</ul>
+</li>
+<li><p>他的方法是什么？</p>
+<ul>
+<li>先用SRL（语义角色标注）标记句子中词汇的角色</li>
+<li>识别到之后 根据一定的规则再去识别类或自然语言中之中别的属性和操作符</li>
+<li>还有通用的——元动词转换规则——因为目的是生成测试用例</li>
+<li>然后（如果能生成多个）就打分评估最好的输出</li>
+<li>打分方法：完整性和正确性——用例中角色在OCL中出现的比例，变量名和用例名一致(<strong>这里完全没搞懂</strong>)</li>
+</ul>
+</li>
+<li><p>他的评估方法是什么？</p>
+<ul>
+<li>比较了生成的和手动编写的 比较了正确率</li>
+<li>对于需求 说了87个测试中生成除了多少</li>
+<li></li>
+</ul>
+</li>
+<li><p>他的不足在哪？</p>
+<ul>
+<li>聚焦于前后置条件 主要测试场景就是这个工业案例 所以对输入有预设，对输出有范式</li>
+<li>吹得很猛 不需要限制 可以处理所有 其实目前只实现了7类规则，可以处理408个动词</li>
+<li>对语言的规格还是有需求 需要输入UML类图</li>
+<li>实验很弱</li>
+</ul>
+</li>
+<li><p>有什么启发？</p>
+<ul>
+<li>比较的时候 应用场景 生成的灵活性都会比他好不少</li>
+<li>对于方案设计启发不大</li>
+</ul>
+</li>
+</ul>
+<p>目的：</p>
+<p>从自然语言的需求规范中自动生成系统测试用例</p>
+<p>——》</p>
+<p>为UMTG生成其需要的正则标准，提出了OCLGEN</p>
+<p>使用语义分析技术来识别用力规范的前后置条件</p>
+<p>可以75%正确生成前后置条件</p>
+<p>系统测试很重要 其测试用例要展示功能和安全需求，</p>
+<p>软件需求用NL写，然后由工程师手动转换，昂贵且易错</p>
+<p>现有的自动化解决方案依靠限制过的，简单的自然语言解决</p>
+<p>别人的方法（生成测试用例的）：</p>
+<p>基于特殊关键词侦测，如 if then&#x3D;&gt;抽象，高层次 给测试人员</p>
+<p>用受控的自然语言(CNL)写软件规格,再基于规则转换为正则标准&#x3D;&gt;可用语言非常有限</p>
+<p>不用CNL 但需要其他的建模工作——UMTG就是这样的</p>
+<p>OCLgen——捕获语句中的后置条件或前置条件——采用了文本转换规则，依赖自动语义分析技术，无需受控语言</p>
+<p>SRL（语义角色标注）实现词汇的标注，例如，收到动作最直接影响的成员就应该出现在后置条件中</p>
+<p>同义词识别，判断不同的词汇能否用相同的规则处理</p>
+<p>在测试的工业案例中，75%精度，25%由于精度不足</p>
+<p>UMTG: RUCM(用于写用例的一种语言格式 基本流替代流什么的)+OCL——测试用例</p>
+<p>语义标注：搞清楚短语的角色对前后置条件的生成是必要的</p>
+<p>别人搞的自然语言-用例生成不少用了语法识别 有一定用但搞不清短语作用</p>
+<p>SRL有许多种 但用了CNP是因为他是唯一一个还在积极开发的 也有接口</p>
+<p>同义检测：</p>
+<p>VerbNet不仅包括同义词类，还包括模式，如主语+不及物或主系表结构 </p>
+<p>使用了和PropBANK(CNP使用的）不同的模型，也会有不同的标签，但存在映射关系</p>
+<p>同一类中的词共用一种模式，帮助定义可重用的转换规则，但不是同一类中的都是同义词（？）用来识别同义词最先进的方法是WordNet</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>UMTG需要人写ocl捕获这两种信息：</p>
+<ul>
+<li>行动对于系统状态的影响——后置条件</li>
+<li>用例的前置条件</li>
+</ul>
+<p>OCLgen就要自动化这一步骤</p>
+<p>需要的输入与UMTG一致：</p>
+<ul>
+<li>RUCM写的用例规范</li>
+<li>以UML类图形式的 系统的领域模型</li>
+</ul>
+<p>可以输出每一个用例步骤对应的OCL约束</p>
+<p>OCLgen的方法：</p>
+<ul>
+<li>通过SRL<ul>
+<li>挑选要出现在约束中的元素，</li>
+<li>决定要使用的比较运算符</li>
+<li>额外的操作符，如否定</li>
+</ul>
+</li>
+<li>针对每一个动词 使用不同转换规则转换——为了可行，使用VerbNet合并词类，需要的规则更少</li>
+</ul>
+<p>转换步骤：</p>
+<p>标记——选择规则——转换候选——挑选最高分</p>
+<p><img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625173337030.png" alt="image-20220625173337030"></p>
+<p>可能有多个候选因为选择了多种规则</p>
+<p>最高分赋予使用了用例步中最多可用信息的?</p>
+<h1 id="OCL约束的格式"><a href="#OCL约束的格式" class="headerlink" title="OCL约束的格式"></a>OCL约束的格式</h1><p>一般就是比较笨蛋的 前置条件与条件步通常就是安全检查确保环境恰当，较容易捕获赋值，相等和不等关系</p>
+<p><img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625181049650.png" alt="image-20220625181049650"></p>
+<p>是这样一套简化的EBNF 其中不少东西都是来自领域模型的，如类名和属性**</p>
+<h1 id="转换规则"><a href="#转换规则" class="headerlink" title="转换规则"></a>转换规则</h1><p>所有转换规则共享相同的规则 每个规则和一组动词关联，如果一个动词出现，就执行一个步骤</p>
+<p>在第X部分会讨论规则对英语（动词）的覆盖性，在这一部分主要讨论动词 be set enable的规则</p>
+<p>SRL会识别出 左手边变量 left-hand side variable，操作符，选择元素和右手边变量right-hand side terms.</p>
+<p>A1一般就是lhs varible</p>
+<p>有两种转换规则：</p>
+<ul>
+<li><p>specific verb transformation rule: 对每个动词定制的转换规则</p>
+</li>
+<li><p>META verb transformation rule: 对任何动词使用的转换规则，</p>
+<p>这种规则基于这样一种常见的现象 ，就是语句的LHSvarible是一个名称与其动词匹配或相同的属性(后面还会介绍)</p>
+</li>
+</ul>
+<h1 id="VI-识别要用到OCL左侧的变量"><a href="#VI-识别要用到OCL左侧的变量" class="headerlink" title="VI 识别要用到OCL左侧的变量"></a>VI 识别要用到OCL左侧的变量</h1><p>真没搞懂在干嘛</p>
+<h1 id="VII-识别右侧的变量"><a href="#VII-识别右侧的变量" class="headerlink" title="VII 识别右侧的变量"></a>VII 识别右侧的变量</h1><p>根据左侧变量的类型 支持角色来在输入的自然语言和模型中寻找类似的或可匹配到的</p>
+<h1 id="VIII-识别操作符"><a href="#VIII-识别操作符" class="headerlink" title="VIII 识别操作符"></a>VIII 识别操作符</h1><p>用了别人的方法[35] 普遍都是类似于 be这样的动词</p>
+<p>对于 除了……都……这样的范式 发明了一套方法 也是和语义角色标记有关系的</p>
+<h1 id="IX-打分"><a href="#IX-打分" class="headerlink" title="IX 打分"></a>IX 打分</h1><p>从完整性和正确性两个维度</p>
+<p>完整性：自然语言中所有概念被说明的程度有关。——用例中角色在OCL中出现的百分比</p>
+<p>正确性：OCL中的变量名和用例中的名字一致</p>
+<p><img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220625212958549.png" alt="image-20220625212958549"></p>
+<h1 id="X-完整性和普遍性"><a href="#X-完整性和普遍性" class="headerlink" title="X 完整性和普遍性"></a>X 完整性和普遍性</h1><p>为了让更多的动词可以用：</p>
+<ul>
+<li>使用Verbnet 让同一规则可以用于更多词（同一类的词）</li>
+<li>排除了形容人的感受&#x2F;行为&#x2F;动物行为的词</li>
+</ul>
+<p>经过分析，33个转换规则就可以给87类词转换 目前实现了7类规则 包括元转换规则。可以处理408个动词</p>
+<h1 id="XI-经验评估"><a href="#XI-经验评估" class="headerlink" title="XI 经验评估"></a>XI 经验评估</h1><p>RQ1: 生成的OCL约束对吗？</p>
+<p>RQ2: 对于用例规范 oclgen的自动生成效果如何？</p>
+<p>RQ3: 限制生成效率的要素是什么？</p>
+<h2 id="RQ1-生成的OCL约束对吗？"><a href="#RQ1-生成的OCL约束对吗？" class="headerlink" title="RQ1: 生成的OCL约束对吗？"></a>RQ1: 生成的OCL约束对吗？</h2><p>比较了生成的和手动写的</p>
+<p>可能会： </p>
+<ul>
+<li>生成对的</li>
+<li>生成错的</li>
+<li>没有结果</li>
+</ul>
+<p>总正确率：66&#x2F;69&#x2F;87</p>
+<h2 id="RQ2-对于用例规范-oclgen的自动生成效果如何？"><a href="#RQ2-对于用例规范-oclgen的自动生成效果如何？" class="headerlink" title="RQ2: 对于用例规范 oclgen的自动生成效果如何？"></a>RQ2: 对于用例规范 oclgen的自动生成效果如何？</h2><p>66&#x2F;87</p>
+<h2 id="RQ3-限制生成效率的要素是什么？"><a href="#RQ3-限制生成效率的要素是什么？" class="headerlink" title="RQ3: 限制生成效率的要素是什么？"></a>RQ3: 限制生成效率的要素是什么？</h2><p>手动检查没有生成的句子</p>
+<ul>
+<li>信息不足</li>
+<li>在用例规范和领域模型中表述不一样（is valid ——翻译不成——&lt;&gt;Error)</li>
+</ul>
+<h1 id="Threats-to-Validity"><a href="#Threats-to-Validity" class="headerlink" title="Threats to Validity"></a>Threats to Validity</h1><p>普遍性：只试了这个工业案例 BodySensetM</p>
+<h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><p>自动生成可执行测试案例需要需求规格用CNL（只有有限的动词）写</p>
+<p>OCLgen不需要受限的语言，而是RUCM，他引入了一些关键字，但并不限定使用的动名词</p>
+<p>NL2OCL </p>
+<p>处理UML类图和NL需求来得出类不变性和前后置条件，也用语义分析 来确定角色，靠侦测特定的关键字来确定被动语态或操作符</p>
+<p>缺点：</p>
+<p>   没有简化众多的动词怎么办——OCLgen的meta verb rule</p>
+<p>已经没法拿来比较了 </p>
+<p>NL2OCL更能抽取包括简单比较操作符的类不变量，而非生成前后置条件——这个对于测试用例生成更有用</p>
+<p>提点问题：</p>
+<ul>
+<li><p>如何评估生成的OCL的质量？</p>
+</li>
+<li><p>在回答RQ时，使用了——产生了多少个OCL约束中多少个是正确的——没有给出“正确”的定义</p>
+</li>
+<li><p>此外 还评估了一下87个需求多少个能生成出来</p>
+</li>
+<li><p>在进行选择时，使用了打分机制，</p>
+</li>
+<li></li>
+<li><p>输入输出是什么？</p>
+</li>
+</ul>
+<p>输入包括两部分：</p>
+<ul>
+<li>RUCM格式的自然语言撰写的用例步骤</li>
+</ul>
+<img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184416896.png" alt="image-20220626184416896">
+
+<ul>
+<li>类图</li>
+</ul>
+<img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184653142.png" alt="image-20220626184653142" style="zoom: 25%;">
+
+<p>输出似乎是有限的一种范式？</p>
+<img src="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/image-20220626184748233.png" alt="image-20220626184748233" style="zoom:25%;">
+
+
+
+
+
+<ul>
+<li><p>创新点在哪？</p>
+</li>
+<li><p>借鉴 比较在哪</p>
+</li>
+<li><p>他做了什么事？方法是什么？</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Code-generation/" rel="tag"># Code generation</a>
+              <a href="/tags/ICST/" rel="tag"># ICST</a>
+              <a href="/tags/OCL/" rel="tag"># OCL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/05/Philip-Larkin/" rel="prev" title="Philip Larkin 诗鉴赏">
+                  <i class="fa fa-chevron-left"></i> Philip Larkin 诗鉴赏
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Quasimoodo</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
