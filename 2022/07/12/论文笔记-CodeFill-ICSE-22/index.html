@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mine-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mine-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记 不过主要是为了写论文看的XD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记-CodeFill-ICSE&#96;22">
+<meta property="og:url" content="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/index.html">
+<meta property="og:site_name" content="MetaExistential">
+<meta property="og:description" content="这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记 不过主要是为了写论文看的XD">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png">
+<meta property="article:published_time" content="2022-07-12T05:14:21.000Z">
+<meta property="article:modified_time" content="2022-07-13T07:48:09.098Z">
+<meta property="article:author" content="Quasimoodo">
+<meta property="article:tag" content="Note">
+<meta property="article:tag" content="ICSE 2022">
+<meta property="article:tag" content="Code generation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif">
+
+
+<link rel="canonical" href="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/","path":"2022/07/12/论文笔记-CodeFill-ICSE-22/","title":"论文笔记-CodeFill-ICSE`22"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>论文笔记-CodeFill-ICSE`22 | MetaExistential</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MetaExistential</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%92%8C%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">背景和相关工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">2.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%BA%BF"><span class="nav-number">2.3.</span> <span class="nav-text">基线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">3.2.</span> <span class="nav-text">模型训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">后处理</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Quasimoodo"
+      src="/images/taffy.png">
+  <p class="site-author-name" itemprop="name">Quasimoodo</p>
+  <div class="site-description" itemprop="description">Metaphysics and Substance</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/taffy.png">
+      <meta itemprop="name" content="Quasimoodo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MetaExistential">
+      <meta itemprop="description" content="Metaphysics and Substance">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="论文笔记-CodeFill-ICSE`22 | MetaExistential">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文笔记-CodeFill-ICSE`22
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-12 13:14:21" itemprop="dateCreated datePublished" datetime="2022-07-12T13:14:21+08:00">2022-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-13 15:48:09" itemprop="dateModified" datetime="2022-07-13T15:48:09+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Substance/" itemprop="url" rel="index"><span itemprop="name">Substance</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记</p>
+<p>不过主要是为了写论文看的XD</p>
+<span id="more"></span>
+
+
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>自动代码完成是在给定的上下文中预测开发者下面要输入什么，简单说下意义</p>
+<p>讲讲当前的方法：怎么做的 有什么坏处 及时引用：</p>
+<p>使用程序语言的特性 比如括号后面就要跟着对应的参数，坏处在于缺乏基于规则的完成</p>
+<p>为了应对这些坏处 现在的办法是怎么做的，又引入了什么新的缺陷：</p>
+<p>提出了一些基于统计和学习的模型 将其视为自然语言，这种办法丢失了代码结构和语义，不断引入的标识符也带来了巨大的预测空间</p>
+<p>在这篇文章中 我们提出了xx 讲讲架构，任务，创新点，实现，应用场景 小吹一下</p>
+<p>讲一下实验构造 简要介绍基线，任务和数据集，实验设置</p>
+<p>讲讲结果 怎么个SOTA 最后总结贡献</p>
+<p>主要贡献：</p>
+<ul>
+<li>模型：基于结构和名称的模型</li>
+<li>代码和数据集及训练过程</li>
+<li>广泛的评估</li>
+</ul>
+<h1 id="背景和相关工作"><a href="#背景和相关工作" class="headerlink" title="背景和相关工作"></a>背景和相关工作</h1><p>写在一起了</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写的很水</p>
+<ul>
+<li><p>语言模型和Transformer</p>
+<p>几乎没介绍什么 有点像凑字数</p>
+</li>
+<li><p>多任务学习 MTL</p>
+<p>简单介绍了和自己工作差不多模式的这一小领域</p>
+<p>多个任务，联合损失函数 应参数和软参数</p>
+</li>
+</ul>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h2 id="基线"><a href="#基线" class="headerlink" title="基线"></a>基线</h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>简单介绍概览 可能给个图？</p>
+<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif" alt="图 1：- CodeFill 工作流程"></p>
+<p>包括三个部分  预处理 模型训练和 后处理</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>造出两个不同版本的输入 一个是去掉空行空格注释的原始变量名之类的</p>
+<p> 一个是用pythonAST 处理过的token type，记录每个token的类型，值和位置</p>
+<p>使用了BPE编码 （这还要单独拿来吹）</p>
+<p>为了处理python的缩进 额外引入了类似括号的标记符来标明缩进</p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>分别在两个层次上进行了三种模型训练，下一个token值预测TVP 下一个token类型预测TTP 和语句完成SC</p>
+<p>首先用一个通用的语言模型在无标签数据上取得通用参数，然后再分别再三个任务上训练。</p>
+<p>因为token类型太少 所以划分是4：2：4，且在微调阶段只使用另外两个任务</p>
+<p>介绍了主要模型的架构 GPT-2 真的就很呆地说了一下有什么什么层</p>
+<p>列了一个概率分布函数</p>
+<p>列了最优化函数&#x2F;好像也就是普通的Cross-Entropy Loss</p>
+<p>简单列了一下式子模型的</p>
+<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png" alt="image-20220713152712828" style="zoom: 50%;">
+
+<p>训练时每个epoch随机选择一个任务</p>
+<p>损失在所有任务间共享，生成类任务使用波束搜索</p>
+<p>希望能够最小化<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png" alt="image-20220713153042852" style="zoom:50%;"></p>
+<p>TVP 和TTP 都是类似的训练方法，使用遮罩单向预测，即看到左侧的上文推断下个token</p>
+<p>SC是直到<EOS>生成才会结束</EOS></p>
+<p>波束搜索也就介绍了一下， 介绍了3，5，10的宽度尝试</p>
+<p>训练方法：</p>
+<p>要不要搞个这种大图（？）</p>
+<p><img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png" alt="image-20220713153349806"></p>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这个部分很有意思</p>
+<p>生成之后会重新排序列表给开发者</p>
+<p>大概就是 每一项预测 会以&lt;token, type, probability&gt;的形式给出来，然后根据不同的类型会有不同的处理。</p>
+<p>在某一个程度的局部，如果预测的是个函数，候选者中和前面来自同一类的就更有可能。</p>
+<p>具体地说，会对前面的进行观察，然后存成一个列表，对预测列表对观察列表进行交叉检查 如果有重复，就根据预测项的类型乘以不同的权重，使其更有可能。</p>
+<p>简单地说，就是认为变量和函数名等都有一定的聚集性，如果预测的某个在前面某种关联性出现了 那么就给他酌情更重要一些。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Note/" rel="tag"># Note</a>
+              <a href="/tags/ICSE-2022/" rel="tag"># ICSE 2022</a>
+              <a href="/tags/Code-generation/" rel="tag"># Code generation</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/12/%E3%80%8C%E6%94%BF%E6%B2%BB%E7%9A%84%E4%BA%BA%E7%94%9F%E3%80%8D%E8%AF%BB%E5%90%8E%E6%84%9F/" rel="prev" title="「政治的人生」读后感">
+                  <i class="fa fa-chevron-left"></i> 「政治的人生」读后感
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/24/CS224N/" rel="next" title="CS224N">
+                  CS224N <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Quasimoodo</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+-->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

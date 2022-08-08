@@ -19,6 +19,98 @@
       </tags>
   </entry>
   <entry>
+    <title>Bajwa OCL 相关笔记</title>
+    <url>/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>这是Bajwa 有关OCL 生成工作的笔记</p>
+<span id="more"></span>
+
+<p>endow 资助 赋予</p>
+<p>expertise 专业知识</p>
+<h1 id="2010"><a href="#2010" class="headerlink" title="2010"></a>2010</h1><p>OCL Constraints Generation from Natural Language Specification</p>
+<p>通过英语生成约束和前后条件</p>
+<p>主要问题：将自然语言形式化：SBVR</p>
+<p>使用 LESSA [14]（用于语义分析的语言工程系统）方法对 NL 表示进行语义分析</p>
+<p>解析自然语言，将自然语言的部分映射到对应的SBVR规则上</p>
+<p>将名词，动词，形容词映射到类，实例，方法和属性，也有规则</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220806213704877.png" alt="image-20220806213704877"></p>
+<p>读取XMI作为目标UML类模型的输入，将SBVR映射到类模型</p>
+<h2 id="2012"><a href="#2012" class="headerlink" title="2012"></a>2012</h2><p>Translating natural language constraints to OCL</p>
+<p>基本没什么区别 方法说的更详细一点 还补了几个经验性的判断</p>
+<h1 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h1><p><strong>Automated Generation of OCL Constraints: NL based Approach vs Pattern Based Approach</strong></p>
+<p>通过对自然语言的语法和语义分析 得到SBVR为基础的半正则表达，下来就很容易翻译成别的了。</p>
+<p>研究趋势：</p>
+<p>手动将英语约束映射到OCL</p>
+<p>遇到的问题：</p>
+<ol>
+<li>用到的英文词汇必须是系统中有的</li>
+<li>英语同样具有歧义性</li>
+<li>如果英语没有问题 那么就可以自动生成了</li>
+</ol>
+<p>限制&#x2F;不足：</p>
+<ul>
+<li>NL不应包括UML类图以外的词汇，名字也应该一致</li>
+<li>不完整，无效的就不行</li>
+<li>不能包括UML聚合</li>
+<li>不能有带参数的函数调用</li>
+<li>异或关系不支持</li>
+<li><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220803222739734.png" alt="image-20220803222739734"></li>
+<li>query based 不可以</li>
+<li>对于有歧义的句子不太行</li>
+<li>需要用户手动纠正</li>
+<li>只能处理一个句子</li>
+</ul>
+<p>OCL用的少：</p>
+<p>introducing a template based language：</p>
+<p>3 Wahler, M., “Patterns to Develop Consistent Design Constraints”, Ph.D. Thesis, ETH Zurich, Switzerland, 2007.</p>
+<p>OCL困难的语法：</p>
+<p>4 Gogolla, M., Büttner, F., and Richters, M., “USE: A UML-Based Specification Environment for Validating UML and OCL”, Science of Computer Programming, Volume 69, No. 1, pp. 27-34, 2007.</p>
+<p>同义可以有多个实现</p>
+<p>[5] Cabot, J., “Ambiguity Issues in OCL Postconditions”, Proceedings of 6th Conference OCL Workshop at the UML&#x2F;MoDELS, pp. 194-204, 2006. </p>
+<p>[6] Kristofer, J., “Disambiguation Implicit Constructions in OCL”, Conference on OCL and Model Driven Engineering, Lisbon, Portugal, pp. 30-44, October 12, 2004.</p>
+<p>大型软件建模中可能有OCL的理解性问题</p>
+<p>[7] Correa A., Werner, C., and Barros, M., “An Empirical Study of the Impact of OCL Smells and Refactorings on the Understandability of OCL Specifications”, MODELS, LNCS 4735, pp. 76-90, 2007.</p>
+<p>template based approach (the Copacabana [27] too</p>
+<p>Raj, A., Prabharkar, T., and Hendryx, S., “Transformation of SBVR Business Design to UML Models”, ACM Conference on India Software Engineering, pp. 29-38, 2008.</p>
+<h1 id="Constraint-Detection-in-Natural-Language-Problem-Descriptions"><a href="#Constraint-Detection-in-Natural-Language-Problem-Descriptions" class="headerlink" title="Constraint Detection in Natural Language Problem Descriptions"></a>Constraint Detection in Natural Language Problem Descriptions</h1><p>rigorous 严密的</p>
+<p>alleviate 减轻 缓和</p>
+<p>tailored 定做的 时尚的</p>
+<p>substantial 重要的</p>
+<p>insubstantial 毫无疑问的</p>
+<p>目的：</p>
+<p>Automated model reformulation aims at assisting a naive user in modeling constraint problems.</p>
+<p>做的事：</p>
+<p>detecting constraints in natural language problem descriptions using a structured-output classifier.</p>
+<p>检测文本中描述约束的部分？？</p>
+<p>主要的工作内容就是使用SVM-HMM进行了对于输入文本中，标注出描述的约束部分，算是一个文本提取&#x2F;标记问题</p>
+<h1 id="Automating-Inference-of-OCL-Business-Rules-from-User-Scenarios"><a href="#Automating-Inference-of-OCL-Business-Rules-from-User-Scenarios" class="headerlink" title="Automating Inference of OCL Business Rules from User Scenarios"></a>Automating Inference of OCL Business Rules from User Scenarios</h1><p>OCL的作用：</p>
+<p>OCL could be employed in several other cases such as (1) to describe pre- and post conditions of operations, (2) to give restrictions as guards in a state transition system and (3) to query over a given system state with OCL queries [4].</p>
+<p>做的事：</p>
+<p>generate the ocl business rules, invariants  from the conceptual model for the designer,use the predefined ocl invariant pattern and the snapshots of the conceputal model</p>
+<h1 id="Bidirectional-Translation-between-OCL-and-JML-for-Round-trip-Engineering"><a href="#Bidirectional-Translation-between-OCL-and-JML-for-Round-trip-Engineering" class="headerlink" title="Bidirectional Translation between OCL and JML for Round-trip Engineering"></a>Bidirectional Translation between OCL and JML for Round-trip Engineering</h1><p>OCL 和 JML 的双向翻译 保持OCL的原有形态</p>
+<h1 id="OCL-Constraints-Automatic-Generation-for-UML-Class-Diagram"><a href="#OCL-Constraints-Automatic-Generation-for-UML-Class-Diagram" class="headerlink" title="OCL Constraints Automatic Generation for UML Class Diagram"></a>OCL Constraints Automatic Generation for UML Class Diagram</h1><p>use predefined template and lexcial analyse to generate simple ocl constraints for input uml xmi</p>
+<h1 id="Generating-OCL-Constraints-from-Test-Case-Schemas-for-Testing-Model-Behavior"><a href="#Generating-OCL-Constraints-from-Test-Case-Schemas-for-Testing-Model-Behavior" class="headerlink" title="Generating OCL Constraints from Test Case Schemas for Testing Model Behavior"></a>Generating OCL Constraints from Test Case Schemas for Testing Model Behavior</h1><p>形式化合约的重要性——引出OCL</p>
+<p>项目验证，测试用例生成</p>
+<p>OCL是轻量化的合约——OCL重要性</p>
+<p>现状：难写难读，</p>
+<p>需要一个辅助写对的东西</p>
+<p>干这个事情的难点：</p>
+<p>NL的二义性</p>
+<p>本身不那么直接对应——OO-类</p>
+<p>六点……</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220807203515349.png" alt="image-20220807203515349"></p>
+<p>现有工作对难点的应对情况：那些解决好，哪些解决不好：限制分析清楚</p>
+<p>我们的工作提出方法 应对他们的缺陷</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220807203635745.png" alt="image-20220807203635745"></p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>OCL</tag>
+        <tag>Note</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Philip Larkin 诗鉴赏</title>
     <url>/2022/06/05/Philip-Larkin/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？</p>
@@ -42,6 +134,49 @@
         <tag>Poem</tag>
         <tag>Literary criticism</tag>
         <tag>Philip Larkin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CS224N</title>
+    <url>/2022/07/24/CS224N/</url>
+    <content><![CDATA[<p>这是Stanford 课程CS224N的学习笔记 可能还有一些别的。<br>Winter, 2021 <a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/">https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/</a></p>
+<span id="more"></span>
+<p>enamor 迷恋</p>
+<p>zoom in&#x2F;out 缩放</p>
+<p>fiddle 调整，伪造</p>
+<p>likehood 似然——给定结果求某参数的可能性</p>
+<p>open region 开区间</p>
+<p>amplify 放大（扩增）</p>
+<p>partial derivative 偏导数</p>
+<p>denominator 分母</p>
+<p>arithmetic 算术</p>
+<p>analogy 类比 比喻</p>
+<h1 id="L1"><a href="#L1" class="headerlink" title="L1"></a>L1</h1><p>最早：类似于WordNet：手工编写的词汇关系-hierathy and synomy ——依靠劳动，无法随时更新，无法衡量相似性</p>
+<p>——离散的单独符号表示——one hot encode 高维向量——希望可以用稠密向量dense vector衡量相似性</p>
+<p><strong>morden statical NLP:</strong></p>
+<p>distributional semantic——Represent a word meaning by its context(a fix window)</p>
+<p>不可能由人类来手工编写：</p>
+<h2 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec:"></a>Word2Vec:</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>给定中心词，最大化周围context 的概率：(i.e. 调整中心词向量)</p>
+<p>条件概率，左右词汇的概率连乘</p>
+<p>目标是最小化损失函数：</p>
+<p>-log avg</p>
+<p>log  是因为处理和比积方便</p>
+<img src="/2022/07/24/CS224N/image-20220802174103357.png" alt="image-20220802174103357" style="zoom:50%;">
+
+<h3 id="如何计算条件概率？"><a href="#如何计算条件概率？" class="headerlink" title="如何计算条件概率？"></a>如何计算条件概率？</h3><ul>
+<li>根据用途 用两个向量表示一个词</li>
+<li>正则化除法用的是整个词典的概率</li>
+</ul>
+<p><img src="/2022/07/24/CS224N/image-20220802181244780.png" alt="image-20220802181244780" style="zoom: 50%;"><img src="/2022/07/24/CS224N/image-20220802184259606.png" alt="image-20220802184259606" style="zoom:50%;"></p>
+<h3 id="所以要如何得到向量呢？"><a href="#所以要如何得到向量呢？" class="headerlink" title="所以要如何得到向量呢？"></a>所以要如何得到向量呢？</h3><p>想要得到向量 就是要优化模型，考虑向量维数D，每个词向量个数2和词典大小V，就是有2DV的总参数量需要优化，使用梯度下降</p>
+<p><img src="/2022/07/24/CS224N/image-20220802185657846.png" alt="image-20220802185657846"></p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>Course</tag>
       </tags>
   </entry>
   <entry>
@@ -199,9 +334,9 @@
         <category>Substance</category>
       </categories>
       <tags>
+        <tag>Note</tag>
         <tag>ICSE 2022</tag>
         <tag>Code generation</tag>
-        <tag>Note</tag>
       </tags>
   </entry>
   <entry>
@@ -216,6 +351,34 @@
       <tags>
         <tag>Ace</tag>
         <tag>Taffy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「政治的人生」读后感</title>
+    <url>/2022/07/12/%E3%80%8C%E6%94%BF%E6%B2%BB%E7%9A%84%E4%BA%BA%E7%94%9F%E3%80%8D%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<p>本篇为王沪宁所著「政治的人生」读后感</p>
+<span id="more"></span>
+
+<p>这是第一篇利用零碎时间读完的书 不过能读完还是拖了看见大段念经就不少跳过的福……写这篇读后感的时候正在等头发干 不然早睡觉去了。欧阳公读书有「三上」之说，我又何妨写字有「三干」一谓？至于后两干，慢慢再补起来。</p>
+<p>如果想写成一篇质量又高，读完陌生者又有收获的读后感，大概读的时候就得做上不少笔记，便签；写的时候还得布局谋篇，不时再去重新寻章摘句。然而 读的时候就没有字字珠玑，写的时候便更要信马由缰了。</p>
+<p>开头的自序之中 他说他喜欢在夜深人静的时候静静的独自思考思考，「是一种思想享受」，也是「一点新的空间」。他说，整天搞政治学研究之外，还需要有一点自己的空余思考 这种思考于个人于事业都是有益的。这种说法听起来非常像孟子的「养夜气」之说。</p>
+<p>什么是夜气呢？这是孟子对于自己善性论的 某种程度上的一个补丁。性善，意即人人本质之中都具有「善」的种子 具有感受善，追求善进而将其发扬光大的能力。既然人人都有皆有善端，那么为什么世界上有那么多的不善之人呢？这就是和后天的涵养功夫有关。如同牛山上的树林一样，天生繁茂，却因为毗邻大国，而被砍成了光秃秃的样子，难道光秃秃就是山的本貌吗？人也是这般，虽有善端，然而放逐了良心，也就失去了他。黎明时呼吸的清气，他与常人好恶相近，然而白天的所作所为又将其丢失了。夜气清明，然而却没有将其涵养，别人看他也就成了禽兽，然而这禽兽却也并不是他的本质。</p>
+<p>其实在这段阐述之中，孟子引入了许多模糊而重要的假设，甚至摸到了一些更重要的命题 不知道为什么没有进行更深入的讨论。为什么看起来是个坏蛋，夜风一吹善端又起呢？这个「夜气」究竟是什么东西呢？是某种外于人的东西给予了人善念？这种说法大概可以排除，不仅与学说不符，还沾点自然神信仰。如果说是社会活动，那么，由人组成的社会又何以如同斧斤伤人善念呢？是因为王道不昭善政不行？（笑）一个人既然有善端 为什么在他经过理性的自由无意识活动的结果反而是将其损害呢？难道说，孟子的意思是，人之善并不为零，这样的悲观语调吗？与本篇过远 此处按下不表。</p>
+<blockquote>
+<p>操则存，舍则亡；出入无时，莫知其乡</p>
+</blockquote>
+<p>如果果然按照孟子的说法，白天人在忙于各种社会性事务或者是解决生存问题，在晚上独处的时候才会升腾起清气反观自身的话，那么王教授怎么深更半夜写日记都有超过百分之六十的篇幅在讨论相当专业的事情呢？（看到王沪宁甚至在日记里还是XX性XX性成片的排比念经我的心中甚至惊叹盖过了崩溃）虽说，看到他从私事，杂感到「念经」转换的相当自然，我更倾向于这是他生活习惯的一种继续。不过，王沪宁自己也说，期望在这里得到一点闲暇的，个人的时间，从而得到某种启发。那么，这些内容其实已经是他日常以外的第二视角审视了？其实，他要是能稍稍强迫自己不在日记里还是大段地讨论那些「抽象」问题，恐怕还能有更多的收获。就像他自己在日记中举得例子：</p>
+<blockquote>
+<p>忽然想到一篇法国小说《月光》，说的是一位神 父从来就不能理解他的侄女的行为，也不理解年轻 人为什么要谈情说爱，而不全心全意地把自己奉献 给上帝。一天夜里，他发现侄女又在与一位小伙子相 会，顿时大怒，从教堂里冲出来。突然，他停下了脚 步，他发现月光是那样皎洁，那样美妙，他心中产生 了一个问题“：如果年轻人们干的事情是罪恶，是上帝不允许的，为什么今夜的月光会这样的明亮？为什 么上帝会在今天晚上带来这样通明的月光呢？”于是，他意识到那不是罪恶，而是一种美好。他就回去，安静地入睡了。</p>
+</blockquote>
+<p>他自己将其归结于「自然」的教育。其实，哪一天晚上没有月光？哪一处又没有幽会的情侣？然而，正是心头偶然闪过的一丝明悟，才能提出那一问题而不是执迷不悟。善端的昭显，长久的涵养与天赐的一点灵光，缺一不可。没有善端，感受不到美，千万条路同归死路；没有长久之涵养，大概会「宁可丢掉百体中的一体，不叫全身下火狱」（逃）；而没有灵光一闪，壁垒就永远无法被打破。</p>
+]]></content>
+      <categories>
+        <category>Metaphysics</category>
+      </categories>
+      <tags>
+        <tag>Reading</tag>
+        <tag>Politics</tag>
       </tags>
   </entry>
   <entry>
@@ -262,6 +425,7 @@
     <url>/2022/07/03/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-AST-Trans-ICSE-22/</url>
     <content><![CDATA[<p>这是《AST-Trans: Code Summarization with Efficient Tree-Structured Attention》的读书笔记</p>
 <span id="more"></span>
+
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>代码总结是干什么<br>最先进的方法用了E-D架构<br>源代码的特征之一是AST，常用于编码信息<br>AST太长<br>现在的方法忽视了大小限制 直接就塞进去序列化的AST<br>我们认为其问题在于难以提取信息，计算成本大</p>
 <p>为了更好地编码AST 提出了AST-Trans，利用了两种节点关系——上下和左右<br>使用了树状注意力动态分配权重给相关的节点<br>还还提出了一种<strong>支持</strong>高效为树状注意力并行运算的实现</p>
 <p>在两个相关数据集上，超过了SOTA</p>
@@ -375,7 +539,7 @@
 <li><p>观察多远的范围来确定祖先-兄弟关系？：</p>
 <p>视野越大效果越好，就算一点也能改善很多，具有边际递减</p>
 </li>
-<li><p>层数：越深越好</p>
+<li><p>网络层数：越深越好</p>
 </li>
 </ul>
 <h2 id="视觉分析和定量分析"><a href="#视觉分析和定量分析" class="headerlink" title="视觉分析和定量分析"></a>视觉分析和定量分析</h2><h1 id="有效性威胁"><a href="#有效性威胁" class="headerlink" title="有效性威胁"></a>有效性威胁</h1><ul>
@@ -405,15 +569,92 @@
         <category>Substance</category>
       </categories>
       <tags>
+        <tag>Note</tag>
         <tag>ICSE 2022</tag>
         <tag>Code generation</tag>
-        <tag>Note</tag>
       </tags>
   </entry>
   <entry>
-    <title>论文笔记 From Informal toFormal Specications in UML</title>
+    <title>论文笔记-CodeFill-ICSE`22</title>
+    <url>/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/</url>
+    <content><![CDATA[<p>这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记</p>
+<p>不过主要是为了写论文看的XD</p>
+<span id="more"></span>
+
+
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>自动代码完成是在给定的上下文中预测开发者下面要输入什么，简单说下意义</p>
+<p>讲讲当前的方法：怎么做的 有什么坏处 及时引用：</p>
+<p>使用程序语言的特性 比如括号后面就要跟着对应的参数，坏处在于缺乏基于规则的完成</p>
+<p>为了应对这些坏处 现在的办法是怎么做的，又引入了什么新的缺陷：</p>
+<p>提出了一些基于统计和学习的模型 将其视为自然语言，这种办法丢失了代码结构和语义，不断引入的标识符也带来了巨大的预测空间</p>
+<p>在这篇文章中 我们提出了xx 讲讲架构，任务，创新点，实现，应用场景 小吹一下</p>
+<p>讲一下实验构造 简要介绍基线，任务和数据集，实验设置</p>
+<p>讲讲结果 怎么个SOTA 最后总结贡献</p>
+<p>主要贡献：</p>
+<ul>
+<li>模型：基于结构和名称的模型</li>
+<li>代码和数据集及训练过程</li>
+<li>广泛的评估</li>
+</ul>
+<h1 id="背景和相关工作"><a href="#背景和相关工作" class="headerlink" title="背景和相关工作"></a>背景和相关工作</h1><p>写在一起了</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写的很水</p>
+<ul>
+<li><p>语言模型和Transformer</p>
+<p>几乎没介绍什么 有点像凑字数</p>
+</li>
+<li><p>多任务学习 MTL</p>
+<p>简单介绍了和自己工作差不多模式的这一小领域</p>
+<p>多个任务，联合损失函数 应参数和软参数</p>
+</li>
+</ul>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h2 id="基线"><a href="#基线" class="headerlink" title="基线"></a>基线</h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>简单介绍概览 可能给个图？</p>
+<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif" alt="图 1：- CodeFill 工作流程"></p>
+<p>包括三个部分  预处理 模型训练和 后处理</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>造出两个不同版本的输入 一个是去掉空行空格注释的原始变量名之类的</p>
+<p> 一个是用pythonAST 处理过的token type，记录每个token的类型，值和位置</p>
+<p>使用了BPE编码 （这还要单独拿来吹）</p>
+<p>为了处理python的缩进 额外引入了类似括号的标记符来标明缩进</p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>分别在两个层次上进行了三种模型训练，下一个token值预测TVP 下一个token类型预测TTP 和语句完成SC</p>
+<p>首先用一个通用的语言模型在无标签数据上取得通用参数，然后再分别再三个任务上训练。</p>
+<p>因为token类型太少 所以划分是4：2：4，且在微调阶段只使用另外两个任务</p>
+<p>介绍了主要模型的架构 GPT-2 真的就很呆地说了一下有什么什么层</p>
+<p>列了一个概率分布函数</p>
+<p>列了最优化函数&#x2F;好像也就是普通的Cross-Entropy Loss</p>
+<p>简单列了一下式子模型的</p>
+<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png" alt="image-20220713152712828" style="zoom: 50%;">
+
+<p>训练时每个epoch随机选择一个任务</p>
+<p>损失在所有任务间共享，生成类任务使用波束搜索</p>
+<p>希望能够最小化<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png" alt="image-20220713153042852" style="zoom:50%;"></p>
+<p>TVP 和TTP 都是类似的训练方法，使用遮罩单向预测，即看到左侧的上文推断下个token</p>
+<p>SC是直到<EOS>生成才会结束</EOS></p>
+<p>波束搜索也就介绍了一下， 介绍了3，5，10的宽度尝试</p>
+<p>训练方法：</p>
+<p>要不要搞个这种大图（？）</p>
+<p><img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png" alt="image-20220713153349806"></p>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这个部分很有意思</p>
+<p>生成之后会重新排序列表给开发者</p>
+<p>大概就是 每一项预测 会以&lt;token, type, probability&gt;的形式给出来，然后根据不同的类型会有不同的处理。</p>
+<p>在某一个程度的局部，如果预测的是个函数，候选者中和前面来自同一类的就更有可能。</p>
+<p>具体地说，会对前面的进行观察，然后存成一个列表，对预测列表对观察列表进行交叉检查 如果有重复，就根据预测项的类型乘以不同的权重，使其更有可能。</p>
+<p>简单地说，就是认为变量和函数名等都有一定的聚集性，如果预测的某个在前面某种关联性出现了 那么就给他酌情更重要一些。</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>ICSE 2022</tag>
+        <tag>Code generation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文笔记 Highway OCL &amp; Informal to Formal Specications in UML</title>
     <url>/2022/06/28/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-From-Informal-toFormal-Specications-in-UML/</url>
-    <content><![CDATA[<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Purpose :</p>
+    <content><![CDATA[<p>这篇笔记是文章 From Informal to Formal Specications in UML 和 Automating Utility Permitting within Highway Right-of-Way via a Generic UML&#x2F;OCL Model and Natural Language Processing的不完全笔记</p>
+<span id="more"></span>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Purpose :</p>
 <p> informal requirements,use cases &#x3D;&gt; formal specifications ,OCL</p>
 <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p><strong>how to obtain formal specications from informal ones</strong></p>
 <p>formal ones can also help to improve informal ones.</p>
@@ -456,8 +697,8 @@
         <category>Substance</category>
       </categories>
       <tags>
-        <tag>Code generation</tag>
         <tag>OCL</tag>
+        <tag>Code generation</tag>
       </tags>
   </entry>
   <entry>
@@ -680,8 +921,8 @@
         <category>Substance</category>
       </categories>
       <tags>
-        <tag>Code generation</tag>
         <tag>OCL</tag>
+        <tag>Code generation</tag>
         <tag>ICST</tag>
       </tags>
   </entry>
