@@ -19,6 +19,167 @@
       </tags>
   </entry>
   <entry>
+    <title>Bajwa OCL 相关笔记</title>
+    <url>/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>这是Bajwa 有关OCL 生成工作的笔记</p>
+<span id="more"></span>
+
+<p>endow 资助 赋予</p>
+<p>expertise 专业知识</p>
+<h1 id="2010"><a href="#2010" class="headerlink" title="2010"></a>2010</h1><p>OCL Constraints Generation from Natural Language Specification</p>
+<p>通过英语生成约束和前后条件</p>
+<p>主要问题：将自然语言形式化：SBVR</p>
+<p>使用 LESSA [14]（用于语义分析的语言工程系统）方法对 NL 表示进行语义分析</p>
+<p>解析自然语言，将自然语言的部分映射到对应的SBVR规则上</p>
+<p>将名词，动词，形容词映射到类，实例，方法和属性，也有规则</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220806213704877.png" alt="image-20220806213704877"></p>
+<p>读取XMI作为目标UML类模型的输入，将SBVR映射到类模型</p>
+<h2 id="2012"><a href="#2012" class="headerlink" title="2012"></a>2012</h2><p>Translating natural language constraints to OCL</p>
+<p>基本没什么区别 方法说的更详细一点 还补了几个经验性的判断</p>
+<h1 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h1><p><strong>Automated Generation of OCL Constraints: NL based Approach vs Pattern Based Approach</strong></p>
+<p>通过对自然语言的语法和语义分析 得到SBVR为基础的半正则表达，下来就很容易翻译成别的了。</p>
+<p>研究趋势：</p>
+<p>手动将英语约束映射到OCL</p>
+<p>遇到的问题：</p>
+<ol>
+<li>用到的英文词汇必须是系统中有的</li>
+<li>英语同样具有歧义性</li>
+<li>如果英语没有问题 那么就可以自动生成了</li>
+</ol>
+<p>限制&#x2F;不足：</p>
+<ul>
+<li>NL不应包括UML类图以外的词汇，名字也应该一致</li>
+<li>不完整，无效的就不行</li>
+<li>不能包括UML聚合</li>
+<li>不能有带参数的函数调用</li>
+<li>异或关系不支持</li>
+<li><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220803222739734.png" alt="image-20220803222739734"></li>
+<li>query based 不可以</li>
+<li>对于有歧义的句子不太行</li>
+<li>需要用户手动纠正</li>
+<li>只能处理一个句子</li>
+</ul>
+<p>OCL用的少：</p>
+<p>introducing a template based language：</p>
+<p>3 Wahler, M., “Patterns to Develop Consistent Design Constraints”, Ph.D. Thesis, ETH Zurich, Switzerland, 2007.</p>
+<p>OCL困难的语法：</p>
+<p>4 Gogolla, M., Büttner, F., and Richters, M., “USE: A UML-Based Specification Environment for Validating UML and OCL”, Science of Computer Programming, Volume 69, No. 1, pp. 27-34, 2007.</p>
+<p>同义可以有多个实现</p>
+<p>[5] Cabot, J., “Ambiguity Issues in OCL Postconditions”, Proceedings of 6th Conference OCL Workshop at the UML&#x2F;MoDELS, pp. 194-204, 2006. </p>
+<p>[6] Kristofer, J., “Disambiguation Implicit Constructions in OCL”, Conference on OCL and Model Driven Engineering, Lisbon, Portugal, pp. 30-44, October 12, 2004.</p>
+<p>大型软件建模中可能有OCL的理解性问题</p>
+<p>[7] Correa A., Werner, C., and Barros, M., “An Empirical Study of the Impact of OCL Smells and Refactorings on the Understandability of OCL Specifications”, MODELS, LNCS 4735, pp. 76-90, 2007.</p>
+<p>template based approach (the Copacabana [27] too</p>
+<p>Raj, A., Prabharkar, T., and Hendryx, S., “Transformation of SBVR Business Design to UML Models”, ACM Conference on India Software Engineering, pp. 29-38, 2008.</p>
+<h1 id="Constraint-Detection-in-Natural-Language-Problem-Descriptions"><a href="#Constraint-Detection-in-Natural-Language-Problem-Descriptions" class="headerlink" title="Constraint Detection in Natural Language Problem Descriptions"></a>Constraint Detection in Natural Language Problem Descriptions</h1><p>rigorous 严密的</p>
+<p>alleviate 减轻 缓和</p>
+<p>tailored 定做的 时尚的</p>
+<p>substantial 重要的</p>
+<p>insubstantial 毫无疑问的</p>
+<p>目的：</p>
+<p>Automated model reformulation aims at assisting a naive user in modeling constraint problems.</p>
+<p>做的事：</p>
+<p>detecting constraints in natural language problem descriptions using a structured-output classifier.</p>
+<p>检测文本中描述约束的部分？？</p>
+<p>主要的工作内容就是使用SVM-HMM进行了对于输入文本中，标注出描述的约束部分，算是一个文本提取&#x2F;标记问题</p>
+<h1 id="Automating-Inference-of-OCL-Business-Rules-from-User-Scenarios"><a href="#Automating-Inference-of-OCL-Business-Rules-from-User-Scenarios" class="headerlink" title="Automating Inference of OCL Business Rules from User Scenarios"></a>Automating Inference of OCL Business Rules from User Scenarios</h1><p>OCL的作用：</p>
+<p>OCL could be employed in several other cases such as (1) to describe pre- and post conditions of operations, (2) to give restrictions as guards in a state transition system and (3) to query over a given system state with OCL queries [4].</p>
+<p>做的事：</p>
+<p>generate the ocl business rules, invariants  from the conceptual model for the designer,use the predefined ocl invariant pattern and the snapshots of the conceputal model</p>
+<h1 id="Bidirectional-Translation-between-OCL-and-JML-for-Round-trip-Engineering"><a href="#Bidirectional-Translation-between-OCL-and-JML-for-Round-trip-Engineering" class="headerlink" title="Bidirectional Translation between OCL and JML for Round-trip Engineering"></a>Bidirectional Translation between OCL and JML for Round-trip Engineering</h1><p>OCL 和 JML 的双向翻译 保持OCL的原有形态</p>
+<h1 id="OCL-Constraints-Automatic-Generation-for-UML-Class-Diagram"><a href="#OCL-Constraints-Automatic-Generation-for-UML-Class-Diagram" class="headerlink" title="OCL Constraints Automatic Generation for UML Class Diagram"></a>OCL Constraints Automatic Generation for UML Class Diagram</h1><p>use predefined template and lexcial analyse to generate simple ocl constraints for input uml xmi</p>
+<h1 id="Generating-OCL-Constraints-from-Test-Case-Schemas-for-Testing-Model-Behavior"><a href="#Generating-OCL-Constraints-from-Test-Case-Schemas-for-Testing-Model-Behavior" class="headerlink" title="Generating OCL Constraints from Test Case Schemas for Testing Model Behavior"></a>Generating OCL Constraints from Test Case Schemas for Testing Model Behavior</h1><p>形式化合约的重要性——引出OCL</p>
+<p>项目验证，测试用例生成</p>
+<p>OCL是轻量化的合约——OCL重要性</p>
+<p>现状：难写难读，</p>
+<p>需要一个辅助写对的东西</p>
+<p>干这个事情的难点：</p>
+<p>NL的二义性</p>
+<p>本身不那么直接对应——OO-类</p>
+<p>六点……</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220807203515349.png" alt="image-20220807203515349"></p>
+<p>现有工作对难点的应对情况：那些解决好，哪些解决不好：限制分析清楚</p>
+<p>我们的工作提出方法 应对他们的缺陷</p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220807203635745.png" alt="image-20220807203635745"></p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>OCL</tag>
+        <tag>Note</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CS224N</title>
+    <url>/2022/07/24/CS224N/</url>
+    <content><![CDATA[<p>这是Stanford 课程CS224N的学习笔记 可能还有一些别的。<br>Winter, 2021 <a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/">https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/</a></p>
+<span id="more"></span>
+<p>enamor 迷恋</p>
+<p>zoom in&#x2F;out 缩放</p>
+<p>fiddle 调整，伪造</p>
+<p>likehood 似然——给定结果求某参数的可能性</p>
+<p>open region 开区间</p>
+<p>amplify 放大（扩增）</p>
+<p>partial derivative 偏导数</p>
+<p>denominator 分母</p>
+<p>arithmetic 算术</p>
+<p>analogy 类比 比喻</p>
+<h1 id="L1"><a href="#L1" class="headerlink" title="L1"></a>L1</h1><p>最早：类似于WordNet：手工编写的词汇关系-hierathy and synomy ——依靠劳动，无法随时更新，无法衡量相似性</p>
+<p>——离散的单独符号表示——one hot encode 高维向量——希望可以用稠密向量dense vector衡量相似性</p>
+<p><strong>morden statical NLP:</strong></p>
+<p>distributional semantic——Represent a word meaning by its context(a fix window)</p>
+<p>不可能由人类来手工编写：</p>
+<h2 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec:"></a>Word2Vec:</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>给定中心词，最大化周围context 的概率：(i.e. 调整中心词向量)</p>
+<p>条件概率，左右词汇的概率连乘</p>
+<p>目标是最小化损失函数：</p>
+<p>-log avg</p>
+<p>log  是因为处理和比积方便</p>
+<img src="/2022/07/24/CS224N/image-20220802174103357.png" alt="image-20220802174103357" style="zoom:50%;">
+
+<h3 id="如何计算条件概率？"><a href="#如何计算条件概率？" class="headerlink" title="如何计算条件概率？"></a>如何计算条件概率？</h3><ul>
+<li>根据用途 用两个向量表示一个词</li>
+<li>正则化除法用的是整个词典的概率</li>
+</ul>
+<p><img src="/2022/07/24/CS224N/image-20220802181244780.png" alt="image-20220802181244780" style="zoom: 50%;"><img src="/2022/07/24/CS224N/image-20220802184259606.png" alt="image-20220802184259606" style="zoom:50%;"></p>
+<h3 id="所以要如何得到向量呢？"><a href="#所以要如何得到向量呢？" class="headerlink" title="所以要如何得到向量呢？"></a>所以要如何得到向量呢？</h3><p>想要得到向量 就是要优化模型，考虑向量维数D，每个词向量个数2和词典大小V，就是有2DV的总参数量需要优化，使用梯度下降</p>
+<p><img src="/2022/07/24/CS224N/image-20220802185657846.png" alt="image-20220802185657846"></p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>Course</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Philip Larkin 诗鉴赏</title>
+    <url>/2022/06/05/Philip-Larkin/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？</p>
+<span id="more"></span>
+<p>现摘在这里这一首，「Love Songs in Age」<br>She kept her songs, they kept so little space,<br>The covers pleased her:<br>One bleached<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="floating, drift,漂白
+">1</span></a></sup> from lying in a sunny place,<br>One marked in circles by a vase of water,<br>One mended<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="repair,patch,修补
+">2</span></a></sup>, when a tidy fit had seized her,<br>And coloured, by her daughter -<br>So they had waited, till, in widowhood<br>She found them, looking for something else, and stood</p>
+<p>Relearning how each frank submissive chord<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="和弦
+">3</span></a></sup><br>Had ushered<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="（迎宾员式的）引导
+">4</span></a></sup> in<br>Word after sprawling hyphenated<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="连字符
+[^6 ]:great brightness,耀眼的
+">5</span></a></sup> word,<br>And the unfailing sense of being young<br>Spread out like a spring-woken tree, wherein<br>That hidden freshness sung,<br>That certainty of time laid up in store<br>As when she played them first. But, even more,</p>
+<p>The glare<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label>6</span></a></sup> of that much-mentionned brilliance, love,<br>Broke out, to show<br>Its bright incipience<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="beginning to exist or to be apparent
+">7</span></a></sup> sailing above,<br>Still promising to solve, and satisfy,<br>And set unchangeably in order. So<br>To pile them back, to cry,<br>Was hard, without lamely<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="in a weak and unconvincing manner">8</span></a></sup> admitting how<br>It had not done so then, and could not now.</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">floating, drift,漂白<a href="#fnref:1" rev="footnote">↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">repair,patch,修补<a href="#fnref:2" rev="footnote">↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">和弦<a href="#fnref:3" rev="footnote">↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">（迎宾员式的）引导<a href="#fnref:4" rev="footnote">↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">连字符
+[^6 ]:great brightness,耀眼的<a href="#fnref:5" rev="footnote">↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">beginning to exist or to be apparent<a href="#fnref:7" rev="footnote">↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">in a weak and unconvincing manner<a href="#fnref:8" rev="footnote">↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Metaphysics</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+        <tag>Literary criticism</tag>
+        <tag>Philip Larkin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SPT-Code</title>
     <url>/2022/05/27/SPT-Code/</url>
     <content><![CDATA[<p>这是《Sequence-to-Sequence Pre-Training for Learning Source Code Representations》的读书笔记</p>
@@ -173,35 +334,9 @@
         <category>Substance</category>
       </categories>
       <tags>
+        <tag>Note</tag>
         <tag>ICSE 2022</tag>
         <tag>Code generation</tag>
-        <tag>Note</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Philip Larkin 诗鉴赏</title>
-    <url>/2022/06/05/Philip-Larkin/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？</p>
-<span id="more"></span>
-<p>现摘在这里这一首，「Love Songs in Age」<br>She kept her songs, they kept so little space,<br>The covers pleased her:<br>One bleached<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="floating, drift,漂白
-">1</span></a></sup> from lying in a sunny place,<br>One marked in circles by a vase of water,<br>One mended<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="repair,patch,修补
-">2</span></a></sup>, when a tidy fit had seized her,<br>And coloured, by her daughter -<br>So they had waited, till, in widowhood<br>She found them, looking for something else, and stood</p>
-<p>Relearning how each frank submissive chord<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="和弦
-">3</span></a></sup><br>Had ushered<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="（迎宾员式的）引导
-">4</span></a></sup> in<br>Word after sprawling hyphenated<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="连字符
-[^6 ]:great brightness,耀眼的
-">5</span></a></sup> word,<br>And the unfailing sense of being young<br>Spread out like a spring-woken tree, wherein<br>That hidden freshness sung,<br>That certainty of time laid up in store<br>As when she played them first. But, even more,</p>
-<p>The glare<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label>6</span></a></sup> of that much-mentionned brilliance, love,<br>Broke out, to show<br>Its bright incipience<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="beginning to exist or to be apparent
-">7</span></a></sup> sailing above,<br>Still promising to solve, and satisfy,<br>And set unchangeably in order. So<br>To pile them back, to cry,<br>Was hard, without lamely<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="in a weak and unconvincing manner">8</span></a></sup> admitting how<br>It had not done so then, and could not now.</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">floating, drift,漂白<a href="#fnref:1" rev="footnote">↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">repair,patch,修补<a href="#fnref:2" rev="footnote">↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">和弦<a href="#fnref:3" rev="footnote">↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">（迎宾员式的）引导<a href="#fnref:4" rev="footnote">↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">连字符
-[^6 ]:great brightness,耀眼的<a href="#fnref:5" rev="footnote">↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">beginning to exist or to be apparent<a href="#fnref:7" rev="footnote">↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">in a weak and unconvincing manner<a href="#fnref:8" rev="footnote">↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Metaphysicsk</category>
-      </categories>
-      <tags>
-        <tag>Poem</tag>
-        <tag>Literary criticism</tag>
-        <tag>Philip Larkin</tag>
       </tags>
   </entry>
   <entry>
@@ -216,6 +351,100 @@
       <tags>
         <tag>Ace</tag>
         <tag>Taffy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「政治的人生」读后感</title>
+    <url>/2022/07/12/%E3%80%8C%E6%94%BF%E6%B2%BB%E7%9A%84%E4%BA%BA%E7%94%9F%E3%80%8D%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<p>本篇为王沪宁所著「政治的人生」读后感</p>
+<span id="more"></span>
+
+<p>这是第一篇利用零碎时间读完的书 不过能读完还是拖了看见大段念经就不少跳过的福……写这篇读后感的时候正在等头发干 不然早睡觉去了。欧阳公读书有「三上」之说，我又何妨写字有「三干」一谓？至于后两干，慢慢再补起来。</p>
+<p>如果想写成一篇质量又高，读完陌生者又有收获的读后感，大概读的时候就得做上不少笔记，便签；写的时候还得布局谋篇，不时再去重新寻章摘句。然而 读的时候就没有字字珠玑，写的时候便更要信马由缰了。</p>
+<p>开头的自序之中 他说他喜欢在夜深人静的时候静静的独自思考思考，「是一种思想享受」，也是「一点新的空间」。他说，整天搞政治学研究之外，还需要有一点自己的空余思考 这种思考于个人于事业都是有益的。这种说法听起来非常像孟子的「养夜气」之说。</p>
+<p>什么是夜气呢？这是孟子对于自己善性论的 某种程度上的一个补丁。性善，意即人人本质之中都具有「善」的种子 具有感受善，追求善进而将其发扬光大的能力。既然人人都有皆有善端，那么为什么世界上有那么多的不善之人呢？这就是和后天的涵养功夫有关。如同牛山上的树林一样，天生繁茂，却因为毗邻大国，而被砍成了光秃秃的样子，难道光秃秃就是山的本貌吗？人也是这般，虽有善端，然而放逐了良心，也就失去了他。黎明时呼吸的清气，他与常人好恶相近，然而白天的所作所为又将其丢失了。夜气清明，然而却没有将其涵养，别人看他也就成了禽兽，然而这禽兽却也并不是他的本质。</p>
+<p>其实在这段阐述之中，孟子引入了许多模糊而重要的假设，甚至摸到了一些更重要的命题 不知道为什么没有进行更深入的讨论。为什么看起来是个坏蛋，夜风一吹善端又起呢？这个「夜气」究竟是什么东西呢？是某种外于人的东西给予了人善念？这种说法大概可以排除，不仅与学说不符，还沾点自然神信仰。如果说是社会活动，那么，由人组成的社会又何以如同斧斤伤人善念呢？是因为王道不昭善政不行？（笑）一个人既然有善端 为什么在他经过理性的自由无意识活动的结果反而是将其损害呢？难道说，孟子的意思是，人之善并不为零，这样的悲观语调吗？与本篇过远 此处按下不表。</p>
+<blockquote>
+<p>操则存，舍则亡；出入无时，莫知其乡</p>
+</blockquote>
+<p>如果果然按照孟子的说法，白天人在忙于各种社会性事务或者是解决生存问题，在晚上独处的时候才会升腾起清气反观自身的话，那么王教授怎么深更半夜写日记都有超过百分之六十的篇幅在讨论相当专业的事情呢？（看到王沪宁甚至在日记里还是XX性XX性成片的排比念经我的心中甚至惊叹盖过了崩溃）虽说，看到他从私事，杂感到「念经」转换的相当自然，我更倾向于这是他生活习惯的一种继续。不过，王沪宁自己也说，期望在这里得到一点闲暇的，个人的时间，从而得到某种启发。那么，这些内容其实已经是他日常以外的第二视角审视了？其实，他要是能稍稍强迫自己不在日记里还是大段地讨论那些「抽象」问题，恐怕还能有更多的收获。就像他自己在日记中举得例子：</p>
+<blockquote>
+<p>忽然想到一篇法国小说《月光》，说的是一位神 父从来就不能理解他的侄女的行为，也不理解年轻 人为什么要谈情说爱，而不全心全意地把自己奉献 给上帝。一天夜里，他发现侄女又在与一位小伙子相 会，顿时大怒，从教堂里冲出来。突然，他停下了脚 步，他发现月光是那样皎洁，那样美妙，他心中产生 了一个问题“：如果年轻人们干的事情是罪恶，是上帝不允许的，为什么今夜的月光会这样的明亮？为什 么上帝会在今天晚上带来这样通明的月光呢？”于是，他意识到那不是罪恶，而是一种美好。他就回去，安静地入睡了。</p>
+</blockquote>
+<p>他自己将其归结于「自然」的教育。其实，哪一天晚上没有月光？哪一处又没有幽会的情侣？然而，正是心头偶然闪过的一丝明悟，才能提出那一问题而不是执迷不悟。善端的昭显，长久的涵养与天赐的一点灵光，缺一不可。没有善端，感受不到美，千万条路同归死路；没有长久之涵养，大概会「宁可丢掉百体中的一体，不叫全身下火狱」（逃）；而没有灵光一闪，壁垒就永远无法被打破。</p>
+<p>——add 2022.8.8——</p>
+<p>中间过的时间实在是太长了 当时想要写的东西许多怕是都想不起来了：那些草蛇灰线，仿佛朝阳斜晖下才能嗅到的隐秘香气……不过照着原来有深刻印象的几个片段继续写还是没问题的。</p>
+<p>读着他的书，心里却想着孔子。果然孔子是任何年代一个稍有知识的中国人在试图进行任意主题的深入思考都无法绕过去的主题。看他写孔子：</p>
+<blockquote>
+<p>对孔子的思想，青年人不太理解，不知道在中国这样一种文化氛围内，儒家的思想有它存在的理由，不是人为力量可以清除。他不仅是一种思想体系，也是一种生活方式的反映。在中国社会中，人们一直强调从人的内心世界来协调人们之间的关系，而不是从外部世界。所有的秩序，政治的也好，经济的也好，社会的也好，最终是一种精神上的秩序。在一种精神上的秩序没有形成之前，任何外在的秩序均不牢固。这就是儒家中最有价值的部分。一个世界不能没有秩序，也不能没有伦理秩序，儒家比较强调着一点。问题不再用什么样的内容来构筑秩序，而在于需要秩序本身。</p>
+</blockquote>
+<p>他写文章在1994年，那一年中国社会的思想风潮大概是什么样子呢？想了想根本没本事回答这个问题(笑)。从建国后的尊法批孔，到现在的”儒学复兴“，中间如果有一个明确的节点，大概是在什么时候呢？改革开放之后到八十年代末大概不会是答案。</p>
+<p>读孔子，王读出来的是秩序：从内心世界来协调人的关系，进而构建出社会的伦理秩序——甚至对秩序的内容也可以不那样在乎，而要强调秩序本身。那么，儒家的秩序又是什么样的呢？也没本事回答这个问题）这里先不说老愤青引用的那个</p>
+<blockquote>
+<p>人有十等。下所以事上，上所以共神也。故王臣公，公臣大夫，大夫臣士，士臣皁，皁臣舆，舆臣隶，隶臣僚，僚臣仆，仆臣台 </p>
+</blockquote>
+<p>在我的了解中，儒家秩序的构建核心纽带之一是「亲亲」，有了亲亲下来才有孝悌，长幼尊卑。儒家重视人伦关系，将夫妻视为最重要的社会关系（可能没有之一？）以「礼」作为方式，来维护人伦秩序。礼记有云，「昏礼者，礼之本也」。下来才是如同同心圆一样向外放射进行家国同构。</p>
+<p>那么 强调秩序，王心中的秩序是什么样子的呢？作为坚挺三届而不衰的笔杆子，这个倒是不难猜测。此外，他还引用过《停滞的帝国》对乾隆的评论，说他一元体制是维护封建政权的唯一把手，所以牢牢把握不松开，也造成了国家的封闭。对于这样的观点，王没有评论。</p>
+<p>王读孔子，读出的是秩序与稳定；然而有人读孔子，却能读出人的尊严与理性。相比较于孔子的润物无声，其实儒家里面孟子是相当能打动人的。如果说「富贵不能淫贫贱不能移威武不能屈」还能从孔子哪里找到「富與貴是人之所欲也，<em>不以其道得之</em>，不處也；貧與賤是人之所惡也，<em>不以其道得之</em>，不去也。」的引证，那么，像「自反而缩，虽千万人吾往矣」这般的浩然正气就几乎让君子成了庄子笔下的冰肌玉肤，餐风饮露，去以六月息的神人。然而潇洒之下的隐忧，却只有引入了现代性的视角才能看得到：论语说，「邦有道，危言危行；邦无道，危行言孙」。养浩然正气，精神上无比自由强大的君子，在无道之国之中却连话也不能说，无比自由的人却可以无比压抑。前一阵子看克里希纳木提的书，就记住他说的一个”人在青年时候最需要的是免于恐惧。“其实，孔子的「仁」也绝不是一门压抑生命力的学说：「麻木不仁」者，无知觉也。然而，就是这样一门崇尚生命发展的理念，却同样无法远离无道之国的恐惧。</p>
+<p>来到孟子，这样样一个强调现实关怀与此岸生活的人，在被问及禅让之时，也只能有如下的对话：</p>
+<blockquote>
+<p>：尧把天下禅让给舜，有这样的事吗？</p>
+<p>不行，天子不能把天下给别人。</p>
+<p>：那舜怎么有的天下呢？</p>
+<p>是天给的</p>
+<p>：天又不会说话，怎么给呢？</p>
+<p>天通过事情展示出来的。尧把舜考察了二十八年，不是人能做到的，是天。后面尧死了，舜避居多年，人们朝见，诉讼，讴歌，都不去找尧的儿子而去找舜，所以说是天啊。不管将天下给了贤人，还是儿子，都是天的事情。后面的「唐、虞禅，夏后、殷、周继，其义一也。」都是一回事。</p>
+</blockquote>
+<p>虽说「天视自我民视，天听自我民听」，可只要稍有常识的人就能看出这是在扯出车轱辘话来嗯说，实在是丢人。 「只有人民才能做出选择」可是既没有制度化的保障也没有法治精神，不是一样成了橡皮图章吗？由此，张千帆顺水推舟地论证了宪政的必要性：人民主权，法的精神：人权，制约，法治。令人感慨。</p>
+<p>写得时候查资料，果然又查到孟子不支持燕国禅让的黑历史，在这篇文章《先秦儒家禅让思想的演变-孔锐之》（这个名字听起来像极了人民日报风格的笔名）中，还亲切地将孟子称为是”<strong>儒家的保守派</strong>“，真是令人忍俊不禁。不过，这篇文章后面对燕国禅让的评论引起了我的注意：</p>
+<blockquote>
+<p>　燕国的这次动乱充分说明，在战国时代，通过禅让实现政权交接是不可取的，这样做非但不能实现尊贤、举贤的目的，反而会为权臣篡国铺垫道路。这次禅让实践的失败，给人以很多启示，即便是原先积极主张推行唐虞之道的学者，现在恐怕也不得不重新考虑其现实可行性问题，继而会转向温和的或保守的主张。在这之后，很难再有人大力鼓吹“不禅而能化民者，自生民未之有也”的观点了。</p>
+</blockquote>
+<p>就事论事，这种论点在文章当中并不算突兀，但如果真的是这样分析问题，还是趁早上观察者网开个号得了。如果用同样的角度生活在十八世纪中叶，大概也会得出：</p>
+<blockquote>
+<p>在当前这个时代，资产阶级革命以建立共和国的方式是不可取的……法国近五十年的动荡，从波旁王室退位后，雅各宾派杀得人头滚滚；拿破仑从科西嘉到圣赫勒拿岛，流血漂橹；法兰西如同钟摆在两端摇晃，民主共和只会是一团泡影——瞧，现在工人又起来要胡闹了。</p>
+</blockquote>
+<p>长达近百年的动荡的确让人失去信心，可是，历史终于证明了共和国的荣耀：从大革命到第三共和国，波旁与拿破仑终于退出了巴黎，法国再也不需要皇帝或者第一执政官了；从第三共和国到五月风暴，法国与他的人民在一点一点缓慢却坚定地向前行进。我们常常面对物理学或数学的大厦已经建成，而望洋兴叹，感慨生不逢时。如此看来，无须妄自菲薄或垂头丧气，正得其时。</p>
+<p>……扯得太远了，回来回来。</p>
+<p>总之，从对儒家的看法来解读王，那么就不难得出上述的结论。如此，他的形象大概也慢慢清晰起来：一个以传统中式家长为底色，有着出色的视野，理解能力，和dedication（热忱？）的干练人物。上一句话的最后中心语没有使用”官僚“或者”知识分子“，是因为这样的标签都与他本身相去甚远。或许用他自己的”政治家“来定义都更合适不少。（虽然他此刻并没有任何官职<em>无来源</em>，但毫不突兀）。他有知识分子的一面，对于艺术的解读能力十分敏锐，还有相当灵的生命意识——对此他有几片非常精彩的散文片段。在规划学院与日常生活中，也能看出几分官僚色彩（不是贬义）——我头一回见到有人说去”个体户“那里吃饭。然而令人某种程度上十分诧异的是，他的家庭生活似乎并不很丰富，直到成文时的96年，没有生育，对他的影响从文中也是一片空白。入阁后虽有再婚，那就不知道了。</p>
+<p>王对自己的评价十分精确：</p>
+<blockquote>
+<p>生活在这个世界上的人：有的是弱者；有的是强者；有的要别人来设定目标，有的给别人设定目标；有的需要感情来支持生活，有的需要意志来支持生活。我大概在每一对概念中都会选择做后一种人。</p>
+</blockquote>
+<p>我完全同意他三个后者的说法，事实上，看他的照片某种程度上算是一种享受：消瘦的身形，锐利的眼神，完全就是一个现实中的”孙悟空“式的形象，喜欢极了。看他书中提到的加强党的权威，以人为本等思想从入阁后各个时代的指导方针中流露，似乎并没有丝毫动摇。不由得想起潜伏中的那一句台词：</p>
+<blockquote>
+<p>随风摇摆是一种优秀的能力，但是从一而终也是一种可贵的品质。后者或许会招致毁灭，却也可能诞生奇迹。</p>
+</blockquote>
+<p>我衷心祝愿他能够同样在这一对概念中迎来后者。</p>
+<p>书中还有一处颇为有趣：</p>
+<p>他提到某院长从日本访问回来，已经信息到了“信息高速公路”：到那时，人们将在家办公，在家学习，在家购物和看病：药品和X光机都能送上门来。</p>
+<p>他说，这将改变人们的生活方式，改变社会的管理方式和组织方式：如果大部分办公楼，报纸，大学和商场都不需要了，那么就业结构会怎么样呢？意识形态怎么处理呢？政府又应当如何管理呢？这些都应该有一个设想。</p>
+<p>看到前面的时候，我还不禁感慨，真牛啊，那会不光都能为”写了稿子电脑中病毒而哀嚎“（前文），甚至都能意识到互联网对社会的巨大改变——看到最后一句却不禁哑然失笑。</p>
+<p>想起来十九世纪的人们为都住在大楼里的生活绘制美好蓝图：由于上下楼不便，每栋楼里都会有超市，健身房和咖啡屋，大楼之间还可能建起桥梁……可是电梯的发明却让这一切”合理的“设想都破灭了。是啊，就像犀牛看到的世界是以自己的独角为底色一样，王的眼睛里永远是有政府的：他的存在先于一切又贯彻一切。人们不用外出，甚至不用工作：经济平衡的主要矛盾早已由生产的不足成为了需求的不足，马克思能想到劳动都要被消灭了？（对于大多人）如此，就不禁令人感慨。他自己也说：</p>
+<blockquote>
+<p>生活在今天的人，常常说前人无能，把中国搞成这样，我们希望以后的中国人不会说今天的中国人无能，把中国搞成这样。这是我最大的愿望。</p>
+</blockquote>
+<p>中国的知识分子，三四千年来在儒家的框框里咚咚打转，能想到的也无非是圣君贤相，勤政爱民；东学西渐，梵学给文化艺术哲学都注入了崭新的活力，却唯独与几政治哲学无动于衷。晚清的知识分子出去绕了一圈，才把大腿都拍麻了：天下为公三代之治怎么在蛮夷那边实现了。所以，自以为是一切之先决者，最容易是一切的漏洞。也正是同样的道理：最谦虚，最自满。</p>
+<p>想想前一阵子看禅宗公案，有一个有文化的和尚写了这么一句，相当漂亮：</p>
+<blockquote>
+<p>万古长空，一朝风月。</p>
+</blockquote>
+<p>是啊，一朝风月，万古长空。</p>
+<p>2022&#x2F;8&#x2F;8</p>
+<p>PS：写完之后意识到的自己几乎没有了解的课题：</p>
+<ul>
+<li>辛亥以后的儒家社会地位沉浮</li>
+<li>法国历史</li>
+<li>古代中国的外来思想文化影响，尤其是对政治方面</li>
+<li>经济学完全是0</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Metaphysics</category>
+      </categories>
+      <tags>
+        <tag>Reading</tag>
+        <tag>Politics</tag>
       </tags>
   </entry>
   <entry>
@@ -255,6 +484,235 @@
       <tags>
         <tag>Poem</tag>
         <tag>Self</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文笔记 AST-Trans ICSE`22</title>
+    <url>/2022/07/03/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-AST-Trans-ICSE-22/</url>
+    <content><![CDATA[<p>这是《AST-Trans: Code Summarization with Efficient Tree-Structured Attention》的读书笔记</p>
+<span id="more"></span>
+
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>代码总结是干什么<br>最先进的方法用了E-D架构<br>源代码的特征之一是AST，常用于编码信息<br>AST太长<br>现在的方法忽视了大小限制 直接就塞进去序列化的AST<br>我们认为其问题在于难以提取信息，计算成本大</p>
+<p>为了更好地编码AST 提出了AST-Trans，利用了两种节点关系——上下和左右<br>使用了树状注意力动态分配权重给相关的节点<br>还还提出了一种<strong>支持</strong>高效为树状注意力并行运算的实现</p>
+<p>在两个相关数据集上，超过了SOTA</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p> 程序总结分为多个模块 本作聚焦于子例程或方法<br> 短描述可以让开发者快速理解 但是 好的总结需要大量劳动——错配 丢失 过时——自动方法可以避免<br> 传统方法：</p>
+<ul>
+<li>手工规则来——命名太烂就不行了</li>
+<li>信息检索技术：没见过就不行了</li>
+</ul>
+<p>最近：</p>
+<p>开源代码库让数据驱动的神经网络引起了更多注意</p>
+<p> 代码需要AST-AST序列化-简单介绍几个方法</p>
+<hr>
+<p>在introduction就介绍了许多现有工作 更具体地说是提到啥就引用</p>
+<hr>
+<p>问题：L-AST太长了 </p>
+<p>仔细解释</p>
+<p>介绍我们的工作</p>
+<ul>
+<li><p>假设：AST中的节点受影响最大的是：</p>
+<ul>
+<li>祖先-子孙:不同区块的等级关系</li>
+<li>兄弟：时序关系</li>
+</ul>
+<p>—— 画了个图作证 </p>
+<p>捕获这两种关系就可以了 不用用全部注意力为所有节点建模</p>
+</li>
+</ul>
+<p>			</p>
+<p>​	提出了 这个东西 是一个Transformer的简单变体来 处理树状AST</p>
+<pre><code> 用了 这两种关系的矩阵来代表树结构 然后用了这个矩阵来动态排除不同注意力层中的无关节点
+</code></pre>
+<p>​	绝对位置嵌入也被换成了由两种关系矩阵的相对位置嵌入</p>
+<p>还进一步描述了实现与计算分析</p>
+<p>贡献：</p>
+<ul>
+<li>可以用线性复杂度来编码唱AST 和传统二次复杂度的Transfermer不一样</li>
+<li>深入分析：复杂度，经验证据等</li>
+<li>在两个数据集上显示大幅度SOTA</li>
+<li>比较了多种AST的编码方式并讨论</li>
+</ul>
+<p>2 Background——AST Transformer</p>
+<p>3 elaborates 实现细节</p>
+<p>4 不同的实现</p>
+<p>5 分析复杂度</p>
+<p>6 解释实验步骤 分析结果</p>
+<p>7 TtV</p>
+<p>8 RW</p>
+<p>9 Conclusion</p>
+<h1 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h1><h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p>最开始被提出来做机器翻译 使用了多头栈状encoder-decocer层</p>
+<p>介绍了一下普通Transformer的层，可以并行</p>
+<h2 id="AST"><a href="#AST" class="headerlink" title="AST"></a>AST</h2><p>真的就是简单介绍 几乎没有引用</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>先概述一下流程 然后分步骤介绍</p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>简单介绍了三种序列化的方法，最后说用了改进的先序遍历序列法达成了SOTA 反而结构化的效果不好 路径分解效果更烂</p>
+<ol>
+<li>POT 先序遍历序列化：简单的按照先序遍历把节点列出来 坏处在于有损 因为无法靠此重建</li>
+<li>SBT 结构序列化 ：</li>
+<li>PD 路径分解 ：随机展示出一条某节点到某节点的路径 因为会有超多条 所以需要随机采样</li>
+</ol>
+<p>前两个都能直接放 第三个不好搞在这个任务</p>
+<hr>
+<p>问题在于他实际使用的 改进的POT也没介绍啊</p>
+<h2 id="关系矩阵"><a href="#关系矩阵" class="headerlink" title="关系矩阵"></a>关系矩阵</h2><p>引入了祖先矩阵和兄弟矩阵两个东西来对节点的关系建模</p>
+<p>如果是该关系 则值为有向距离，反之为正无穷</p>
+<p>Aij&#x3D;-Aji</p>
+<p>还介绍了一个预定义阈值P 有向距离大于P则变成正无穷 没搞懂在干什么：</p>
+<p>十代祖先就不算了 设置了一定的视野范围</p>
+<p>说是要用两个矩阵来动态改善树状的注意力分配</p>
+<h2 id="树状注意力"><a href="#树状注意力" class="headerlink" title="树状注意力"></a>树状注意力</h2><p>介绍了自注意力 相对位置嵌入 	注意力解耦 这三个看起来都是别人的东西 基本跟他没什么关系 有点像Background</p>
+<p>然后介绍了树状关系注意力，</p>
+<p>用了前面的关系矩阵来代替了相对位置嵌入的一个距离 再经过一些处理 在对新关系建模的同时还能达到更低的复杂度效果。</p>
+<h1 id="高效实现"><a href="#高效实现" class="headerlink" title="高效实现"></a>高效实现</h1><p>传统的Transformer 计算复杂度会随着序列长度二次增长 但改良的ASTTrans 只需要对部分节点对计算：某些R距离大于零的 然后逐个分析实验方法：掩码 循环跳过 稀疏向量什么的</p>
+<hr>
+<p>可以对数据集来个量化的分析</p>
+<h1 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h1><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>数据集介绍，处理策略</p>
+<p>预处理</p>
+<p>超参数</p>
+<p>评测方式</p>
+<h2 id="介绍比较的基线"><a href="#介绍比较的基线" class="headerlink" title="介绍比较的基线"></a>介绍比较的基线</h2><p>根据输入的不同分类介绍</p>
+<p>每个模型逐个介绍</p>
+<p>输入代码：</p>
+<p>输入AST树：有树专用的encoder 用Tree-LSTM或者GNN——想知道是怎么输入的 或者说……encoder是怎么接受这种东西的</p>
+<p>输入PD AST：作者甚至还改进了他的模型作为基线：把模型中的LSTM换成Transformer</p>
+<p>输入SBT AST </p>
+<p>输入POT AST:设计了对照组是接收同样输入的Transformer</p>
+<h2 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h2><p>也就是分析</p>
+<p>比较：</p>
+<ul>
+<li><p>代码-树状AST-序列化AST</p>
+<p>发现树状AST效果最好 结果树状的效果最好 作者的分析是这个信息最完整最多 所以效果最好</p>
+<p>还分析了在不同数据集上的影响 觉得是长度的原因</p>
+</li>
+<li><p>三种序列化AST的比较</p>
+<p>SBT在JAVA效果最好 POT在python上效果最好 </p>
+<p>SBT 信息多 POT最短</p>
+<p>PD效果最烂</p>
+</li>
+<li><p>关系矩阵的影响</p>
+<p>加上之后改善了所有模型的性能</p>
+</li>
+<li><p>AST-Trans vs GNN</p>
+<p>和其他里面最强的那个比一比</p>
+<p>分析了为啥会更好一点</p>
+</li>
+</ul>
+<h2 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h2><p>消融对象：四种</p>
+<ul>
+<li><p>仅使用一种对象矩阵：也会造成提升 但是不如都来</p>
+</li>
+<li><p>注意力头的数量 8个头几个看祖孙 几个看兄弟：更接近一种超参数实验</p>
+</li>
+<li><p>观察多远的范围来确定祖先-兄弟关系？：</p>
+<p>视野越大效果越好，就算一点也能改善很多，具有边际递减</p>
+</li>
+<li><p>网络层数：越深越好</p>
+</li>
+</ul>
+<h2 id="视觉分析和定量分析"><a href="#视觉分析和定量分析" class="headerlink" title="视觉分析和定量分析"></a>视觉分析和定量分析</h2><h1 id="有效性威胁"><a href="#有效性威胁" class="headerlink" title="有效性威胁"></a>有效性威胁</h1><ul>
+<li>选取的公开数据集可能代表性不足</li>
+<li>作为基线的其他架构选择和超参数选择可能不是最优</li>
+<li>自动评估和手动评估的代表性可能不强</li>
+</ul>
+<hr>
+<p>全都是实验设置 做实验的问题 没提方法本身的问题</p>
+<h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><h2 id="代码总结"><a href="#代码总结" class="headerlink" title="代码总结"></a>代码总结</h2><p>大多数人都把他当seq2seq任务，用Transformer</p>
+<p>和传统翻译的唯一区别就是他的输入是无歧义的代码，有语法规则，普遍的方法都是把他当普通文本序列或者结构化序列</p>
+<p>介绍了一下处理的方法，以罗列为主</p>
+<p>简单比较了一下自己的方法</p>
+<h2 id="基于树的神经网络"><a href="#基于树的神经网络" class="headerlink" title="基于树的神经网络"></a>基于树的神经网络</h2><p>现有的树状神经网络可以按照输入分为两种</p>
+<p>解析法和采样法</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我们<strong>通过</strong>高效编码AST<strong>实现</strong>了代码总结：</p>
+<p>介绍一下方法，以及带来的好处</p>
+<p>只需要关注有关系的节点</p>
+<p>可以不被过长的AST困惑</p>
+<p>降低复杂度</p>
+<p>画画饼：让他可以处理长代码，甚至一个文件</p>
+<p>做了实验，比较</p>
+<p>我们相信这样的基础理念可以用在别的地方</p>
+<p>计划更多特征加入，如API序列或节点类型，来改善注意力机制</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>ICSE 2022</tag>
+        <tag>Code generation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文笔记-CodeFill-ICSE`22</title>
+    <url>/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/</url>
+    <content><![CDATA[<p>这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记</p>
+<p>不过主要是为了写论文看的XD</p>
+<span id="more"></span>
+
+
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>自动代码完成是在给定的上下文中预测开发者下面要输入什么，简单说下意义</p>
+<p>讲讲当前的方法：怎么做的 有什么坏处 及时引用：</p>
+<p>使用程序语言的特性 比如括号后面就要跟着对应的参数，坏处在于缺乏基于规则的完成</p>
+<p>为了应对这些坏处 现在的办法是怎么做的，又引入了什么新的缺陷：</p>
+<p>提出了一些基于统计和学习的模型 将其视为自然语言，这种办法丢失了代码结构和语义，不断引入的标识符也带来了巨大的预测空间</p>
+<p>在这篇文章中 我们提出了xx 讲讲架构，任务，创新点，实现，应用场景 小吹一下</p>
+<p>讲一下实验构造 简要介绍基线，任务和数据集，实验设置</p>
+<p>讲讲结果 怎么个SOTA 最后总结贡献</p>
+<p>主要贡献：</p>
+<ul>
+<li>模型：基于结构和名称的模型</li>
+<li>代码和数据集及训练过程</li>
+<li>广泛的评估</li>
+</ul>
+<h1 id="背景和相关工作"><a href="#背景和相关工作" class="headerlink" title="背景和相关工作"></a>背景和相关工作</h1><p>写在一起了</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写的很水</p>
+<ul>
+<li><p>语言模型和Transformer</p>
+<p>几乎没介绍什么 有点像凑字数</p>
+</li>
+<li><p>多任务学习 MTL</p>
+<p>简单介绍了和自己工作差不多模式的这一小领域</p>
+<p>多个任务，联合损失函数 应参数和软参数</p>
+</li>
+</ul>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h2 id="基线"><a href="#基线" class="headerlink" title="基线"></a>基线</h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>简单介绍概览 可能给个图？</p>
+<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif" alt="图 1：- CodeFill 工作流程"></p>
+<p>包括三个部分  预处理 模型训练和 后处理</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>造出两个不同版本的输入 一个是去掉空行空格注释的原始变量名之类的</p>
+<p> 一个是用pythonAST 处理过的token type，记录每个token的类型，值和位置</p>
+<p>使用了BPE编码 （这还要单独拿来吹）</p>
+<p>为了处理python的缩进 额外引入了类似括号的标记符来标明缩进</p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>分别在两个层次上进行了三种模型训练，下一个token值预测TVP 下一个token类型预测TTP 和语句完成SC</p>
+<p>首先用一个通用的语言模型在无标签数据上取得通用参数，然后再分别再三个任务上训练。</p>
+<p>因为token类型太少 所以划分是4：2：4，且在微调阶段只使用另外两个任务</p>
+<p>介绍了主要模型的架构 GPT-2 真的就很呆地说了一下有什么什么层</p>
+<p>列了一个概率分布函数</p>
+<p>列了最优化函数&#x2F;好像也就是普通的Cross-Entropy Loss</p>
+<p>简单列了一下式子模型的</p>
+<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png" alt="image-20220713152712828" style="zoom: 50%;">
+
+<p>训练时每个epoch随机选择一个任务</p>
+<p>损失在所有任务间共享，生成类任务使用波束搜索</p>
+<p>希望能够最小化<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png" alt="image-20220713153042852" style="zoom:50%;"></p>
+<p>TVP 和TTP 都是类似的训练方法，使用遮罩单向预测，即看到左侧的上文推断下个token</p>
+<p>SC是直到<EOS>生成才会结束</EOS></p>
+<p>波束搜索也就介绍了一下， 介绍了3，5，10的宽度尝试</p>
+<p>训练方法：</p>
+<p>要不要搞个这种大图（？）</p>
+<p><img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png" alt="image-20220713153349806"></p>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这个部分很有意思</p>
+<p>生成之后会重新排序列表给开发者</p>
+<p>大概就是 每一项预测 会以&lt;token, type, probability&gt;的形式给出来，然后根据不同的类型会有不同的处理。</p>
+<p>在某一个程度的局部，如果预测的是个函数，候选者中和前面来自同一类的就更有可能。</p>
+<p>具体地说，会对前面的进行观察，然后存成一个列表，对预测列表对观察列表进行交叉检查 如果有重复，就根据预测项的类型乘以不同的权重，使其更有可能。</p>
+<p>简单地说，就是认为变量和函数名等都有一定的聚集性，如果预测的某个在前面某种关联性出现了 那么就给他酌情更重要一些。</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>ICSE 2022</tag>
+        <tag>Code generation</tag>
       </tags>
   </entry>
   <entry>
@@ -477,9 +935,61 @@
         <category>Substance</category>
       </categories>
       <tags>
+        <tag>OCL</tag>
         <tag>Code generation</tag>
         <tag>ICST</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文笔记 Highway OCL &amp; Informal to Formal Specications in UML</title>
+    <url>/2022/06/28/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-From-Informal-toFormal-Specications-in-UML/</url>
+    <content><![CDATA[<p>这篇笔记是文章 From Informal to Formal Specications in UML 和 Automating Utility Permitting within Highway Right-of-Way via a Generic UML&#x2F;OCL Model and Natural Language Processing的不完全笔记</p>
+<span id="more"></span>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Purpose :</p>
+<p> informal requirements,use cases &#x3D;&gt; formal specifications ,OCL</p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p><strong>how to obtain formal specications from informal ones</strong></p>
+<p>formal ones can also help to improve informal ones.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>在intro中讲故事的这一部分很有意思 可能是因为是04年的文章 他的引入视角是——UML在OO建模很猛——有了OCL才能足够精确——不知道应该在什么环节集成OCL——还是应该customer来做，毕竟对系统行为清晰——期望所有人都有能力不现实</p>
+<p>用例——describe system behaviors</p>
+<p>研究了 文字用例中的前后置条件 与 类图中OCL写的操作的前后置条件 的<strong>关系</strong></p>
+<p>从分析阶段的用例图——到设计阶段的时序图和类图</p>
+<h2 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h2><p>非正式的本质 可以用在更多的上下文本经当中，但寻求正确的抽象层次和确保一致性困难</p>
+<p>在他们的工作中 书写用例描述的风格不太重要 只要他们能够展现出需求与开发设计者的共识，获得前后置条件</p>
+<p>考虑了关于替代流的问题 本来想掰开成为别的用例 但觉得违背了为用户满足目标的愿景</p>
+<h1 id="状态图"><a href="#状态图" class="headerlink" title="状态图"></a>状态图</h1><p>考虑了用例的所有路径</p>
+<h1 id="从用例到操作后置条件"><a href="#从用例到操作后置条件" class="headerlink" title="从用例到操作后置条件"></a>从用例到操作后置条件</h1><p>只讨论用例的后置条件 因为觉得前置差不多 而且有点迷惑——比方说满足了前置条件就相当于进入某些流’</p>
+<p>所以就当所有的前置条件都是空</p>
+<p>讨论系统中的唯一对象就是系统本身</p>
+<p>客户给的自然语言描述后置条件可能不光和终态有关，还可能和事件序列有关 比如输错三次密码</p>
+<p>——使用状态图来捕获条件</p>
+<h1 id="Automating-Utility-Permitting-within-Highway-Right-of-Way-via-a-Generic-UML-x2F-OCL-Model-and-Natural-Language-Processing"><a href="#Automating-Utility-Permitting-within-Highway-Right-of-Way-via-a-Generic-UML-x2F-OCL-Model-and-Natural-Language-Processing" class="headerlink" title="Automating Utility Permitting within Highway Right-of-Way via a Generic UML&#x2F;OCL Model and Natural Language Processing"></a>Automating Utility Permitting within Highway Right-of-Way via a Generic UML&#x2F;OCL Model and Natural Language Processing</h1><p>OCL用来表达一些方位上的约束</p>
+<p>implies的作用：只有前面的条件是真，后面的东西才会被评估</p>
+<p>采用了扩展的OCL 增添了一些对空间语义的描述的函数 如不相交 相当 包含等</p>
+<p>要将这样的文本约束转化为OCL——首先可以先变成较为形式化的元组</p>
+<p>the 6-inch mechanical joint inlet shall be located 5 feet 6 inches below the ground</p>
+<p>——》</p>
+<p>&lt;mechanical joint inlet (6-inch), below (5 ft 6 in.), ground&gt;.</p>
+<p>方位约束使用双层或多层语言层次来提取多种的方位信息</p>
+<p>想要自动从方位约束中提取结构化的信息</p>
+<ol>
+<li>预处理：tokenize 句子划分和语法标注</li>
+<li>特殊标注 增添了额外三个词表 城市产品，方位词和比较关系的词会被识别标出</li>
+<li>逐级向上归纳 生成句子树</li>
+<li>从树型结构中寻找目标信息，生成结构化的元组</li>
+<li>从元组中生成所需OCL 不同层次有不同转换方法，主要是针对类不变量——x.allInstances-&gt;forAll ——implies这样的结构</li>
+</ol>
+<p>NLP的方法：</p>
+<p>使用某个NLTK实施标注和句子树的构建，从裸文本生成出对应元组，作为构造OCL约束的输入</p>
+<p>UML&#x2F;OCL的方法：</p>
+<p>应用：</p>
+<p>写在某种对象关系型数据库里 当有数据库的改动时触发触发器，检查是否符合约束</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
         <tag>OCL</tag>
+        <tag>Code generation</tag>
       </tags>
   </entry>
 </search>

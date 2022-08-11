@@ -7,7 +7,7 @@ tags:
 - Philip Larkin
 
 categories:
-- Metaphysicsk
+- Metaphysics
 ---
 
 
