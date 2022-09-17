@@ -101,6 +101,8 @@
 <p>现有工作对难点的应对情况：那些解决好，哪些解决不好：限制分析清楚</p>
 <p>我们的工作提出方法 应对他们的缺陷</p>
 <p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220807203635745.png" alt="image-20220807203635745"></p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220809130755249.png" alt="image-20220809130755249"></p>
+<p><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220814202922555.png" alt="image-20220814202922555"><img src="/2022/07/31/Bajwa-OCL-%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/image-20220814202948326.png" alt="image-20220814202948326"></p>
 ]]></content>
       <categories>
         <category>Substance</category>
@@ -448,6 +450,21 @@
       </tags>
   </entry>
   <entry>
+    <title>杂谈-别人的书</title>
+    <url>/2022/09/18/%E6%9D%82%E8%B0%88-%E5%88%AB%E4%BA%BA%E7%9A%84%E4%B9%A6/</url>
+    <content><![CDATA[<p>昨天（其实是今天……）说要和某人互换藏书 浏览其自己的书架才发现好多好多别人的书。细看之下想到好多，不过更多还是没读过的XD。下面一本一本说吧。</p>
+<h1 id="Ursula-lee"><a href="#Ursula-lee" class="headerlink" title="Ursula lee"></a>Ursula lee</h1><p>《少有人走的路》 来自 2015年。刚刚翻开扉页，写着，「爱不是感觉 爱是实际行动 是真正的付出」很巧的是 这也就是他现在留给我的几乎全部印象。 记得前几天还是最近一次还和别人提过这本书 印象之中是「有点水平和启发的鸡汤」。事实上这也应该算我对「爱」的启蒙之作？有了这个，才有了后面的「爱不是交易或因信称义」，后面黑夜中偶遇墙上的《哥林多前书》一般的「龙场悟道」……有趣的是，这本书我并没有看完。书的第一章并不是在讲什么爱的艺术，而是我没有任何印象的自律章节。</p>
+<p>作为回赠 我送给了他新的《旅行的艺术》，因为听说他很爱旅行，这位作者的下一本书是我在九年后才读到的《拥抱似水年华》可能是没有读过普鲁斯特 反而觉得像是那种诙谐的小报作家了。不过在上一本书的扉页上 我还是很认真地写下了</p>
+<blockquote>
+<p>天之苍苍 其正色邪？其远而无所至极邪？</p>
+</blockquote>
+<p>坏了 写到这才发现这个话题不兴说……好多烂事要牵扯上来……先睡觉得了</p>
+]]></content>
+      <categories>
+        <category>Metaphysics</category>
+      </categories>
+  </entry>
+  <entry>
     <title>火柴</title>
     <url>/2022/05/29/%E7%81%AB%E6%9F%B4/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>我在<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="火柴梗快要烧完的时候，会因为火焰过分接近而忍不住松手">6</span></a></sup>水中桥下<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="「尾生與女子期於梁下，女子不來，水至不去，抱樑柱而死。」《莊子·盜跖》
@@ -630,81 +647,6 @@
 <p>做了实验，比较</p>
 <p>我们相信这样的基础理念可以用在别的地方</p>
 <p>计划更多特征加入，如API序列或节点类型，来改善注意力机制</p>
-]]></content>
-      <categories>
-        <category>Substance</category>
-      </categories>
-      <tags>
-        <tag>Note</tag>
-        <tag>ICSE 2022</tag>
-        <tag>Code generation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>论文笔记-CodeFill-ICSE`22</title>
-    <url>/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/</url>
-    <content><![CDATA[<p>这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记</p>
-<p>不过主要是为了写论文看的XD</p>
-<span id="more"></span>
-
-
-
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>自动代码完成是在给定的上下文中预测开发者下面要输入什么，简单说下意义</p>
-<p>讲讲当前的方法：怎么做的 有什么坏处 及时引用：</p>
-<p>使用程序语言的特性 比如括号后面就要跟着对应的参数，坏处在于缺乏基于规则的完成</p>
-<p>为了应对这些坏处 现在的办法是怎么做的，又引入了什么新的缺陷：</p>
-<p>提出了一些基于统计和学习的模型 将其视为自然语言，这种办法丢失了代码结构和语义，不断引入的标识符也带来了巨大的预测空间</p>
-<p>在这篇文章中 我们提出了xx 讲讲架构，任务，创新点，实现，应用场景 小吹一下</p>
-<p>讲一下实验构造 简要介绍基线，任务和数据集，实验设置</p>
-<p>讲讲结果 怎么个SOTA 最后总结贡献</p>
-<p>主要贡献：</p>
-<ul>
-<li>模型：基于结构和名称的模型</li>
-<li>代码和数据集及训练过程</li>
-<li>广泛的评估</li>
-</ul>
-<h1 id="背景和相关工作"><a href="#背景和相关工作" class="headerlink" title="背景和相关工作"></a>背景和相关工作</h1><p>写在一起了</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写的很水</p>
-<ul>
-<li><p>语言模型和Transformer</p>
-<p>几乎没介绍什么 有点像凑字数</p>
-</li>
-<li><p>多任务学习 MTL</p>
-<p>简单介绍了和自己工作差不多模式的这一小领域</p>
-<p>多个任务，联合损失函数 应参数和软参数</p>
-</li>
-</ul>
-<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h2 id="基线"><a href="#基线" class="headerlink" title="基线"></a>基线</h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>简单介绍概览 可能给个图？</p>
-<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif" alt="图 1：- CodeFill 工作流程"></p>
-<p>包括三个部分  预处理 模型训练和 后处理</p>
-<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>造出两个不同版本的输入 一个是去掉空行空格注释的原始变量名之类的</p>
-<p> 一个是用pythonAST 处理过的token type，记录每个token的类型，值和位置</p>
-<p>使用了BPE编码 （这还要单独拿来吹）</p>
-<p>为了处理python的缩进 额外引入了类似括号的标记符来标明缩进</p>
-<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>分别在两个层次上进行了三种模型训练，下一个token值预测TVP 下一个token类型预测TTP 和语句完成SC</p>
-<p>首先用一个通用的语言模型在无标签数据上取得通用参数，然后再分别再三个任务上训练。</p>
-<p>因为token类型太少 所以划分是4：2：4，且在微调阶段只使用另外两个任务</p>
-<p>介绍了主要模型的架构 GPT-2 真的就很呆地说了一下有什么什么层</p>
-<p>列了一个概率分布函数</p>
-<p>列了最优化函数&#x2F;好像也就是普通的Cross-Entropy Loss</p>
-<p>简单列了一下式子模型的</p>
-<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png" alt="image-20220713152712828" style="zoom: 50%;">
-
-<p>训练时每个epoch随机选择一个任务</p>
-<p>损失在所有任务间共享，生成类任务使用波束搜索</p>
-<p>希望能够最小化<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png" alt="image-20220713153042852" style="zoom:50%;"></p>
-<p>TVP 和TTP 都是类似的训练方法，使用遮罩单向预测，即看到左侧的上文推断下个token</p>
-<p>SC是直到<EOS>生成才会结束</EOS></p>
-<p>波束搜索也就介绍了一下， 介绍了3，5，10的宽度尝试</p>
-<p>训练方法：</p>
-<p>要不要搞个这种大图（？）</p>
-<p><img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png" alt="image-20220713153349806"></p>
-<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这个部分很有意思</p>
-<p>生成之后会重新排序列表给开发者</p>
-<p>大概就是 每一项预测 会以&lt;token, type, probability&gt;的形式给出来，然后根据不同的类型会有不同的处理。</p>
-<p>在某一个程度的局部，如果预测的是个函数，候选者中和前面来自同一类的就更有可能。</p>
-<p>具体地说，会对前面的进行观察，然后存成一个列表，对预测列表对观察列表进行交叉检查 如果有重复，就根据预测项的类型乘以不同的权重，使其更有可能。</p>
-<p>简单地说，就是认为变量和函数名等都有一定的聚集性，如果预测的某个在前面某种关联性出现了 那么就给他酌情更重要一些。</p>
 ]]></content>
       <categories>
         <category>Substance</category>
@@ -938,6 +880,81 @@
         <tag>OCL</tag>
         <tag>Code generation</tag>
         <tag>ICST</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文笔记-CodeFill-ICSE`22</title>
+    <url>/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/</url>
+    <content><![CDATA[<p>这是 CodeFill: Multi-token Code Completion by Jointly Learning from Structure and Naming Sequences 这篇文章的读书笔记</p>
+<p>不过主要是为了写论文看的XD</p>
+<span id="more"></span>
+
+
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>自动代码完成是在给定的上下文中预测开发者下面要输入什么，简单说下意义</p>
+<p>讲讲当前的方法：怎么做的 有什么坏处 及时引用：</p>
+<p>使用程序语言的特性 比如括号后面就要跟着对应的参数，坏处在于缺乏基于规则的完成</p>
+<p>为了应对这些坏处 现在的办法是怎么做的，又引入了什么新的缺陷：</p>
+<p>提出了一些基于统计和学习的模型 将其视为自然语言，这种办法丢失了代码结构和语义，不断引入的标识符也带来了巨大的预测空间</p>
+<p>在这篇文章中 我们提出了xx 讲讲架构，任务，创新点，实现，应用场景 小吹一下</p>
+<p>讲一下实验构造 简要介绍基线，任务和数据集，实验设置</p>
+<p>讲讲结果 怎么个SOTA 最后总结贡献</p>
+<p>主要贡献：</p>
+<ul>
+<li>模型：基于结构和名称的模型</li>
+<li>代码和数据集及训练过程</li>
+<li>广泛的评估</li>
+</ul>
+<h1 id="背景和相关工作"><a href="#背景和相关工作" class="headerlink" title="背景和相关工作"></a>背景和相关工作</h1><p>写在一起了</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写的很水</p>
+<ul>
+<li><p>语言模型和Transformer</p>
+<p>几乎没介绍什么 有点像凑字数</p>
+</li>
+<li><p>多任务学习 MTL</p>
+<p>简单介绍了和自己工作差不多模式的这一小领域</p>
+<p>多个任务，联合损失函数 应参数和软参数</p>
+</li>
+</ul>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h2 id="基线"><a href="#基线" class="headerlink" title="基线"></a>基线</h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>简单介绍概览 可能给个图？</p>
+<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/9793835/9793541/9794048/9794048-fig-1-source-small.gif" alt="图 1：- CodeFill 工作流程"></p>
+<p>包括三个部分  预处理 模型训练和 后处理</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>造出两个不同版本的输入 一个是去掉空行空格注释的原始变量名之类的</p>
+<p> 一个是用pythonAST 处理过的token type，记录每个token的类型，值和位置</p>
+<p>使用了BPE编码 （这还要单独拿来吹）</p>
+<p>为了处理python的缩进 额外引入了类似括号的标记符来标明缩进</p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>分别在两个层次上进行了三种模型训练，下一个token值预测TVP 下一个token类型预测TTP 和语句完成SC</p>
+<p>首先用一个通用的语言模型在无标签数据上取得通用参数，然后再分别再三个任务上训练。</p>
+<p>因为token类型太少 所以划分是4：2：4，且在微调阶段只使用另外两个任务</p>
+<p>介绍了主要模型的架构 GPT-2 真的就很呆地说了一下有什么什么层</p>
+<p>列了一个概率分布函数</p>
+<p>列了最优化函数&#x2F;好像也就是普通的Cross-Entropy Loss</p>
+<p>简单列了一下式子模型的</p>
+<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713152712828.png" alt="image-20220713152712828" style="zoom: 50%;">
+
+<p>训练时每个epoch随机选择一个任务</p>
+<p>损失在所有任务间共享，生成类任务使用波束搜索</p>
+<p>希望能够最小化<img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153042852.png" alt="image-20220713153042852" style="zoom:50%;"></p>
+<p>TVP 和TTP 都是类似的训练方法，使用遮罩单向预测，即看到左侧的上文推断下个token</p>
+<p>SC是直到<EOS>生成才会结束</EOS></p>
+<p>波束搜索也就介绍了一下， 介绍了3，5，10的宽度尝试</p>
+<p>训练方法：</p>
+<p>要不要搞个这种大图（？）</p>
+<p><img src="/2022/07/12/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-CodeFill-ICSE-22/image-20220713153349806.png" alt="image-20220713153349806"></p>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这个部分很有意思</p>
+<p>生成之后会重新排序列表给开发者</p>
+<p>大概就是 每一项预测 会以&lt;token, type, probability&gt;的形式给出来，然后根据不同的类型会有不同的处理。</p>
+<p>在某一个程度的局部，如果预测的是个函数，候选者中和前面来自同一类的就更有可能。</p>
+<p>具体地说，会对前面的进行观察，然后存成一个列表，对预测列表对观察列表进行交叉检查 如果有重复，就根据预测项的类型乘以不同的权重，使其更有可能。</p>
+<p>简单地说，就是认为变量和函数名等都有一定的聚集性，如果预测的某个在前面某种关联性出现了 那么就给他酌情更重要一些。</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>ICSE 2022</tag>
+        <tag>Code generation</tag>
       </tags>
   </entry>
   <entry>
