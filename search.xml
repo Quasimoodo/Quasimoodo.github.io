@@ -342,20 +342,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Follow Ace Taffy Meow！</title>
-    <url>/2022/05/23/testpic/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Follow Ace Taffy thanks Meow!&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/05/23/testpic/image-20220524021029166.png" alt="image-20220524021029166"></p>
-]]></content>
-      <categories>
-        <category>Meow</category>
-      </categories>
-      <tags>
-        <tag>Ace</tag>
-        <tag>Taffy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「政治的人生」读后感</title>
     <url>/2022/07/12/%E3%80%8C%E6%94%BF%E6%B2%BB%E7%9A%84%E4%BA%BA%E7%94%9F%E3%80%8D%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
     <content><![CDATA[<p>本篇为王沪宁所著「政治的人生」读后感</p>
@@ -447,6 +433,20 @@
       <tags>
         <tag>Reading</tag>
         <tag>Politics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Follow Ace Taffy Meow！</title>
+    <url>/2022/05/23/testpic/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Follow Ace Taffy thanks Meow!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/05/23/testpic/image-20220524021029166.png" alt="image-20220524021029166"></p>
+]]></content>
+      <categories>
+        <category>Meow</category>
+      </categories>
+      <tags>
+        <tag>Ace</tag>
+        <tag>Taffy</tag>
       </tags>
   </entry>
   <entry>
