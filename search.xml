@@ -1028,6 +1028,10 @@
     <title>Note-CSE4650 - Methods of Data Mining</title>
     <url>/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/</url>
     <content><![CDATA[<p>这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点</p>
+<p>批话：</p>
+<ul>
+<li>我感觉我全搞明白了（9&#x2F;20，PCA)</li>
+</ul>
 <span id="more"></span>
 
 <h1 id="学前信息"><a href="#学前信息" class="headerlink" title="学前信息"></a>学前信息</h1><h2 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h2><ul>
@@ -1201,16 +1205,25 @@
 
 <p>需要满足四个性质：</p>
 <ul>
-<li><p>非负性</p>
+<li>非负性 （non-negativity）</li>
+<li>同一性（coincidence axiom）：<ul>
+<li>d&#x3D;0 $iff$ A&#x3D;B</li>
+</ul>
 </li>
-<li><p>同一性： d&#x3D;0 $iff$ A&#x3D;B</p>
-</li>
-<li><p>对称性（无向距离）</p>
-</li>
-<li><p>三角不等式</p>
-</li>
-<li><p>距离与相似性：</p>
+<li>对称性(symmetry)（无向距离）</li>
+<li>三角不等式(triangle inequality)</li>
+</ul>
+<p>几个例子：</p>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920162701682.png" alt="image-20230920162701682" style="zoom:50%;">
+
+<p>证明一个玩意是距离：</p>
 <ul>
+<li>证这四个性质对于任意变量成立</li>
+<li>——还是证明不是比较容易</li>
+</ul>
+<p>fractional $L_p$ 不是metric：不满足三角不等式</p>
+<ul>
+<li>距离与相似性：<ul>
 <li>相似性通常在$[0,1]$</li>
 <li>通常采用1-正则化距离 来得到相似性</li>
 </ul>
@@ -1312,7 +1325,7 @@
 
 <p>下面除以特征数，上面统计每一个特征的贡献，其中越稀有的特征贡献越接近1，不同的特征相似为0</p>
 <h3 id="混合数据（无需变形）"><a href="#混合数据（无需变形）" class="headerlink" title="混合数据（无需变形）"></a>混合数据（无需变形）</h3><p>给与权重，再分别计算</p>
-<p>![image-20230917225039161](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917225039161.png)</p>
+<p>![image-20230917231626261](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917231626261-16949817904071.png)</p>
 <p>通常范畴不同，所以还需要使用标准差进行标准化</p>
 <h3 id="二元数据"><a href="#二元数据" class="headerlink" title="二元数据"></a>二元数据</h3><p>直接算：</p>
 <p>Hamming Distance</p>
@@ -1356,6 +1369,187 @@
 <li>cos和阈值约束的距离</li>
 <li>non-metrics可能对于高位的相似性计算更好（还没学吧）</li>
 </ul>
+<h1 id="Lecture3-Dimension-reduction-PCA-SVD"><a href="#Lecture3-Dimension-reduction-PCA-SVD" class="headerlink" title="Lecture3 Dimension reduction(PCA,SVD)"></a>Lecture3 Dimension reduction(PCA,SVD)</h1><p> 主成分分析（Principal component analysis (PCA) </p>
+<p>这章的目的应该是对数据降维，手段包括特征<strong>eigen</strong> 和奇异 <strong>singular</strong></p>
+<h2 id="动机："><a href="#动机：" class="headerlink" title="动机："></a>动机：</h2><ul>
+<li>高维数据比较困难<ul>
+<li>难以聚类</li>
+<li>对于特征强相关的 可以用少数特征来表示同样的信息</li>
+</ul>
+</li>
+</ul>
+<p>手段：缩减维度来减少冗余</p>
+<ul>
+<li><p>只知道成对的距离</p>
+</li>
+<li><p>降低开销</p>
+</li>
+<li><p>去除噪声</p>
+</li>
+<li><p>结果更好理解</p>
+<pre><code>- 早期做会丢失信息
+</code></pre>
+</li>
+</ul>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920215126603.png" alt="image-20230920215126603" style="zoom:50%;">
+
+
+
+<h2 id="前置数学知识"><a href="#前置数学知识" class="headerlink" title="前置数学知识"></a>前置数学知识</h2><p>需要的数学知识比较多，包括协方差矩阵(covariance matrix) 拉普拉斯矩阵，半正定矩阵，矩阵的奇异值向量等</p>
+<p><strong>向量$x$一般说的都是列向量</strong></p>
+<p>下面先对协方差矩阵进行一些学习。</p>
+<h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>相关系数用来描述两个变量之间的<strong>线性</strong>相关关系，范围从[-1,1]<br>$$<br>ρ &#x3D; (Σ((X - μX)(Y - μY))) &#x2F; (σX * σY)<br>$$<br>相关系数可以认为是标准化了的协方差</p>
+<p>协方差矩阵是这么算的</p>
+<p>注意其中的$X,Y$ 可以理解为多元变量，即每一项是一个一维向量（一个变量）的二位变量<br>$$<br>Cov(X, Y) &#x3D; Σ((X - μX)(Y - μY)) &#x2F; N-1<br>$$<br>![img](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;Correlation55-16952207836256.png)</p>
+<p>![img](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;Correlation66.png)<br>$$<br>A&#x3D;\left{\begin{matrix}X &amp; Y &amp; Z\end{matrix}\right}&#x3D;\left{ \begin{matrix} x_1-x &amp; y_1-y &amp; z_1-z \ … &amp; … &amp; …\ x_n-x &amp; y_n-y &amp; z_n-z \end{matrix} \right} \tag{2}<br>$$<br>其中$X,Y,Z$都是随机变量，$x_i$可以理解为一次观测值</p>
+<p>$$<br>C(X,Y,Z)&#x3D;{A^TA \over n}<br>$$</p>
+<ul>
+<li><p>协方差矩阵的性质：</p>
+<ul>
+<li>对角线上是每个变量的方差</li>
+<li>显然是一个对称矩阵，$C&#x3D;C^T$，<ul>
+<li>因为$Cov(X,Y)&#x3D;Cov(Y,X)$</li>
+</ul>
+</li>
+<li>他还是一个半正定矩阵</li>
+</ul>
+<blockquote>
+<p>至于为什么正定 暂且还没有搞懂</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>对于零均值（mean-centered)的数据，协方差矩阵的特征向量矩阵是正交矩阵</strong></p>
+<p>update: 对称矩阵的特征向量都是正交的——正定矩阵的特征向量都是正交的</p>
+<h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>对于矩阵 Q，以下条件等价：</p>
+<ol>
+<li>Q 是正交矩阵。</li>
+<li>Q 的列向量是单位向量，并且两两正交（即内积为零）。</li>
+<li>Q 的转置$ Q^T $是其逆矩阵（$Q^TQ &#x3D; QQ^T &#x3D; I$，其中 I 是单位矩阵）</li>
+</ol>
+<h3 id="半正定矩阵"><a href="#半正定矩阵" class="headerlink" title="半正定矩阵"></a>半正定矩阵</h3><p>首先，在实数范畴内，矩阵的正定性都是在其为对称矩阵的前提下研究的，即：</p>
+<center>
+    （半）正定矩阵一定是对称矩阵
+</center>
+
+<p>定义：</p>
+<p> 对对称矩阵A，若对任意非零向量$x$，有$x^TAx&gt;0$,则称$A$为正定矩阵，若能取到0，则为半正定矩阵</p>
+<p>性质：</p>
+<ul>
+<li>特征值大于（等于0） 半正定的时候能取到</li>
+<li>对角线元素非负</li>
+</ul>
+<h3 id="特征值分解"><a href="#特征值分解" class="headerlink" title="特征值分解"></a>特征值分解</h3><p>一般来说，求解特征值是为了实现矩阵的对角化：<br>$$<br>A &#x3D; PDP⁻¹<br>$$<br>$A$是方阵</p>
+<p>$P$是可逆矩阵，列向量为$A$的特征向量</p>
+<p>$D$是对角阵，对角线是$A$的特征值，顺序与$P$对应</p>
+<p>对角化的矩阵具有很多应用，如快速计算A的高次幂。</p>
+<p><strong>对角化步骤：</strong></p>
+<p>首先对特征值，特征向量的一般形式进行了解：<br>$$<br>对方阵A,有Ax&#x3D;\lambda x ，称x是A的一个特征向量，\lambda 是x对应的特征值<br>$$</p>
+<h4 id="特征值求解"><a href="#特征值求解" class="headerlink" title="特征值求解"></a>特征值求解</h4><ol>
+<li>求解det(行列式) $det(A-\lambda I)&#x3D;0$,求出若干特征值</li>
+<li>求解$Ax&#x3D;\lambda x$,求出每个特征值对应的特征向量（非零）</li>
+</ol>
+<blockquote>
+<p>特征值有很多良好的性质：</p>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920200335261.png" alt="image-20230920200335261" style="zoom:50%;">
+</blockquote>
+<p>​	此时，如果</p>
+<pre><code>    1. $A$满秩
+    1. $X=&#123;x_1,...,x_n&#125;$特征向量是一组线性无关的
+</code></pre>
+<p>​	那么矩阵可以对角化为<br>$$<br>A &#x3D; PDP⁻¹<br>$$<br>对于零均值（mean-centered)的数据，协方差矩阵的特征向量矩阵是正交矩阵,即<br>$$<br>P^{-1}&#x3D;P^T<br>$$<br>所以也可以写成<br>$$<br>C&#x3D;PDP^T<br>$$</p>
+<h3 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h3><p>SVD能够适用于任何矩阵分解，</p>
+<p>对于任意矩阵$A$,</p>
+<p>对$AA^T$求特征值，用单位化特征向量构成$U$</p>
+<p>对$A^TA$求特征值，用单位化特征向量构成$V$</p>
+<p>对$AA^T或A^TA$求特征值的平方根，构成对角阵$\Sigma$<br>$$<br>A&#x3D;U\Sigma V^T<br>$$<br>U和V分别成为左右奇异值矩阵</p>
+<h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><ul>
+<li>高方差可以展示数据的结构<ul>
+<li>为什么？</li>
+<li>如果在这一维度（i.e.旋转后的坐标轴投影）上，数据具有较大的方差，就可以认为这一个维度能够反映作为信号的信息，而其他轴可能就是它的噪声</li>
+</ul>
+</li>
+<li>数据可以被正交基向量的线性组合表示</li>
+</ul>
+<p>希望可以用一个变形的矩阵$d<em>r的P$，来将$n</em>d的 D$表示为$n<em>r$的$D</em>P_r$(r&lt;d)</p>
+<p><strong>即，希望把数据由d维降到r维</strong></p>
+<blockquote>
+<p>这r维是全新的正交特征，也成为主成分，希望可以有相对最大的数据方差，而舍弃的维度中，方差几乎为0</p>
+</blockquote>
+<h2 id="特征值分解-1"><a href="#特征值分解-1" class="headerlink" title="特征值分解"></a>特征值分解</h2><p>怎么让方差最大呢？就需要用协方差矩阵，对应的特征值所对应的$k$个特征向量所组成的矩阵</p>
+<p>首先考虑零均值（mean-centered)的数据$D$,</p>
+<p>一般数据的零均值过程如下：</p>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920214837704.png" alt="image-20230920214837704" style="zoom:50%;">
+
+<p>每一列计算其均值，分别减掉</p>
+<p>计算协方差矩阵<br>$$<br>C &#x3D; {1\over n − 1} D^T D<br>$$<br>将其对角化为<br>$$<br>C&#x3D;PΛP^T<br>$$<br>选取$P$的前$r$大的特征值对应的向量，组成新的特征矩阵<br>$$<br>P_r<br>$$<br>目标降维矩阵即为<br>$$<br>D^&#96;&#x3D;DP_r<br>$$</p>
+<h2 id="奇异值SVD分解"><a href="#奇异值SVD分解" class="headerlink" title="奇异值SVD分解"></a>奇异值SVD分解</h2><p>步骤与上面类似，区别在于在对角化的一步使用奇异值分解，</p>
+<p>$$<br>C&#x3D;Q\Sigma P^T<br>$$<br>对$P$选择前r大的特征向量构成$P_r$</p>
+<p>目标降维矩阵即为<br>$$<br>D^&#96;&#x3D;DP_r<br>$$</p>
+<blockquote>
+<p>此处仅使用了右奇异矩阵，就是对样本的列进行了压缩。而使用左奇异矩阵可以完成对行数的压缩</p>
+<p>（来自参考）</p>
+</blockquote>
+<p>使用左奇异矩阵$D^TQ_r$ describes items by r latent components</p>
+<ul>
+<li>可以大幅降维</li>
+<li>LSA（潜在成分分析使用）</li>
+<li>文档格式的矩阵</li>
+<li>减少同义词噪声</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920220923499.png" alt="image-20230920220923499" style="zoom:50%;"></li>
+</ul>
+<p>??noise reduction: truncated SVD tends to correct inconsistencies??</p>
+<h2 id="怎么挑选r"><a href="#怎么挑选r" class="headerlink" title="怎么挑选r"></a>怎么挑选r</h2><p>降维后的维度r（主成分个数)</p>
+<p>有一个类似于置信度的东西，笔记就不说了</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>启发性， Work well only if the underlying assumptions are true.</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>这一篇讲得肯定比我一下午写得明白</p>
+<p><a href="https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/preprocessing-data-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca-%E5%8E%9F%E7%90%86%E8%A9%B3%E8%A7%A3-afe1fd044d4f">https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/preprocessing-data-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca-%E5%8E%9F%E7%90%86%E8%A9%B3%E8%A7%A3-afe1fd044d4f</a></p>
+<h1 id="谱聚类-Spectral-clustering"><a href="#谱聚类-Spectral-clustering" class="headerlink" title="谱聚类 Spectral clustering"></a>谱聚类 Spectral clustering</h1><p>9.19</p>
+<blockquote>
+<p>它的主要思想是把所有的数据看做空间中的点，这些点之间可以用边连接起来。距离较远的两个点之间的边权重值较低，而距离较近的两个点之间的边权重值较高，通过对所有数据点组成的图进行切图，让切图后不同的子图间边权重和尽可能的低，而子图内的边权重和尽可能的高，从而达到聚类的目的。</p>
+</blockquote>
+<p>主要关注点之间的距离</p>
+<p>所需要的东西：</p>
+<ul>
+<li>相似图$G$<ul>
+<li>数据点</li>
+<li>边权$w_{ij}$ 两点间的相似性</li>
+</ul>
+</li>
+</ul>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>需要四个矩阵</p>
+<ol>
+<li>权重矩阵$W$</li>
+<li>点度对角阵Λ</li>
+<li>拉普拉斯矩阵 $L &#x3D; Λ − W$</li>
+<li>可能需要正则化的拉着普拉斯矩阵</li>
+</ol>
+<p>做法：</p>
+<p>​	<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165658041.png" alt="image-20230919165658041" style="zoom:50%;"></p>
+<p>首先有这么一个相似度（边权）的邻接矩阵$W$</p>
+<ul>
+<li>无向图</li>
+<li>没有权重就0，1</li>
+</ul>
+<p>然后得到点度对角阵 显示每个点的度（边权的和）</p>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165835601.png" alt="image-20230919165835601" style="zoom:50%;">
+
+<p>然后得到拉普拉斯矩阵 $L &#x3D; Λ − W$</p>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919170046657.png" alt="image-20230919170046657" style="zoom:50%;">
+
+<p>$L$ 的好性质：</p>
+<ul>
+<li><p>对称矩阵</p>
+<ul>
+<li>特征值都是实数（为啥）</li>
+</ul>
+</li>
+<li><p>半正定的，最小的特征值等于0</p>
+</li>
+<li></li>
+<li><p>将数据展现在低微向量空间中</p>
+</li>
+</ul>
+<h1 id="聚类验证"><a href="#聚类验证" class="headerlink" title="聚类验证"></a>聚类验证</h1><p>9。19</p>
 ]]></content>
       <categories>
         <category>Substance</category>
