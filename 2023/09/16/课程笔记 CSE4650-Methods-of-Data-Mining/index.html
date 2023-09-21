@@ -20,15 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点 批话：  我感觉我全搞明白了（9&#x2F;20，PCA)">
+    <meta name="description" content="这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点 批话：  我感觉我全搞明白了（9&#x2F;20，PCA)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note-CSE4650 - Methods of Data Mining">
 <meta property="og:url" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/index.html">
 <meta property="og:site_name" content="MetaExistential">
-<meta property="og:description" content="这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点 批话：  我感觉我全搞明白了（9&#x2F;20，PCA)">
+<meta property="og:description" content="这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点 批话：  我感觉我全搞明白了（9&#x2F;20，PCA)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917002129599.png">
-<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013528927.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917002221082-169530761252420.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013505657-169530762209821.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013528927-169530762523922.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917173800899-169530764266123.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917174619556.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920162701682.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917180041406.png">
@@ -37,24 +40,29 @@
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205442693.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205716976.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205856749.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210131237-169530766242824.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210619748.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210800750.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213449689-169530767273325.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213718931.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214229908.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214253794.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214240957.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917231626261-16949817904071-169530768182626.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225205567.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225350551.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225520590.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920215126603.png">
-<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920200335261.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230921175006273.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/Correlation66-169530774470329.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920200335261-169530776031330.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920214837704.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920220923499.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165658041.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165835601.png">
 <meta property="og:image" content="https://quasimoodo.github.io/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919170046657.png">
 <meta property="article:published_time" content="2023-09-16T20:57:37.000Z">
-<meta property="article:modified_time" content="2023-09-21T14:39:30.662Z">
+<meta property="article:modified_time" content="2023-09-21T14:51:02.238Z">
 <meta property="article:author" content="Quasimoodo">
 <meta property="article:tag" content="Note">
 <meta property="article:tag" content="Course">
@@ -171,7 +179,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E5%89%8D%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">学前信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">前置知识：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%95%99%E6%9D%90"><span class="nav-number">1.2.</span> <span class="nav-text">使用的教材</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E6%8B%BF%E5%88%86%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">怎么拿分数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="nav-number">1.4.</span> <span class="nav-text">学习目标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E6%B4%97"><span class="nav-number">3.1.</span> <span class="nav-text">清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BB%98%E9%94%99%E8%AF%AF%E7%9A%84%E5%8A%9E%E6%B3%95%EF%BC%9A"><span class="nav-number">3.1.1.</span> <span class="nav-text">对付错误的办法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="nav-number">3.1.2.</span> <span class="nav-text">缺失值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">特征提取：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-3-%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%A1%A1%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">Lecture 3 相似性和距离的衡量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F"><span class="nav-number">4.1.</span> <span class="nav-text">不同数据类型的距离度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%B1%BB"><span class="nav-number">4.1.1.</span> <span class="nav-text">多维数类:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lp-%E8%8C%83%E6%95%B0%EF%BC%9A%E8%A1%A1%E9%87%8F%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E4%B8%AD%E5%A4%A7%E5%B0%8F%E6%88%96%E8%80%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Lp 范数：衡量向量空间中大小或者距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Match-based-similarity-with-proximity-thresholding"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">Match-based similarity with proximity thresholding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cos-%E7%9B%B8%E4%BC%BC%E6%80%A7"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">Cos 相似性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mahalanobis-distance"><span class="nav-number">4.1.1.4.</span> <span class="nav-text">Mahalanobis distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ISOMAP"><span class="nav-number">4.1.1.5.</span> <span class="nav-text">ISOMAP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.2.</span> <span class="nav-text">类数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goodall-measure"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Goodall measure</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E6%95%B0%E6%8D%AE%EF%BC%88%E6%97%A0%E9%9C%80%E5%8F%98%E5%BD%A2%EF%BC%89"><span class="nav-number">4.1.3.</span> <span class="nav-text">混合数据（无需变形）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.4.</span> <span class="nav-text">二元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.5.</span> <span class="nav-text">字符串数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.6.</span> <span class="nav-text">文本数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">注意：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture3-Dimension-reduction-PCA-SVD"><span class="nav-number">5.</span> <span class="nav-text">Lecture3 Dimension reduction(PCA,SVD)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">动机：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86"><span class="nav-number">5.2.</span> <span class="nav-text">前置数学知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.1.</span> <span class="nav-text">协方差矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.2.</span> <span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.3.</span> <span class="nav-text">半正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">5.2.4.</span> <span class="nav-text">特征值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E6%B1%82%E8%A7%A3"><span class="nav-number">5.2.4.1.</span> <span class="nav-text">特征值求解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">5.2.5.</span> <span class="nav-text">奇异值分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE"><span class="nav-number">5.3.</span> <span class="nav-text">假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3-1"><span class="nav-number">5.4.</span> <span class="nav-text">特征值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BCSVD%E5%88%86%E8%A7%A3"><span class="nav-number">5.5.</span> <span class="nav-text">奇异值SVD分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E6%8C%91%E9%80%89r"><span class="nav-number">5.6.</span> <span class="nav-text">怎么挑选r</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">5.8.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%B1%E8%81%9A%E7%B1%BB-Spectral-clustering"><span class="nav-number">6.</span> <span class="nav-text">谱聚类 Spectral clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">6.1.</span> <span class="nav-text">图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E9%AA%8C%E8%AF%81"><span class="nav-number">7.</span> <span class="nav-text">聚类验证</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E5%89%8D%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">学前信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.</span> <span class="nav-text">前置知识：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%95%99%E6%9D%90"><span class="nav-number">1.2.</span> <span class="nav-text">使用的教材</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E6%8B%BF%E5%88%86%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">怎么拿分数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="nav-number">1.4.</span> <span class="nav-text">学习目标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E6%B4%97"><span class="nav-number">3.1.</span> <span class="nav-text">清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BB%98%E9%94%99%E8%AF%AF%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">对付错误的办法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="nav-number">3.1.2.</span> <span class="nav-text">缺失值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="nav-number">3.2.</span> <span class="nav-text">特征提取：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-3-%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E8%A1%A1%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">Lecture 3 相似性和距离的衡量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F"><span class="nav-number">4.1.</span> <span class="nav-text">不同数据类型的距离度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%B1%BB"><span class="nav-number">4.1.1.</span> <span class="nav-text">多维数类:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lp-%E8%8C%83%E6%95%B0%E8%A1%A1%E9%87%8F%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E4%B8%AD%E5%A4%A7%E5%B0%8F%E6%88%96%E8%80%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Lp
+范数：衡量向量空间中大小或者距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#match-based-similarity-with-proximity-thresholding"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">Match-based
+similarity with proximity thresholding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cos-%E7%9B%B8%E4%BC%BC%E6%80%A7"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">Cos 相似性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mahalanobis-distance"><span class="nav-number">4.1.1.4.</span> <span class="nav-text">Mahalanobis distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isomap"><span class="nav-number">4.1.1.5.</span> <span class="nav-text">ISOMAP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.2.</span> <span class="nav-text">类数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#goodall-measure"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Goodall measure</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E6%95%B0%E6%8D%AE%E6%97%A0%E9%9C%80%E5%8F%98%E5%BD%A2"><span class="nav-number">4.1.3.</span> <span class="nav-text">混合数据（无需变形）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.4.</span> <span class="nav-text">二元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.5.</span> <span class="nav-text">字符串数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="nav-number">4.1.6.</span> <span class="nav-text">文本数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">4.2.</span> <span class="nav-text">注意：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture3-dimension-reductionpcasvd"><span class="nav-number">5.</span> <span class="nav-text">Lecture3 Dimension
+reduction(PCA,SVD)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-number">5.1.</span> <span class="nav-text">动机：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86"><span class="nav-number">5.2.</span> <span class="nav-text">前置数学知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.1.</span> <span class="nav-text">协方差矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.2.</span> <span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.3.</span> <span class="nav-text">半正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">5.2.4.</span> <span class="nav-text">特征值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E6%B1%82%E8%A7%A3"><span class="nav-number">5.2.4.1.</span> <span class="nav-text">特征值求解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">5.2.5.</span> <span class="nav-text">奇异值分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE"><span class="nav-number">5.3.</span> <span class="nav-text">假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3-1"><span class="nav-number">5.4.</span> <span class="nav-text">特征值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BCsvd%E5%88%86%E8%A7%A3"><span class="nav-number">5.5.</span> <span class="nav-text">奇异值SVD分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E6%8C%91%E9%80%89r"><span class="nav-number">5.6.</span> <span class="nav-text">怎么挑选r</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">5.8.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%B1%E8%81%9A%E7%B1%BB-spectral-clustering"><span class="nav-number">6.</span> <span class="nav-text">谱聚类 Spectral clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">6.1.</span> <span class="nav-text">图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E9%AA%8C%E8%AF%81"><span class="nav-number">7.</span> <span class="nav-text">聚类验证</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +197,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -197,7 +208,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -272,7 +283,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-21 17:39:30" itemprop="dateModified" datetime="2023-09-21T17:39:30+03:00">2023-09-21</time>
+      <time title="Modified: 2023-09-21 17:51:02" itemprop="dateModified" datetime="2023-09-21T17:51:02+03:00">2023-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,47 +305,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西 但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点</p>
+        <p>这是关于数据挖掘方法的课程笔记。以前都是复习周才搞这种东西
+但是现在发现不从课程前两周就开始会彻底完蛋…… 希望可以学的好一点</p>
 <p>批话：</p>
 <ul>
-<li>我感觉我全搞明白了（9&#x2F;20，PCA)</li>
+<li>我感觉我全搞明白了（9/20，PCA)</li>
 </ul>
 <span id="more"></span>
-
-<h1 id="学前信息"><a href="#学前信息" class="headerlink" title="学前信息"></a>学前信息</h1><h2 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h2><ul>
-<li>概率：<ul>
+<h1 id="学前信息">学前信息</h1>
+<h2 id="前置知识">前置知识：</h2>
+<ul>
+<li>概率：
+<ul>
 <li>交并补概率的计算</li>
-</ul>
-</li>
-<li>线性代数<ul>
+</ul></li>
+<li>线性代数
+<ul>
 <li>特征值与特征向量</li>
-</ul>
-</li>
-<li>图论<ul>
+</ul></li>
+<li>图论
+<ul>
 <li>连通分量</li>
 <li>团</li>
 <li>点度</li>
 <li>最短路</li>
-</ul>
-</li>
-<li>算法<ul>
+</ul></li>
+<li>算法
+<ul>
 <li>复杂度估计</li>
-</ul>
-</li>
-<li>统计<ul>
+</ul></li>
+<li>统计
+<ul>
 <li>向量的平均，中位数，方差和协方差</li>
-<li>卡方($chi^2$)检测</li>
+<li>卡方(<span class="math inline">\(chi^2\)</span>)检测</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="使用的教材"><a href="#使用的教材" class="headerlink" title="使用的教材"></a>使用的教材</h2><p>Charu C. Aggarwal: Data Mining: The Textbook, Springer 2015</p>
-<h2 id="怎么拿分数"><a href="#怎么拿分数" class="headerlink" title="怎么拿分数"></a>怎么拿分数</h2><ul>
+<h2 id="使用的教材">使用的教材</h2>
+<p>Charu C. Aggarwal: Data Mining: The Textbook, Springer 2015</p>
+<h2 id="怎么拿分数">怎么拿分数</h2>
+<ul>
 <li>5p for 5 exercise groups</li>
-<li>10p for 5 homework in groups </li>
+<li>10p for 5 homework in groups</li>
 <li>24p for exam 12.13, 13:~16:</li>
 <li>1p for prerequisite</li>
 </ul>
-<h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<h2 id="学习目标">学习目标</h2>
+<ul>
 <li>数据挖掘的基本问题模式和方法</li>
 <li>对应问题，关键词的对策</li>
 <li>验证方法</li>
@@ -342,7 +358,8 @@
 <li>能够对问题的计算有所预估和替代方法</li>
 <li>实践</li>
 </ul>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
+<h1 id="简介">简介</h1>
+<ul>
 <li><p>什么是数据挖掘？</p>
 <ul>
 <li>没有确切的定义</li>
@@ -352,170 +369,183 @@
 <li>高效的算法</li>
 <li>以假乱真的发现</li>
 </ul>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917002129599.png" alt="image-20230917002129599" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917002129599.png" alt="image-20230917002129599" style="zoom:50%;"></p>
 <p>和相关领域的关系：</p>
-<p>![image-20230917002221082](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917002221082.png)</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917002221082-169530761252420.png" alt="image-20230917002221082">
+<figcaption aria-hidden="true">image-20230917002221082</figcaption>
+</figure>
 <ul>
 <li>模型更倾向于全局数据，而模式更倾向于局部的</li>
-</ul>
-</li>
+</ul></li>
 <li><p>过程：</p>
 <ul>
 <li>定义问题-预处理-mining——验证——展示和总结</li>
 <li>经常来说，mine出来的东西会适合进入下一轮data mining</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><ul>
+<h1 id="预处理">预处理</h1>
+<ul>
 <li>清洗：错误与缺失值</li>
 <li>特征提取：结合与变形已有的形成新的特征</li>
-<li>数据减少（reduction）：<ul>
+<li>数据减少（reduction）：
+<ul>
 <li>采用</li>
 <li>特征选择</li>
 <li>维度缩减</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="清洗"><a href="#清洗" class="headerlink" title="清洗"></a>清洗</h2><p>Outliers：有时候要搞掉，但有时候很有用</p>
-<h3 id="对付错误的办法："><a href="#对付错误的办法：" class="headerlink" title="对付错误的办法："></a>对付错误的办法：</h3><ul>
+<h2 id="清洗">清洗</h2>
+<p>Outliers：有时候要搞掉，但有时候很有用</p>
+<h3 id="对付错误的办法">对付错误的办法：</h3>
+<ul>
 <li>从多个数据源检查不一致</li>
 <li>使用 domain knowledge</li>
 <li>检查 outliers 和 extreme value</li>
-<li>数据平滑：噪声与随机波动<ul>
+<li>数据平滑：噪声与随机波动
+<ul>
 <li>scaling</li>
 <li>discretization（离散化）</li>
 <li>dimension reduction</li>
-</ul>
-</li>
+</ul></li>
 <li>建模阶段使用 robust方法</li>
 </ul>
-<h3 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h3><p>可以的话，使用正确的替换</p>
+<h3 id="缺失值">缺失值</h3>
+<p>可以的话，使用正确的替换</p>
 <ul>
 <li>feature 缺失的太多：不要（ prune）了</li>
 <li>record 缺失的太多：整个不要了</li>
-<li>估计而填补：<ul>
-<li>均值&#x2F;中位数（考虑范围：在整个还是多大的局部？）</li>
+<li>估计而填补：
+<ul>
+<li>均值/中位数（考虑范围：在整个还是多大的局部？）</li>
 <li>通过其他feature预测：随机森林</li>
 <li>估算可能会有严重的影响</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>或者使用允许空值的算法</p>
-<h2 id="特征提取："><a href="#特征提取：" class="headerlink" title="特征提取："></a>特征提取：</h2><ul>
-<li>Scaling， normalization——num-&gt; num<ul>
-<li>![image-20230917013505657](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917013505657.png)</li>
-<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013528927.png" alt="image-20230917013528927" style="zoom:50%;"></li>
-</ul>
-</li>
-<li>discretization： num-&gt; categorical<ul>
+<h2 id="特征提取">特征提取：</h2>
+<ul>
+<li>Scaling， normalization——num-&gt; num
+<ul>
+<li><figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013505657-169530762209821.png" alt="image-20230917013505657">
+<figcaption aria-hidden="true">image-20230917013505657</figcaption>
+</figure></li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013528927-169530762523922.png" alt="image-20230917013528927" style="zoom:50%;"></li>
+</ul></li>
+<li>discretization： num-&gt; categorical
+<ul>
 <li>将数据范围按照一定间隔分为类（bin), 并给标签</li>
-<li>常用方法：<ul>
+<li>常用方法：
+<ul>
 <li>等宽：尤其适用于均匀分布（uniform distribution）</li>
 <li>等深：每类一样多</li>
-</ul>
-</li>
-<li>好处和局限：<ul>
+</ul></li>
+<li>好处和局限：
+<ul>
 <li>可以对付噪音，个体差异和混合数据</li>
 <li>算法更有效，也可以用更多的</li>
 <li>丢失信息</li>
 <li>优的离散化并不容易——可能取决于其他变量</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>二元化：cate-&gt; binary<ul>
+</ul></li>
+</ul></li>
+<li>二元化：cate-&gt; binary
+<ul>
 <li>算是离散化的一种特例</li>
-</ul>
-</li>
-<li>similarity graphs: * -&gt; graph （怎么做此处存疑）<ul>
+</ul></li>
+<li>similarity graphs: * -&gt; graph （怎么做此处存疑）
+<ul>
 <li>展现成对的相似性，通过最近邻</li>
-<li>好处<ul>
-<li>只要能算距离就行，不管种类<ul>
+<li>好处
+<ul>
+<li>只要能算距离就行，不管种类
+<ul>
 <li>尤其是聚类，推荐等</li>
-</ul>
-</li>
+</ul></li>
 <li>可以使用很多网络算法</li>
-</ul>
-</li>
-<li>可能复杂度$n^2$ 起跳</li>
-<li>方法：<ul>
+</ul></li>
+<li>可能复杂度<span class="math inline">\(n^2\)</span> 起跳</li>
+<li>方法：
+<ul>
 <li>把每个对象看成点</li>
 <li>算每对的距离</li>
-<li>如果距离小于$ \epsilon$ 就给他们连上无向边</li>
+<li>如果距离小于$ $ 就给他们连上无向边</li>
 <li>或者</li>
-<li>A是B的$K$个最近邻-&gt;连上B-A有向边（f方向可能可以被忽略）</li>
-<li>使用一个权重公式，来衡量边的相似性<ul>
-<li>![image-20230917173800899](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917173800899.png)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>A是B的<span class="math inline">\(K\)</span>个最近邻-&gt;连上B-A有向边（f方向可能可以被忽略）</li>
+<li>使用一个权重公式，来衡量边的相似性
+<ul>
+<li><figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917173800899-169530764266123.png" alt="image-20230917173800899">
+<figcaption aria-hidden="true">image-20230917173800899</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li>多个有冗余性的特征中创造出一个新的</li>
-<li>数据减少：<ul>
+<li>数据减少：
+<ul>
 <li>样本采样</li>
 <li>特征选择</li>
-<li>维度缩减：<ul>
+<li>维度缩减：
+<ul>
 <li>旋转轴（PCA,SVD) ?</li>
 <li>类型转换</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="Lecture-3-相似性和距离的衡量"><a href="#Lecture-3-相似性和距离的衡量" class="headerlink" title="Lecture 3 相似性和距离的衡量"></a>Lecture 3 相似性和距离的衡量</h1><ul>
+<h1 id="lecture-3-相似性和距离的衡量">Lecture 3 相似性和距离的衡量</h1>
+<ul>
 <li>什么是距离？</li>
 </ul>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917174619556.png" alt="image-20230917174619556" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917174619556.png" alt="image-20230917174619556" style="zoom:50%;"></p>
 <p>需要满足四个性质：</p>
 <ul>
 <li>非负性 （non-negativity）</li>
-<li>同一性（coincidence axiom）：<ul>
-<li>d&#x3D;0 $iff$ A&#x3D;B</li>
-</ul>
-</li>
+<li>同一性（coincidence axiom）：
+<ul>
+<li>d=0 <span class="math inline">\(iff\)</span> A=B</li>
+</ul></li>
 <li>对称性(symmetry)（无向距离）</li>
 <li>三角不等式(triangle inequality)</li>
 </ul>
 <p>几个例子：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920162701682.png" alt="image-20230920162701682" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920162701682.png" alt="image-20230920162701682" style="zoom:50%;"></p>
 <p>证明一个玩意是距离：</p>
 <ul>
 <li>证这四个性质对于任意变量成立</li>
 <li>——还是证明不是比较容易</li>
 </ul>
-<p>fractional $L_p$ 不是metric：不满足三角不等式</p>
+<p>fractional <span class="math inline">\(L_p\)</span>
+不是metric：不满足三角不等式</p>
 <ul>
-<li>距离与相似性：<ul>
-<li>相似性通常在$[0,1]$</li>
+<li>距离与相似性：
+<ul>
+<li>相似性通常在<span class="math inline">\([0,1]\)</span></li>
 <li>通常采用1-正则化距离 来得到相似性</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>度量空间（Metric Space) $(S,d)$-&gt; 数据和距离</p>
+<p>度量空间（Metric Space) <span class="math inline">\((S,d)\)</span>-&gt; 数据和距离</p>
 <p>三角不等式优化的一个例子：</p>
-<p>给出$n$ 个点和$K$个聚类中心，找到每个点最近的中心</p>
+<p>给出<span class="math inline">\(n\)</span> 个点和<span class="math inline">\(K\)</span>个聚类中心，找到每个点最近的中心</p>
 <ul>
-<li>朴素做法：$nK$ 次计算距离</li>
-<li>剪枝技巧：<ul>
+<li>朴素做法：<span class="math inline">\(nK\)</span> 次计算距离</li>
+<li>剪枝技巧：
+<ul>
 <li>计算所有中心彼此的距离</li>
 <li>计算每个点和某个中心的距离，然后迭代查表寻找</li>
 <li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917180041406.png" alt="image-20230917180041406" style="zoom:50%;"></li>
 <li>所以应该只是剪枝？</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="不同数据类型的距离度量"><a href="#不同数据类型的距离度量" class="headerlink" title="不同数据类型的距离度量"></a>不同数据类型的距离度量</h2><h3 id="多维数类"><a href="#多维数类" class="headerlink" title="多维数类:"></a>多维数类:</h3><h4 id="Lp-范数：衡量向量空间中大小或者距离"><a href="#Lp-范数：衡量向量空间中大小或者距离" class="headerlink" title="Lp 范数：衡量向量空间中大小或者距离"></a>Lp 范数：衡量向量空间中大小或者距离</h4><p>Minkowski距离——Lp范数的一种特例</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917183053294.png" alt="image-20230917183053294" style="zoom:50%;">
-
-<p>P&#x3D;1 曼哈顿距离</p>
-<p>P&#x3D;2 欧几里得距离</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917183549887.png" alt="image-20230917183549887" style="zoom:50%;">
-
+<h2 id="不同数据类型的距离度量">不同数据类型的距离度量</h2>
+<h3 id="多维数类">多维数类:</h3>
+<h4 id="lp-范数衡量向量空间中大小或者距离">Lp
+范数：衡量向量空间中大小或者距离</h4>
+<p>Minkowski距离——Lp范数的一种特例</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917183053294.png" alt="image-20230917183053294" style="zoom:50%;"></p>
+<p>P=1 曼哈顿距离</p>
+<p>P=2 欧几里得距离</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917183549887.png" alt="image-20230917183549887" style="zoom:50%;"></p>
 <ul>
 <li>可以看出来 维度越高，就越由差最大的那一个决定</li>
 </ul>
@@ -524,97 +554,106 @@
 <p>纬度越高，</p>
 <ul>
 <li>区分性就越小——随机数据集上最大和最小差的不多</li>
-<li>就越关心单一维度的差异——999维度相同，一个不一样 就完全反映的是不一样的</li>
+<li>就越关心单一维度的差异——999维度相同，一个不一样
+就完全反映的是不一样的</li>
 <li>解决的可能办法：给某维度加上权重</li>
 </ul>
-<h4 id="Match-based-similarity-with-proximity-thresholding"><a href="#Match-based-similarity-with-proximity-thresholding" class="headerlink" title="Match-based similarity with proximity thresholding"></a>Match-based similarity with proximity thresholding</h4><p>（有临近阈值约束的相似性衡量）</p>
+<h4 id="match-based-similarity-with-proximity-thresholding">Match-based
+similarity with proximity thresholding</h4>
+<p>（有临近阈值约束的相似性衡量）</p>
 <p>这个东西是为了解决以下的两个问题：</p>
-<ol>
+<ol type="1">
 <li>特征只在局部有相关性（糖尿病人的血糖而不是瘫痪的）</li>
 <li>大维度下，两个对象不太可能一样，除非某些特征相近</li>
 </ol>
 <p>手段是 强调其相似的维度，</p>
 <p>具体做法是，对每一个维度进行等深离散化，只关注每个相同bin中的距离</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205442693.png" alt="image-20230917205442693" style="zoom:50%;">
-
-<p>这张图中就只关注$1，3$两个维度的距离差</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205716976.png" alt="image-20230917205716976" style="zoom:50%;">
-
-<p>挑选参数：维度$K$越大，$m$ 分的bin就越多</p>
-<h4 id="Cos-相似性"><a href="#Cos-相似性" class="headerlink" title="Cos 相似性"></a>Cos 相似性</h4><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205856749.png" alt="image-20230917205856749" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205442693.png" alt="image-20230917205442693" style="zoom:50%;"></p>
+<p>这张图中就只关注<span class="math inline">\(1，3\)</span>两个维度的距离差</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205716976.png" alt="image-20230917205716976" style="zoom:50%;"></p>
+<p>挑选参数：维度<span class="math inline">\(K\)</span>越大，<span class="math inline">\(m\)</span> 分的bin就越多</p>
+<h4 id="cos-相似性">Cos 相似性</h4>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205856749.png" alt="image-20230917205856749" style="zoom:50%;"></p>
 <ul>
-<li>适用性：<ul>
+<li>适用性：
+<ul>
 <li>数类（整数，实数</li>
 <li>二进制数</li>
-</ul>
-</li>
+</ul></li>
 <li>[ − 1, 1]</li>
 <li>常用于数字表示的文本文档</li>
 <li>如果向量都被正则化了，那么和L2是有关系的</li>
 </ul>
-<p>![image-20230917210131237](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917210131237.png)</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210131237-169530766242824.png" alt="image-20230917210131237">
+<figcaption aria-hidden="true">image-20230917210131237</figcaption>
+</figure>
 <p>新问题：</p>
-<p>距离是否应该反应数据分布呢？ 换句话说，在更稀疏的方向上，同样的差昭示着更大的差异：</p>
-<h4 id="Mahalanobis-distance"><a href="#Mahalanobis-distance" class="headerlink" title="Mahalanobis distance"></a>Mahalanobis distance</h4><p>马哈拉诺比斯距离， 考虑了各个特征之间的相关性和不同特征的方差</p>
+<p>距离是否应该反应数据分布呢？
+换句话说，在更稀疏的方向上，同样的差昭示着更大的差异：</p>
+<h4 id="mahalanobis-distance">Mahalanobis distance</h4>
+<p>马哈拉诺比斯距离， 考虑了各个特征之间的相关性和不同特征的方差</p>
 <p>公式：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210619748.png" alt="image-20230917210619748" style="zoom:50%;">
-
-<p>​	$\Sigma^-1$  协方差矩阵的逆，描述了数据特征间的相关性，逆矩阵用来给特征差异加权</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210619748.png" alt="image-20230917210619748" style="zoom:50%;"></p>
+<p>​ <span class="math inline">\(\Sigma^-1\)</span>
+协方差矩阵的逆，描述了数据特征间的相关性，逆矩阵用来给特征差异加权</p>
 <p>场景：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210800750.png" alt="image-20230917210800750" style="zoom:67%;">
-
-
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210800750.png" alt="image-20230917210800750" style="zoom:67%;"></p>
 <p>类似的推断：</p>
 <p>如果距离测量只能通过一定路径呢？ 比如 最近邻图</p>
-<h4 id="ISOMAP"><a href="#ISOMAP" class="headerlink" title="ISOMAP"></a>ISOMAP</h4><p>Isometric Mapping 等距映射</p>
+<h4 id="isomap">ISOMAP</h4>
+<p>Isometric Mapping 等距映射</p>
 <p>创造一个近邻图，对于每个点，对于其K个近邻链接</p>
 <p>距离为两点间的最短路</p>
 <p>可选步骤：嵌入数据，降维表示</p>
-<p>![image-20230917213449689](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917213449689.png)</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213449689-169530767273325.png" alt="image-20230917213449689">
+<figcaption aria-hidden="true">image-20230917213449689</figcaption>
+</figure>
 <p>实际上使用了最近邻建图才会发现其实很远</p>
-<h3 id="类数据"><a href="#类数据" class="headerlink" title="类数据"></a>类数据</h3><p>常用方程：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213718931.png" alt="image-20230917213718931" style="zoom:50%;">
-
+<h3 id="类数据">类数据</h3>
+<p>常用方程：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213718931.png" alt="image-20230917213718931" style="zoom:50%;"></p>
 <ul>
-<li>Wi&#x3D; $1&#x2F;k$</li>
+<li>Wi= <span class="math inline">\(1/k\)</span></li>
 <li>S采用二元表示</li>
 </ul>
 <p>如果考虑到频率的话，就使用</p>
-<h4 id="Goodall-measure"><a href="#Goodall-measure" class="headerlink" title="Goodall measure"></a>Goodall measure</h4><p>其中，越常见的特征对于总体相似贡献越低</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214229908.png" alt="image-20230917214229908" style="zoom:50%;">
-
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214253794.png" alt="image-20230917214253794" style="zoom:50%;">
-
+<h4 id="goodall-measure">Goodall measure</h4>
+<p>其中，越常见的特征对于总体相似贡献越低</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214229908.png" alt="image-20230917214229908" style="zoom:50%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214253794.png" alt="image-20230917214253794" style="zoom:50%;"></p>
 <p>总体分数：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214240957.png" alt="image-20230917214240957" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214240957.png" alt="image-20230917214240957" style="zoom:50%;"></p>
 <p>下面除以特征数，上面统计每一个特征的贡献，其中越稀有的特征贡献越接近1，不同的特征相似为0</p>
-<h3 id="混合数据（无需变形）"><a href="#混合数据（无需变形）" class="headerlink" title="混合数据（无需变形）"></a>混合数据（无需变形）</h3><p>给与权重，再分别计算</p>
-<p>![image-20230917231626261](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;image-20230917231626261-16949817904071.png)</p>
+<h3 id="混合数据无需变形">混合数据（无需变形）</h3>
+<p>给与权重，再分别计算</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917231626261-16949817904071-169530768182626.png" alt="image-20230917231626261">
+<figcaption aria-hidden="true">image-20230917231626261</figcaption>
+</figure>
 <p>通常范畴不同，所以还需要使用标准差进行标准化</p>
-<h3 id="二元数据"><a href="#二元数据" class="headerlink" title="二元数据"></a>二元数据</h3><p>直接算：</p>
+<h3 id="二元数据">二元数据</h3>
+<p>直接算：</p>
 <p>Hamming Distance</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225205567.png" alt="image-20230917225205567" style="zoom:50%;">
-
-
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225205567.png" alt="image-20230917225205567" style="zoom:50%;"></p>
 <p>通常可以将set变形，得到长二元数据</p>
-<p>-&gt; set通常很稀疏，常见元素就会显得很一致，即，忽略了集合本身的大小</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225350551.png" alt="image-20230917225350551" style="zoom:50%;">
-
+<p>-&gt;
+set通常很稀疏，常见元素就会显得很一致，即，忽略了集合本身的大小</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225350551.png" alt="image-20230917225350551" style="zoom:50%;"></p>
 <p>这两个距离都是10 有点失真</p>
-<p>使用 <strong>Jaccard coefficient</strong>  进行计算，这是一个常用于集合相似性的计算方式</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225520590.png" alt="image-20230917225520590" style="zoom:50%;">
-
+<p>使用 <strong>Jaccard coefficient</strong>
+进行计算，这是一个常用于集合相似性的计算方式</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225520590.png" alt="image-20230917225520590" style="zoom:50%;"></p>
 <p>其中0和1的权重不一样</p>
-<h3 id="字符串数据"><a href="#字符串数据" class="headerlink" title="字符串数据"></a>字符串数据</h3><p>Hamming Distance就不好用了：</p>
+<h3 id="字符串数据">字符串数据</h3>
+<p>Hamming Distance就不好用了：</p>
 <ul>
 <li>必须等长</li>
 <li>typo惩罚太大</li>
 </ul>
-<p>使用<strong>Levenshtein distance</strong> ，即编辑距离，包括以下三种操作：</p>
+<p>使用<strong>Levenshtein distance</strong>
+，即编辑距离，包括以下三种操作：</p>
 <ul>
 <li>插入</li>
 <li>删除</li>
@@ -626,137 +665,190 @@
 <li>操作代价为正</li>
 <li>反操作存在且代价一致</li>
 </ul>
-<h3 id="文本数据"><a href="#文本数据" class="headerlink" title="文本数据"></a>文本数据</h3><p>将文档转化为m长度的向量（词典大小）</p>
+<h3 id="文本数据">文本数据</h3>
+<p>将文档转化为m长度的向量（词典大小）</p>
 <p>统计每个词的频数</p>
-<p>然后计算<strong>cos相似性</strong> （Jaccard coefficient 也不是不能用</p>
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>名字和参数一般都不太确定，所以最好还是加点文献引用</p>
+<p>然后计算<strong>cos相似性</strong> （Jaccard coefficient
+也不是不能用</p>
+<h2 id="注意">注意：</h2>
+<p>名字和参数一般都不太确定，所以最好还是加点文献引用</p>
 <p>重点：</p>
 <ul>
 <li>高维Lp的不好使</li>
 <li>cos和阈值约束的距离</li>
 <li>non-metrics可能对于高位的相似性计算更好（还没学吧）</li>
 </ul>
-<h1 id="Lecture3-Dimension-reduction-PCA-SVD"><a href="#Lecture3-Dimension-reduction-PCA-SVD" class="headerlink" title="Lecture3 Dimension reduction(PCA,SVD)"></a>Lecture3 Dimension reduction(PCA,SVD)</h1><p> 主成分分析（Principal component analysis (PCA) </p>
-<p>这章的目的应该是对数据降维，手段包括特征<strong>eigen</strong> 和奇异 <strong>singular</strong></p>
-<h2 id="动机："><a href="#动机：" class="headerlink" title="动机："></a>动机：</h2><ul>
-<li>高维数据比较困难<ul>
+<h1 id="lecture3-dimension-reductionpcasvd">Lecture3 Dimension
+reduction(PCA,SVD)</h1>
+<p>主成分分析（Principal component analysis (PCA)</p>
+<p>这章的目的应该是对数据降维，手段包括特征<strong>eigen</strong> 和奇异
+<strong>singular</strong></p>
+<h2 id="动机">动机：</h2>
+<ul>
+<li>高维数据比较困难
+<ul>
 <li>难以聚类</li>
 <li>对于特征强相关的 可以用少数特征来表示同样的信息</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>手段：缩减维度来减少冗余</p>
 <ul>
-<li><p>只知道成对的距离</p>
-</li>
-<li><p>降低开销</p>
-</li>
-<li><p>去除噪声</p>
-</li>
+<li><p>只知道成对的距离</p></li>
+<li><p>降低开销</p></li>
+<li><p>去除噪声</p></li>
 <li><p>结果更好理解</p>
-<pre><code>- 早期做会丢失信息
-</code></pre>
-</li>
+<ul>
+<li>早期做会丢失信息</li>
+</ul></li>
 </ul>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920215126603.png" alt="image-20230920215126603" style="zoom:50%;">
-
-
-
-<h2 id="前置数学知识"><a href="#前置数学知识" class="headerlink" title="前置数学知识"></a>前置数学知识</h2><p>需要的数学知识比较多，包括协方差矩阵(covariance matrix) 拉普拉斯矩阵，半正定矩阵，矩阵的奇异值向量等</p>
-<p><strong>向量$x$一般说的都是列向量</strong></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920215126603.png" alt="image-20230920215126603" style="zoom:50%;"></p>
+<h2 id="前置数学知识">前置数学知识</h2>
+<p>需要的数学知识比较多，包括协方差矩阵(covariance matrix)
+拉普拉斯矩阵，半正定矩阵，矩阵的奇异值向量等</p>
+<p><strong>向量<span class="math inline">\(x\)</span>一般说的都是列向量</strong></p>
 <p>下面先对协方差矩阵进行一些学习。</p>
-<h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>相关系数用来描述两个变量之间的<strong>线性</strong>相关关系，范围从[-1,1]<br>$$<br>ρ &#x3D; (Σ((X - μX)(Y - μY))) &#x2F; (σX * σY)<br>$$<br>相关系数可以认为是标准化了的协方差</p>
+<h3 id="协方差矩阵">协方差矩阵</h3>
+<p>相关系数用来描述两个变量之间的<strong>线性</strong>相关关系，范围从[-1,1]
+<span class="math display">\[
+ρ = (Σ((X - μX)(Y - μY))) / (σX * σY)
+\]</span> 相关系数可以认为是标准化了的协方差</p>
 <p>协方差矩阵是这么算的</p>
-<p>注意其中的$X,Y$ 可以理解为多元变量，即每一项是一个一维向量（一个变量）的二位变量<br>$$<br>Cov(X, Y) &#x3D; Σ((X - μX)(Y - μY)) &#x2F; N-1<br>$$<br>![img](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;Correlation55-16952207836256.png)</p>
-<p>![img](课程笔记 CSE4650-Methods-of-Data-Mining&#x2F;Correlation66.png)<br>$$<br>A&#x3D;\left{\begin{matrix}X &amp; Y &amp; Z\end{matrix}\right}&#x3D;\left{ \begin{matrix} x_1-x &amp; y_1-y &amp; z_1-z \ … &amp; … &amp; …\ x_n-x &amp; y_n-y &amp; z_n-z \end{matrix} \right} \tag{2}<br>$$<br>其中$X,Y,Z$都是随机变量，$x_i$可以理解为一次观测值</p>
-<p>$$<br>C(X,Y,Z)&#x3D;{A^TA \over n}<br>$$</p>
+<p>注意其中的<span class="math inline">\(X,Y\)</span>
+可以理解为多元变量，即每一项是一个一维向量（一个变量）的二位变量 <span class="math display">\[
+Cov(X, Y) = Σ((X - μX)(Y - μY)) / N-1
+\]</span>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230921175006273.png" alt="image-20230921175006273" style="zoom: 67%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/Correlation66-169530774470329.png" alt="img"> <span class="math display">\[
+A=\left\{\begin{matrix}X &amp; Y &amp; Z\end{matrix}\right\}=\left\{
+\begin{matrix} x_1-x &amp; y_1-y &amp; z_1-z \\ ... &amp; ... &amp;
+...\\ x_n-x &amp; y_n-y &amp; z_n-z \end{matrix} \right\}
+\]</span> 其中<span class="math inline">\(X,Y,Z\)</span>都是随机变量，<span class="math inline">\(x_i\)</span>可以理解为一次观测值</p>
+<p><span class="math display">\[
+C(X,Y,Z)={A^TA \over n}
+\]</span></p>
 <ul>
 <li><p>协方差矩阵的性质：</p>
 <ul>
 <li>对角线上是每个变量的方差</li>
-<li>显然是一个对称矩阵，$C&#x3D;C^T$，<ul>
-<li>因为$Cov(X,Y)&#x3D;Cov(Y,X)$</li>
-</ul>
-</li>
+<li>显然是一个对称矩阵，<span class="math inline">\(C=C^T\)</span>，
+<ul>
+<li>因为<span class="math inline">\(Cov(X,Y)=Cov(Y,X)\)</span></li>
+</ul></li>
 <li>他还是一个半正定矩阵</li>
 </ul>
 <blockquote>
 <p>至于为什么正定 暂且还没有搞懂</p>
-</blockquote>
-</li>
+</blockquote></li>
 </ul>
 <p><strong>对于零均值（mean-centered)的数据，协方差矩阵的特征向量矩阵是正交矩阵</strong></p>
-<p>update: 对称矩阵的特征向量都是正交的——正定矩阵的特征向量都是正交的</p>
-<h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>对于矩阵 Q，以下条件等价：</p>
-<ol>
+<p>update:
+对称矩阵的特征向量都是正交的——正定矩阵的特征向量都是正交的</p>
+<h3 id="正交矩阵">正交矩阵</h3>
+<p>对于矩阵 Q，以下条件等价：</p>
+<ol type="1">
 <li>Q 是正交矩阵。</li>
 <li>Q 的列向量是单位向量，并且两两正交（即内积为零）。</li>
-<li>Q 的转置$ Q^T $是其逆矩阵（$Q^TQ &#x3D; QQ^T &#x3D; I$，其中 I 是单位矩阵）</li>
+<li>Q 的转置$ Q^T <span class="math inline">\(是其逆矩阵（\)</span>Q^TQ
+= QQ^T = I$，其中 I 是单位矩阵）</li>
 </ol>
-<h3 id="半正定矩阵"><a href="#半正定矩阵" class="headerlink" title="半正定矩阵"></a>半正定矩阵</h3><p>首先，在实数范畴内，矩阵的正定性都是在其为对称矩阵的前提下研究的，即：</p>
+<h3 id="半正定矩阵">半正定矩阵</h3>
+<p>首先，在实数范畴内，矩阵的正定性都是在其为对称矩阵的前提下研究的，即：</p>
 <center>
-    （半）正定矩阵一定是对称矩阵
+（半）正定矩阵一定是对称矩阵
 </center>
-
 <p>定义：</p>
-<p> 对对称矩阵A，若对任意非零向量$x$，有$x^TAx&gt;0$,则称$A$为正定矩阵，若能取到0，则为半正定矩阵</p>
+<p>对对称矩阵A，若对任意非零向量<span class="math inline">\(x\)</span>，有<span class="math inline">\(x^TAx&gt;0\)</span>,则称<span class="math inline">\(A\)</span>为正定矩阵，若能取到0，则为半正定矩阵</p>
 <p>性质：</p>
 <ul>
 <li>特征值大于（等于0） 半正定的时候能取到</li>
 <li>对角线元素非负</li>
 </ul>
-<h3 id="特征值分解"><a href="#特征值分解" class="headerlink" title="特征值分解"></a>特征值分解</h3><p>一般来说，求解特征值是为了实现矩阵的对角化：<br>$$<br>A &#x3D; PDP⁻¹<br>$$<br>$A$是方阵</p>
-<p>$P$是可逆矩阵，列向量为$A$的特征向量</p>
-<p>$D$是对角阵，对角线是$A$的特征值，顺序与$P$对应</p>
+<h3 id="特征值分解">特征值分解</h3>
+<p>一般来说，求解特征值是为了实现矩阵的对角化： <span class="math display">\[
+A = PDP⁻¹
+\]</span> <span class="math inline">\(A\)</span>是方阵</p>
+<p><span class="math inline">\(P\)</span>是可逆矩阵，列向量为<span class="math inline">\(A\)</span>的特征向量</p>
+<p><span class="math inline">\(D\)</span>是对角阵，对角线是<span class="math inline">\(A\)</span>的特征值，顺序与<span class="math inline">\(P\)</span>对应</p>
 <p>对角化的矩阵具有很多应用，如快速计算A的高次幂。</p>
 <p><strong>对角化步骤：</strong></p>
-<p>首先对特征值，特征向量的一般形式进行了解：<br>$$<br>对方阵A,有Ax&#x3D;\lambda x ，称x是A的一个特征向量，\lambda 是x对应的特征值<br>$$</p>
-<h4 id="特征值求解"><a href="#特征值求解" class="headerlink" title="特征值求解"></a>特征值求解</h4><ol>
-<li>求解det(行列式) $det(A-\lambda I)&#x3D;0$,求出若干特征值</li>
-<li>求解$Ax&#x3D;\lambda x$,求出每个特征值对应的特征向量（非零）</li>
+<p>首先对特征值，特征向量的一般形式进行了解： <span class="math display">\[
+对方阵A,有Ax=\lambda x ，称x是A的一个特征向量，\lambda 是x对应的特征值
+\]</span></p>
+<h4 id="特征值求解">特征值求解</h4>
+<ol type="1">
+<li>求解det(行列式) <span class="math inline">\(det(A-\lambda
+I)=0\)</span>,求出若干特征值</li>
+<li>求解<span class="math inline">\(Ax=\lambda
+x\)</span>,求出每个特征值对应的特征向量（非零）</li>
 </ol>
 <blockquote>
 <p>特征值有很多良好的性质：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920200335261.png" alt="image-20230920200335261" style="zoom:50%;">
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920200335261-169530776031330.png" alt="image-20230920200335261" style="zoom:50%;"></p>
 </blockquote>
-<p>​	此时，如果</p>
+<p>​ 此时，如果</p>
 <pre><code>    1. $A$满秩
-    1. $X=&#123;x_1,...,x_n&#125;$特征向量是一组线性无关的
-</code></pre>
-<p>​	那么矩阵可以对角化为<br>$$<br>A &#x3D; PDP⁻¹<br>$$<br>对于零均值（mean-centered)的数据，协方差矩阵的特征向量矩阵是正交矩阵,即<br>$$<br>P^{-1}&#x3D;P^T<br>$$<br>所以也可以写成<br>$$<br>C&#x3D;PDP^T<br>$$</p>
-<h3 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h3><p>SVD能够适用于任何矩阵分解，</p>
-<p>对于任意矩阵$A$,</p>
-<p>对$AA^T$求特征值，用单位化特征向量构成$U$</p>
-<p>对$A^TA$求特征值，用单位化特征向量构成$V$</p>
-<p>对$AA^T或A^TA$求特征值的平方根，构成对角阵$\Sigma$<br>$$<br>A&#x3D;U\Sigma V^T<br>$$<br>U和V分别成为左右奇异值矩阵</p>
-<h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><ul>
-<li>高方差可以展示数据的结构<ul>
+    1. $X=&#123;x_1,...,x_n&#125;$特征向量是一组线性无关的</code></pre>
+<p>​ 那么矩阵可以对角化为 <span class="math display">\[
+A = PDP⁻¹
+\]</span>
+对于零均值（mean-centered)的数据，协方差矩阵的特征向量矩阵是正交矩阵,即
+<span class="math display">\[
+P^{-1}=P^T
+\]</span> 所以也可以写成 <span class="math display">\[
+C=PDP^T
+\]</span></p>
+<h3 id="奇异值分解">奇异值分解</h3>
+<p>SVD能够适用于任何矩阵分解，</p>
+<p>对于任意矩阵<span class="math inline">\(A\)</span>,</p>
+<p>对<span class="math inline">\(AA^T\)</span>求特征值，用单位化特征向量构成<span class="math inline">\(U\)</span></p>
+<p>对<span class="math inline">\(A^TA\)</span>求特征值，用单位化特征向量构成<span class="math inline">\(V\)</span></p>
+<p>对<span class="math inline">\(AA^T或A^TA\)</span>求特征值的平方根，构成对角阵<span class="math inline">\(\Sigma\)</span> <span class="math display">\[
+A=U\Sigma V^T
+\]</span> U和V分别成为左右奇异值矩阵</p>
+<h2 id="假设">假设</h2>
+<ul>
+<li>高方差可以展示数据的结构
+<ul>
 <li>为什么？</li>
 <li>如果在这一维度（i.e.旋转后的坐标轴投影）上，数据具有较大的方差，就可以认为这一个维度能够反映作为信号的信息，而其他轴可能就是它的噪声</li>
-</ul>
-</li>
+</ul></li>
 <li>数据可以被正交基向量的线性组合表示</li>
 </ul>
-<p>希望可以用一个变形的矩阵$d<em>r的P$，来将$n</em>d的 D$表示为$n<em>r$的$D</em>P_r$(r&lt;d)</p>
+<p>希望可以用一个变形的矩阵<span class="math inline">\(d*r的P\)</span>，来将<span class="math inline">\(n*d的 D\)</span>表示为<span class="math inline">\(n*r\)</span>的<span class="math inline">\(D*P_r\)</span>(r&lt;d)</p>
 <p><strong>即，希望把数据由d维降到r维</strong></p>
 <blockquote>
 <p>这r维是全新的正交特征，也成为主成分，希望可以有相对最大的数据方差，而舍弃的维度中，方差几乎为0</p>
 </blockquote>
-<h2 id="特征值分解-1"><a href="#特征值分解-1" class="headerlink" title="特征值分解"></a>特征值分解</h2><p>怎么让方差最大呢？就需要用协方差矩阵，对应的特征值所对应的$k$个特征向量所组成的矩阵</p>
-<p>首先考虑零均值（mean-centered)的数据$D$,</p>
+<h2 id="特征值分解-1">特征值分解</h2>
+<p>怎么让方差最大呢？就需要用协方差矩阵，对应的特征值所对应的<span class="math inline">\(k\)</span>个特征向量所组成的矩阵</p>
+<p>首先考虑零均值（mean-centered)的数据<span class="math inline">\(D\)</span>,</p>
 <p>一般数据的零均值过程如下：</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920214837704.png" alt="image-20230920214837704" style="zoom:50%;">
-
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920214837704.png" alt="image-20230920214837704" style="zoom:50%;"></p>
 <p>每一列计算其均值，分别减掉</p>
-<p>计算协方差矩阵<br>$$<br>C &#x3D; {1\over n − 1} D^T D<br>$$<br>将其对角化为<br>$$<br>C&#x3D;PΛP^T<br>$$<br>选取$P$的前$r$大的特征值对应的向量，组成新的特征矩阵<br>$$<br>P_r<br>$$<br>目标降维矩阵即为<br>$$<br>D^&#96;&#x3D;DP_r<br>$$</p>
-<h2 id="奇异值SVD分解"><a href="#奇异值SVD分解" class="headerlink" title="奇异值SVD分解"></a>奇异值SVD分解</h2><p>步骤与上面类似，区别在于在对角化的一步使用奇异值分解，</p>
-<p>$$<br>C&#x3D;Q\Sigma P^T<br>$$<br>对$P$选择前r大的特征向量构成$P_r$</p>
-<p>目标降维矩阵即为<br>$$<br>D^&#96;&#x3D;DP_r<br>$$</p>
+<p>计算协方差矩阵 <span class="math display">\[
+C = {1\over n − 1} D^T D
+\]</span> 将其对角化为 <span class="math display">\[
+C=PΛP^T
+\]</span> 选取<span class="math inline">\(P\)</span>的前<span class="math inline">\(r\)</span>大的特征值对应的向量，组成新的特征矩阵
+<span class="math display">\[
+P_r
+\]</span> 目标降维矩阵即为 <span class="math display">\[
+D^`=DP_r
+\]</span></p>
+<h2 id="奇异值svd分解">奇异值SVD分解</h2>
+<p>步骤与上面类似，区别在于在对角化的一步使用奇异值分解，</p>
+<p><span class="math display">\[
+C=Q\Sigma P^T
+\]</span> 对<span class="math inline">\(P\)</span>选择前r大的特征向量构成<span class="math inline">\(P_r\)</span></p>
+<p>目标降维矩阵即为 <span class="math display">\[
+D^`=DP_r
+\]</span></p>
 <blockquote>
 <p>此处仅使用了右奇异矩阵，就是对样本的列进行了压缩。而使用左奇异矩阵可以完成对行数的压缩</p>
 <p>（来自参考）</p>
 </blockquote>
-<p>使用左奇异矩阵$D^TQ_r$ describes items by r latent components</p>
+<p>使用左奇异矩阵<span class="math inline">\(D^TQ_r\)</span> describes
+items by r latent components</p>
 <ul>
 <li>可以大幅降维</li>
 <li>LSA（潜在成分分析使用）</li>
@@ -764,59 +856,63 @@
 <li>减少同义词噪声</li>
 <li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920220923499.png" alt="image-20230920220923499" style="zoom:50%;"></li>
 </ul>
-<p>??noise reduction: truncated SVD tends to correct inconsistencies??</p>
-<h2 id="怎么挑选r"><a href="#怎么挑选r" class="headerlink" title="怎么挑选r"></a>怎么挑选r</h2><p>降维后的维度r（主成分个数)</p>
+<p>??noise reduction: truncated SVD tends to correct
+inconsistencies??</p>
+<h2 id="怎么挑选r">怎么挑选r</h2>
+<p>降维后的维度r（主成分个数)</p>
 <p>有一个类似于置信度的东西，笔记就不说了</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>启发性， Work well only if the underlying assumptions are true.</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>这一篇讲得肯定比我一下午写得明白</p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/preprocessing-data-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca-%E5%8E%9F%E7%90%86%E8%A9%B3%E8%A7%A3-afe1fd044d4f">https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/preprocessing-data-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca-%E5%8E%9F%E7%90%86%E8%A9%B3%E8%A7%A3-afe1fd044d4f</a></p>
-<h1 id="谱聚类-Spectral-clustering"><a href="#谱聚类-Spectral-clustering" class="headerlink" title="谱聚类 Spectral clustering"></a>谱聚类 Spectral clustering</h1><p>9.19</p>
+<h2 id="总结">总结</h2>
+<p>启发性， Work well only if the underlying assumptions are true.</p>
+<h2 id="参考文献">参考文献</h2>
+<p>这一篇讲得肯定比我一下午写得明白</p>
+<p>https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/preprocessing-data-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca-%E5%8E%9F%E7%90%86%E8%A9%B3%E8%A7%A3-afe1fd044d4f</p>
+<h1 id="谱聚类-spectral-clustering">谱聚类 Spectral clustering</h1>
+<p>9.19</p>
 <blockquote>
 <p>它的主要思想是把所有的数据看做空间中的点，这些点之间可以用边连接起来。距离较远的两个点之间的边权重值较低，而距离较近的两个点之间的边权重值较高，通过对所有数据点组成的图进行切图，让切图后不同的子图间边权重和尽可能的低，而子图内的边权重和尽可能的高，从而达到聚类的目的。</p>
 </blockquote>
 <p>主要关注点之间的距离</p>
 <p>所需要的东西：</p>
 <ul>
-<li>相似图$G$<ul>
+<li>相似图<span class="math inline">\(G\)</span>
+<ul>
 <li>数据点</li>
-<li>边权$w_{ij}$ 两点间的相似性</li>
+<li>边权<span class="math inline">\(w_{ij}\)</span> 两点间的相似性</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>需要四个矩阵</p>
-<ol>
-<li>权重矩阵$W$</li>
+<h2 id="图">图</h2>
+<p>需要四个矩阵</p>
+<ol type="1">
+<li>权重矩阵<span class="math inline">\(W\)</span></li>
 <li>点度对角阵Λ</li>
-<li>拉普拉斯矩阵 $L &#x3D; Λ − W$</li>
+<li>拉普拉斯矩阵 <span class="math inline">\(L = Λ − W\)</span></li>
 <li>可能需要正则化的拉着普拉斯矩阵</li>
 </ol>
 <p>做法：</p>
-<p>​	<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165658041.png" alt="image-20230919165658041" style="zoom:50%;"></p>
-<p>首先有这么一个相似度（边权）的邻接矩阵$W$</p>
+<p>​
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165658041.png" alt="image-20230919165658041" style="zoom:50%;"></p>
+<p>首先有这么一个相似度（边权）的邻接矩阵<span class="math inline">\(W\)</span></p>
 <ul>
 <li>无向图</li>
 <li>没有权重就0，1</li>
 </ul>
 <p>然后得到点度对角阵 显示每个点的度（边权的和）</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165835601.png" alt="image-20230919165835601" style="zoom:50%;">
-
-<p>然后得到拉普拉斯矩阵 $L &#x3D; Λ − W$</p>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919170046657.png" alt="image-20230919170046657" style="zoom:50%;">
-
-<p>$L$ 的好性质：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919165835601.png" alt="image-20230919165835601" style="zoom:50%;"></p>
+<p>然后得到拉普拉斯矩阵 <span class="math inline">\(L = Λ −
+W\)</span></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230919170046657.png" alt="image-20230919170046657" style="zoom:50%;"></p>
+<p><span class="math inline">\(L\)</span> 的好性质：</p>
 <ul>
-<li><p>对称矩阵</p>
+<li>对称矩阵
 <ul>
 <li>特征值都是实数（为啥）</li>
-</ul>
-</li>
-<li><p>半正定的，最小的特征值等于0</p>
-</li>
+</ul></li>
+<li>半正定的，最小的特征值等于0</li>
 <li></li>
-<li><p>将数据展现在低微向量空间中</p>
-</li>
+<li>将数据展现在低微向量空间中</li>
 </ul>
-<h1 id="聚类验证"><a href="#聚类验证" class="headerlink" title="聚类验证"></a>聚类验证</h1><p>9。19</p>
+<h1 id="聚类验证">聚类验证</h1>
+<p>9。19</p>
 
     </div>
 
