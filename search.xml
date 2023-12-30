@@ -1146,15 +1146,32 @@
 </ul>
 <p>或者使用允许空值的算法</p>
 <h2 id="特征提取">特征提取：</h2>
+<h3 id="scaling-normalizationnum--num">Scaling( normalization):num-&gt;
+num</h3>
+<h4 id="min-max-scaling">min-max scaling</h4>
+<h4 id="mean-normalization">mean normalization:</h4>
 <ul>
 <li>Scaling， normalization——num-&gt; num
 <ul>
-<li><figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013505657-169530762209821.png" alt="image-20230917013505657">
-<figcaption aria-hidden="true">image-20230917013505657</figcaption>
-</figure></li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013505657-169530762209821.png" alt="image-20230917013505657" style="zoom:50%;"></li>
+</ul>
+<h4 id="standardization-or-z-score-normalization">Standardization or
+z-score normalization</h4>
+<ul>
+<li>这个称作「Standardization or z-score normalization」
+<ul>
+<li>stdev-&gt; standard deviation 标准差</li>
 <li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917013528927-169530762523922.png" alt="image-20230917013528927" style="zoom:50%;"></li>
+<li>作用：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231201211018355.png" alt="image-20231201211018355" style="zoom:50%;"></li>
 </ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="discretization-numcate--categorical">discretization：
+num(cate)-&gt; categorical</h3>
+<ul>
 <li>discretization： num-&gt; categorical
 <ul>
 <li>将数据范围按照一定间隔分为类（bin), 并给标签</li>
@@ -1171,10 +1188,23 @@
 <li>优的离散化并不容易——可能取决于其他变量</li>
 </ul></li>
 </ul></li>
+</ul>
+<h4 id="binarization">Binarization:</h4>
+<ul>
 <li>二元化：cate-&gt; binary
 <ul>
 <li>算是离散化的一种特例</li>
 </ul></li>
+</ul>
+<h3 id="similarity-graphs---graph">similarity graphs: * -&gt; graph</h3>
+<h4 id="大致步骤">大致步骤：</h4>
+<ol type="1">
+<li><p>计算每个对象之间的距离</p></li>
+<li><p>1 无向边： 如果两者距离小于阈值</p>
+<p>2 有向边：如果j是i的K近邻： i-&gt;j</p></li>
+<li><p>将距离映射为边权（语焉不详）</p></li>
+</ol>
+<ul>
 <li>similarity graphs: * -&gt; graph （怎么做此处存疑）
 <ul>
 <li>展现成对的相似性，通过最近邻</li>
@@ -1196,13 +1226,22 @@
 <li>A是B的<span class="math inline">\(K\)</span>个最近邻-&gt;连上B-A有向边（f方向可能可以被忽略）</li>
 <li>使用一个权重公式，来衡量边的相似性
 <ul>
-<li><figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917173800899-169530764266123.png" alt="image-20230917173800899">
-<figcaption aria-hidden="true">image-20230917173800899</figcaption>
-</figure></li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917173800899-169530764266123.png" alt="image-20230917173800899" style="zoom:50%;"></li>
 </ul></li>
 </ul></li>
 </ul></li>
+</ul>
+<h2 id="data-reduction-数据降维">Data reduction 数据降维</h2>
+<ol type="1">
+<li>sampling： only choose some of records</li>
+<li>feature selection: 根据应用选择
+<ol type="1">
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231201212335472.png" alt="image-20231201212335472" style="zoom:50%;"></li>
+</ol></li>
+<li>dimension reduction，降维</li>
+</ol>
+<hr>
+<ul>
 <li>多个有冗余性的特征中创造出一个新的</li>
 <li>数据减少：
 <ul>
@@ -1220,7 +1259,7 @@
 <li>什么是距离？</li>
 </ul>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917174619556.png" alt="image-20230917174619556" style="zoom:50%;"></p>
-<p>需要满足四个性质：</p>
+<p>需要满足四个性质：<strong>才是metric</strong></p>
 <ul>
 <li>非负性 （non-negativity）</li>
 <li>同一性（coincidence axiom）：
@@ -1230,6 +1269,7 @@
 <li>对称性(symmetry)（无向距离）</li>
 <li>三角不等式(triangle inequality)</li>
 </ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204214905480.png" alt="image-20231204214905480" style="zoom:50%;"></p>
 <p>几个例子：</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920162701682.png" alt="image-20230920162701682" style="zoom:50%;"></p>
 <p>证明一个玩意是距离：</p>
@@ -1273,6 +1313,10 @@
 </ul>
 <p>Lp-norm的一个问题：</p>
 <p>向量空间维度高了 就不好使了：</p>
+<p><strong>纬度越高，数据越稀疏</strong></p>
+<p>Larger p will emphasize irrelevant features</p>
+<p>General rule: the larger the dimensionality, the smaller value of p
+to use</p>
 <p>纬度越高，</p>
 <ul>
 <li>区分性就越小——随机数据集上最大和最小差的不多</li>
@@ -1280,8 +1324,13 @@
 就完全反映的是不一样的</li>
 <li>解决的可能办法：给某维度加上权重</li>
 </ul>
+<h4 id="维度灾难">维度灾难：</h4>
+<p>Curse of dimensionality：</p>
+<p>原因： 向量空间</p>
 <h4 id="match-based-similarity-with-proximity-thresholding">Match-based
 similarity with proximity thresholding</h4>
+<p>这玩意能治 curse of dimensionality？</p>
+<p><strong>衡量的是相似性，所以局部接近才有意义</strong></p>
 <p>（有临近阈值约束的相似性衡量）</p>
 <p>这个东西是为了解决以下的两个问题：</p>
 <ol type="1">
@@ -1290,26 +1339,26 @@ similarity with proximity thresholding</h4>
 </ol>
 <p>手段是 强调其相似的维度，</p>
 <p>具体做法是，对每一个维度进行等深离散化，只关注每个相同bin中的距离</p>
+<p><strong>什么是equal depth？ 每一个bin中都有<span class="math inline">\(1/m\)</span>的records</strong></p>
+<p>所以每个维度上的bins也不一样</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205442693.png" alt="image-20230917205442693" style="zoom:50%;"></p>
 <p>这张图中就只关注<span class="math inline">\(1，3\)</span>两个维度的距离差</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205716976.png" alt="image-20230917205716976" style="zoom:50%;"></p>
 <p>挑选参数：维度<span class="math inline">\(K\)</span>越大，<span class="math inline">\(m\)</span> 分的bin就越多</p>
+<p><strong>注意，这里是similarity，所以完全相同的算出来是<span class="math inline">\(K^{1/P}\)</span>，完全不同的（没有一个bins相同）算出来是0</strong></p>
 <h4 id="cos-相似性">Cos 相似性</h4>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917205856749.png" alt="image-20230917205856749" style="zoom:50%;"></p>
 <ul>
 <li>适用性：
 <ul>
-<li>数类（整数，实数</li>
+<li>数类（整数，实数）</li>
 <li>二进制数</li>
 </ul></li>
 <li>[ − 1, 1]</li>
 <li>常用于数字表示的文本文档</li>
 <li>如果向量都被正则化了，那么和L2是有关系的</li>
 </ul>
-<figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210131237-169530766242824.png" alt="image-20230917210131237">
-<figcaption aria-hidden="true">image-20230917210131237</figcaption>
-</figure>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210131237-169530766242824.png" alt="image-20230917210131237" style="zoom:50%;"></p>
 <p>新问题：</p>
 <p>距离是否应该反应数据分布呢？
 换句话说，在更稀疏的方向上，同样的差昭示着更大的差异：</p>
@@ -1319,6 +1368,8 @@ similarity with proximity thresholding</h4>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210619748.png" alt="image-20230917210619748" style="zoom:50%;"></p>
 <p>​ <span class="math inline">\(\Sigma^-1\)</span>
 协方差矩阵的逆，描述了数据特征间的相关性，逆矩阵用来给特征差异加权</p>
+<p><strong>更密的方向（higher variance diretion)
+更近，下图中A比B近</strong></p>
 <p>场景：</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917210800750.png" alt="image-20230917210800750" style="zoom:67%;"></p>
 <p>类似的推断：</p>
@@ -1333,6 +1384,10 @@ similarity with proximity thresholding</h4>
 <figcaption aria-hidden="true">image-20230917213449689</figcaption>
 </figure>
 <p>实际上使用了最近邻建图才会发现其实很远</p>
+<p>这也是一种embedding？</p>
+<p>像是这样的情况，可以用局部mahalanobis 距离
+但是分组其实本身就需要距离，有点循环悖论的感觉了。</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204210922229.png" alt="image-20231204210922229" style="zoom:50%;"></p>
 <h3 id="类数据">类数据</h3>
 <p>常用方程：</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917213718931.png" alt="image-20230917213718931" style="zoom:50%;"></p>
@@ -1347,40 +1402,45 @@ similarity with proximity thresholding</h4>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214253794.png" alt="image-20230917214253794" style="zoom:50%;"></p>
 <p>总体分数：</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917214240957.png" alt="image-20230917214240957" style="zoom:50%;"></p>
-<p>下面除以特征数，上面统计每一个特征的贡献，其中越稀有的特征贡献越接近1，不同的特征相似为0</p>
+<p>下面除以特征数，上面统计每一个特征的贡献，其中越稀有的特征贡献越接近1，<strong>越常见的特征贡献越接近0</strong>，不同的特征相似为0——如果大家在这个方面都一样，那么就没贡献什么信息。</p>
+<p>例子：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204212229379.png" alt="image-20231204212229379" style="zoom: 33%;"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204212651712.png" alt="image-20231204212651712" style="zoom: 33%;"></p>
+<p><strong>这里的「similarity」意味着特征的重叠数，即有几个特征能匹配上</strong></p>
 <h3 id="混合数据无需变形">混合数据（无需变形）</h3>
 <p>给与权重，再分别计算</p>
-<figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917231626261-16949817904071-169530768182626.png" alt="image-20230917231626261">
-<figcaption aria-hidden="true">image-20230917231626261</figcaption>
-</figure>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917231626261-16949817904071-169530768182626.png" alt="image-20230917231626261" style="zoom:50%;"></p>
 <p>通常范畴不同，所以还需要使用标准差进行标准化</p>
 <h3 id="二元数据">二元数据</h3>
 <p>直接算：</p>
-<p>Hamming Distance</p>
+<h4 id="hamming-distance">Hamming Distance</h4>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225205567.png" alt="image-20230917225205567" style="zoom:50%;"></p>
+<p>缺点：忽视了数据本身的长度，只考虑差异项</p>
 <p>通常可以将set变形，得到长二元数据</p>
 <p>-&gt;
 set通常很稀疏，常见元素就会显得很一致，即，忽略了集合本身的大小</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225350551.png" alt="image-20230917225350551" style="zoom:50%;"></p>
 <p>这两个距离都是10 有点失真</p>
+<h4 id="jaccard-coefficient">Jaccard coefficient</h4>
+<p>这个东西是相似度，越高越好</p>
 <p>使用 <strong>Jaccard coefficient</strong>
 进行计算，这是一个常用于集合相似性的计算方式</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230917225520590.png" alt="image-20230917225520590" style="zoom:50%;"></p>
-<p>其中0和1的权重不一样</p>
+<p>其中0和1的<strong>待遇</strong>不一样—<strong>稀疏矩阵!</strong></p>
 <h3 id="字符串数据">字符串数据</h3>
 <p>Hamming Distance就不好用了：</p>
 <ul>
 <li>必须等长</li>
 <li>typo惩罚太大</li>
 </ul>
+<h4 id="levenshtein-distance">Levenshtein distance</h4>
 <p>使用<strong>Levenshtein distance</strong>
-，即编辑距离，包括以下三种操作：</p>
+，即最小编辑距离，包括以下三种操作：</p>
 <ul>
 <li>插入</li>
 <li>删除</li>
 <li>替换</li>
 </ul>
+<p>都是一个字符</p>
 <p>可以给不同的操作辅以权重</p>
 <p><strong>当其满足以下条件，才是mertic：</strong></p>
 <ul>
@@ -1389,9 +1449,11 @@ set通常很稀疏，常见元素就会显得很一致，即，忽略了集合�
 </ul>
 <h3 id="文本数据">文本数据</h3>
 <p>将文档转化为m长度的向量（词典大小）</p>
-<p>统计每个词的频数</p>
+<p>统计每个词的频数/出现/tf-idf</p>
 <p>然后计算<strong>cos相似性</strong> （Jaccard coefficient
 也不是不能用</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204213958228.png" alt="image-20231204213958228" style="zoom:50%;"></p>
+<p>分别是document和term（词）</p>
 <h2 id="注意">注意：</h2>
 <p>名字和参数一般都不太确定，所以最好还是加点文献引用</p>
 <p>重点：</p>
@@ -1415,14 +1477,17 @@ reduction(PCA,SVD)</h1>
 </ul>
 <p>手段：缩减维度来减少冗余</p>
 <ul>
-<li><p>只知道成对的距离</p></li>
-<li><p>降低开销</p></li>
-<li><p>去除噪声</p></li>
-<li><p>结果更好理解</p>
-<ul>
-<li>早期做会丢失信息</li>
-</ul></li>
+<li>只知道成对的距离</li>
 </ul>
+<p>好处：</p>
+<ul>
+<li>降低开销</li>
+<li>去除噪声</li>
+<li>结果更好理解</li>
+</ul>
+<blockquote>
+<p>早期做会丢失信息</p>
+</blockquote>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920215126603.png" alt="image-20230920215126603" style="zoom:50%;"></p>
 <h2 id="前置数学知识">前置数学知识</h2>
 <p>需要的数学知识比较多，包括协方差矩阵(covariance matrix)
@@ -1436,7 +1501,7 @@ reduction(PCA,SVD)</h1>
 \]</span> 相关系数可以认为是标准化了的协方差</p>
 <p>协方差矩阵是这么算的</p>
 <p>注意其中的<span class="math inline">\(X,Y\)</span>
-可以理解为多元变量，即每一项是一个一维向量（一个变量）的二位变量 <span class="math display">\[
+可以理解为多元变量，即每一项是一个一维向量（一个变量）的二维变量 <span class="math display">\[
 Cov(X, Y) = {Σ((X - μX)(Y - μY)) \over N-1}
 \]</span>
 <img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230921175006273.png" alt="image-20230921175006273" style="zoom: 67%;"></p>
@@ -1497,10 +1562,16 @@ A = PDP⁻¹
 \]</span></p>
 <h4 id="特征值求解">特征值求解</h4>
 <ol type="1">
-<li>求解det(行列式) <span class="math inline">\(det(A-\lambda
-I)=0\)</span>,求出若干特征值</li>
-<li>求解<span class="math inline">\(Ax=\lambda
-x\)</span>,求出每个特征值对应的特征向量（非零）</li>
+<li><p>求解det(行列式) <span class="math inline">\(det(A-\lambda
+I)=0\)</span>,求出若干特征值</p></li>
+<li><blockquote>
+<p>det(A)=0</p>
+<p>A不可逆</p>
+<p>A线性相关</p>
+<p>A不满秩</p>
+</blockquote></li>
+<li><p>求解<span class="math inline">\(Ax=\lambda
+x\)</span>,求出每个特征值对应的特征向量（非零）</p></li>
 </ol>
 <blockquote>
 <p>特征值有很多良好的性质：</p>
@@ -1524,7 +1595,9 @@ C=PDP^T
 <p>对<span class="math inline">\(AA^T或A^TA\)</span>求特征值的平方根，构成对角阵<span class="math inline">\(\Sigma\)</span> <span class="math display">\[
 A=U\Sigma V^T
 \]</span> U和V分别成为左右奇异值矩阵</p>
-<h2 id="假设">假设</h2>
+<h2 id="pca">PCA</h2>
+<p>PCA for <strong>Principal component analysis</strong>,主成分分析</p>
+<h3 id="假设">假设</h3>
 <ul>
 <li>高方差可以展示数据的结构
 <ul>
@@ -1538,39 +1611,64 @@ A=U\Sigma V^T
 <blockquote>
 <p>这r维是全新的正交特征，也成为主成分，希望可以有相对最大的数据方差，而舍弃的维度中，方差几乎为0</p>
 </blockquote>
-<h2 id="特征值分解-1">特征值分解</h2>
+<h3 id="特征值分解-1">特征值分解</h3>
 <p>怎么让方差最大呢？就需要用协方差矩阵，对应的特征值所对应的<span class="math inline">\(k\)</span>个特征向量所组成的矩阵</p>
 <p>首先考虑零均值（mean-centered)的数据<span class="math inline">\(D\)</span>,</p>
 <p>一般数据的零均值过程如下：</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920214837704.png" alt="image-20230920214837704" style="zoom:50%;"></p>
-<p>每一列计算其均值，分别减掉</p>
-<p>计算协方差矩阵 <span class="math display">\[
+<ol type="1">
+<li><p>mean-centered</p>
+<p>每一列计算其均值，分别减掉</p></li>
+<li><p>计算协方差矩阵<span class="math inline">\(C\)</span></p></li>
+</ol>
+<p><span class="math display">\[
 C = {1\over n − 1} D^T D
 \]</span> 将其对角化为 <span class="math display">\[
 C=PΛP^T
-\]</span> 选取<span class="math inline">\(P\)</span>的前<span class="math inline">\(r\)</span>大的特征值对应的向量，组成新的特征矩阵
-<span class="math display">\[
+\]</span> 3. 选取<span class="math inline">\(P\)</span>的前<span class="math inline">\(r\)</span>大的特征值对应的向量，组成新的特征矩阵</p>
+<p><span class="math display">\[
 P_r
-\]</span> 目标降维矩阵即为 <span class="math display">\[
+\]</span> 4. 目标降维矩阵即为</p>
+<p><span class="math display">\[
 D^`=DP_r
 \]</span></p>
+<h3 id="pca-不好使的时候">PCA 不好使的时候：</h3>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204224613675.png" alt="image-20231204224613675" style="zoom:50%;"></p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204224717461.png" alt="image-20231204224717461">
+<figcaption aria-hidden="true">image-20231204224717461</figcaption>
+</figure>
 <h2 id="奇异值svd分解">奇异值SVD分解</h2>
+<h3 id="pca和svd的区别">PCA和SVD的区别：</h3>
+<ul>
+<li>SVD不要求mean-centerized</li>
+<li>PCA一般搞covariance matrix（所以会有半正定的好性质），
+SVD都行（一般直接搞D）</li>
+<li></li>
+</ul>
+<h3 id="svd过程">SVD过程</h3>
 <p>步骤与上面类似，区别在于在对角化的一步使用奇异值分解，</p>
 <p><span class="math display">\[
-C=Q\Sigma P^T
-\]</span> 对<span class="math inline">\(P\)</span>选择前r大的特征向量构成<span class="math inline">\(P_r\)</span></p>
+D=Q\Sigma P^T
+\]</span>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204230014035.png" alt="image-20231204230014035" style="zoom:50%;"></p>
+<p>对<span class="math inline">\(P\)</span>选择前r大的特征向量（对应特征值大小）构成<span class="math inline">\(P_r\)</span></p>
 <p>目标降维矩阵即为 <span class="math display">\[
 D^`=DP_r
 \]</span></p>
+<ul>
+<li>如果 D` 是mean-centered，就和PCA基向量一样</li>
+<li>一般来说会跳过mean-centered，特别是D稀疏且非负（如文档矩阵）</li>
+</ul>
 <blockquote>
-<p>此处仅使用了右奇异矩阵，就是对样本的列进行了压缩。而使用左奇异矩阵可以完成对行数的压缩</p>
+<p>此处仅使用了右奇异矩阵，就是对样本的列进行了压缩（列数变少了）。而使用左奇异矩阵可以完成对行数的压缩</p>
 <p>（来自参考）</p>
 </blockquote>
 <p>使用左奇异矩阵<span class="math inline">\(D^TQ_r\)</span> describes
 items by r latent components</p>
 <ul>
 <li>可以大幅降维</li>
-<li>LSA（潜在成分分析使用）</li>
+<li>LSA（潜在语义分析使用）</li>
 <li>文档格式的矩阵</li>
 <li>减少同义词噪声</li>
 <li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230920220923499.png" alt="image-20230920220923499" style="zoom:50%;"></li>
@@ -1589,10 +1687,10 @@ inconsistencies??</p>
 tendency</h1>
 <p>（将cluster翻译为簇，将clustering翻译为聚类）</p>
 <p>直觉上来说，就是希望可以将数据分为<span class="math inline">\(K\)</span>个簇，每一个簇内的点彼此相似，而不同簇之间的点区别很大：</p>
-<ul>
-<li>Hard clustering： 每一个点都是一个簇</li>
-<li>Soft clustering：不同的参数可以让一个点属于不同的簇</li>
-</ul>
+<h6 id="hard-clustering-每一个点都是一个簇">Hard clustering：
+每一个点都是一个簇</h6>
+<h6 id="soft-clustering不同的参数可以让一个点属于不同的簇">Soft
+clustering：不同的参数可以让一个点属于不同的簇</h6>
 <p>聚类的目的是什么：</p>
 <ul>
 <li>每个簇的形状是固定的还是任意的？</li>
@@ -1601,33 +1699,50 @@ tendency</h1>
 <li>不同簇之间是重叠的还是分得很开？</li>
 <li>是否有异常值？</li>
 </ul>
+<hr>
 <p>需要什么：</p>
 <ul>
-<li>距离</li>
-<li>群间距离（inter-cluster distances）（有时候需要）</li>
-<li>数据在向量空间的表示</li>
-<li>评估聚类的评分函数</li>
-<li>簇数<span class="math inline">\(K\)</span></li>
-</ul>
-<h2 id="评估函数">评估函数：</h2>
+<li><p>距离</p></li>
+<li><p>簇间距离（inter-cluster distances）（有时候需要）</p>
+<p><strong>簇内距离 intra-cluster distance</strong></p></li>
+<li><p>数据在向量空间的表示</p>
 <ul>
-<li><p>最小化簇内距离</p>
-<figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011023686.png" alt="image-20230929011023686">
-<figcaption aria-hidden="true">image-20230929011023686</figcaption>
-</figure>
-<p>计算每个簇的中心和簇内个各点的距离综合</p>
-<p>希望簇是紧的</p></li>
+<li>有时需要，但有时候相似图就够了</li>
+</ul></li>
+<li><p>评估聚类的评分函数</p></li>
+<li><p>簇数<span class="math inline">\(K\)</span></p>
+<ul>
+<li>一般都要</li>
+</ul></li>
+</ul>
+<hr>
+<h2 id="目标函数">目标函数：</h2>
+<p>通常结合两个目的：</p>
+<p>最小化簇内方差（within-cluster-variation, wc）</p>
+<p>最大化簇间方差（between-cluster variation bc)</p>
+<ul>
+<li><p>最小化簇内方差</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011023686.png" alt="image-20230929011023686" style="zoom:50%;"></p>
+<p>计算每个簇的中心和簇内个各点的距离总和（其实就是方差，如果<span class="math inline">\(C_i\)</span>是均值,希望簇是紧的-&gt;适用于超球面的簇（大概是圆的吧）</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204231431987.png" alt="image-20231204231431987" style="zoom:50%;"></p>
+<p>计算每个簇的最大最小近邻，应对 elongated
+cluster（某个方向狭长的簇）</p></li>
 <li><p>最大化簇间距离</p>
-<figure>
-<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011309612.png" alt="image-20230929011309612">
-<figcaption aria-hidden="true">image-20230929011309612</figcaption>
-</figure>
-<p>希望每个簇之间都离得很远</p></li>
-<li><p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011414990.png" alt="image-20230929011414990" style="zoom:80%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011309612.png" alt="image-20230929011309612" style="zoom:50%;"></p>
+<p>希望每个簇之间都离得很远</p>
+<p><strong>用centroid来代表簇</strong></p></li>
+<li><p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929011414990.png" alt="image-20230929011414990" style="zoom: 50%;"></p>
 <p>K-means用的基本就是群内距离和</p></li>
 </ul>
 <h2 id="聚类趋势">聚类趋势</h2>
+<p>不同特征的选择对于聚类结果很重要，所以在预处理的时候，包括特征提取，选择，降维都会影响。</p>
+<p>是否要scale呢？</p>
+<ul>
+<li>一般来说，如果差的很大 最好搞一下</li>
+<li>但有的时候会把分离的搞在一起去</li>
+</ul>
+<p>如何选择特征，了解聚类趋势呢？</p>
+<p><strong>这里的聚类趋势指的是一种笼统的，用于聚类前的处理，初步聚类并验证，主要为特征选择服务</strong></p>
 <p>方法：</p>
 <ul>
 <li>对pair-distance 可视化
@@ -1642,7 +1757,7 @@ tendency</h1>
 <li>Wrapper models 和聚类验证指数
 <ul>
 <li>average silhouette 平均轮廓</li>
-<li>还有一堆人名的指标</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204233025389.png" alt="image-20231204233025389" style="zoom:50%;"></li>
 </ul></li>
 </ul>
 <h3 id="可视化检查">可视化检查</h3>
@@ -1652,12 +1767,489 @@ tendency</h1>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929012243836.png" alt="image-20230929012243836" style="zoom:50%;"></p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929012534464.png" alt="image-20230929012534464" style="zoom:50%;"></p>
 <p>多峰就是有更多簇</p>
+<p><strong>峰数和簇数没有一一对应关系！</strong></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231204233349799.png" alt="image-20231204233349799" style="zoom: 67%;"></p>
 <p>这个其实很好推，不会推可以用下面这个当作提示来推</p>
 <p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20230929012511164.png" alt="image-20230929012511164" style="zoom:50%;"></p>
 <h3 id="基于熵的方法">基于熵的方法</h3>
 <p>在随机数据中，熵会很高，但对有簇的数据，熵就低了</p>
+<h4 id="计算熵">计算熵</h4>
+<p>给了两种计算熵的方法，</p>
+<ul>
+<li><p>一种是在多维数据之中把数据discretize 成多个 grid
+regions，用每个方格中数据的比例计算熵</p>
+<p>问题：</p>
+<ul>
+<li>大维度中p不好准确估计</li>
+<li>m（划分的类）不好选，一般选择</li>
+</ul></li>
+<li><p>第二种是
+计算每个数据点的成对距离，再把距离discretize成多个bin，同理计算熵</p></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205192116925.png" alt="image-20231205192116925" style="zoom:50%;"></p>
+<p>有m个grid，每个维度上就有(<span class="math inline">\(m^{\frac{1}{k}}\)</span>)向上取整个bins</p>
+<h4 id="选择特征">选择特征：</h4>
+<p>分为前向选择和后向选择，分别是从零每次添加最好的/从全体每次删除最坏的</p>
+<ol type="1">
+<li><strong>描述的是feature的效果,而非此操作的效果</strong></li>
+</ol>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205192243605.png" alt="image-20231205192243605" style="zoom:50%;"></p>
+<h3 id="hopkins-statistic">Hopkins statistic</h3>
+<p><strong>用途：检测目标数据中是否有cluster(相比于随机数据）</strong></p>
+<p>比较目标数据中子集的，最近邻的数据分布和随机数据产生的对比，计算出一个指标，如果显得目标数据中熵最近邻很小，就说明有簇</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205192455204.png" alt="image-20231205192455204" style="zoom: 33%;"></p>
+<p>问题：</p>
+<ul>
+<li>子集不好选：在数据的中心和边缘分布不一致
+<ul>
+<li>选择球面内的数据——均值附近能包括超过50%的点</li>
+</ul></li>
+<li>每次执行不一样
+<ul>
+<li>多次取平均</li>
+</ul></li>
+</ul>
+<h3 id="wrapper-models-and-validation-indices">Wrapper models and
+validation indices</h3>
+<p>简单地说，就是先选一点，聚类看结果，然后再多比一比</p>
+<h4 id="无监督式">无监督式：</h4>
+<p>先cluster，再用一些 internal cluster validity index验证</p>
+<ul>
+<li>不可能所有都检查：使用greedy heuristic</li>
+<li>取决于聚类方法和验证指标</li>
+</ul>
+<h4 id="有监督式">有监督式</h4>
+<p>先对cluster聚类，然后用聚类结果当标签来用</p>
+<p>使用 class label 来评估每个特征的好坏（用各种goodness
+measures）（不是goodall）</p>
+<p>但有点循环定义的问题，感觉没太说清楚</p>
+<h1 id="k-representative-聚类">K-representative 聚类</h1>
+<p>这章介绍了K-means，和其他几种派生的算法。分别适用于categories/混合数据。还有其他一些有不同的优点。</p>
+<p>此外，一个重点是如何运用手段选择<span class="math inline">\(K\)</span>
+这些手段中的不少会用在后面的聚类验证中。</p>
+<h2 id="聚类介绍">聚类介绍</h2>
+<h3 id="适用于-numerical的">适用于 numerical的</h3>
+<h4 id="k-means">K-means</h4>
+<ul>
+<li>适用类型：
+<ul>
+<li>多维数类（numerical）</li>
+<li>compact hyper-spherical形状的簇</li>
+</ul></li>
+<li>目标：最小化簇内距离平方和
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205220332917.png" alt="image-20231205220332917" style="zoom:50%;"></li>
+<li>左边是全体方差，右边分别是簇内方差和簇间方差</li>
+<li>左边固定，最小化簇内方差即最大化簇的整体方差</li>
+</ul></li>
+<li>距离：<span class="math inline">\(L_2\)</span></li>
+<li>代表：簇内平均数</li>
+<li>优点：
+<ul>
+<li>如果紧凑，分离好，形状为超球面，那么效果很好</li>
+<li>好做</li>
+<li>比较高效</li>
+</ul></li>
+<li>缺点：
+<ul>
+<li>对初始化敏感，只能找到局部最优
+<ul>
+<li>一般多跑几次用indice筛</li>
+</ul></li>
+<li>对outliers敏感</li>
+<li>收敛有时候很慢</li>
+<li>需要K</li>
+</ul></li>
+<li>复杂度：
+<ul>
+<li><span class="math inline">\(O(nKq)\)</span>,q for iterations</li>
+</ul></li>
+</ul>
+<h4 id="k-medians">K-medians</h4>
+<ul>
+<li><p>距离：<span class="math inline">\(L_1\)</span></p></li>
+<li><p>代表：簇内每一维中位数</p></li>
+<li><p>优点：</p>
+<ul>
+<li>more robust to outliers</li>
+</ul></li>
+<li><p>缺点：</p>
+<ul>
+<li>计算代价更高（中位数比平均数难找）</li>
+</ul></li>
+</ul>
+<h4 id="k_medoids">K_medoids</h4>
+<ul>
+<li>距离：都可以</li>
+<li>代表：
+<ul>
+<li>the center-most data point in a cluster，</li>
+<li>到簇内其他点的距离之和最小的<strong>数据点</strong></li>
+</ul></li>
+<li>优点：
+<ul>
+<li>比较高效（比K-means慢）</li>
+<li>more robust to outliers</li>
+<li>适用于任意数据类型（能算数据就行）
+<ul>
+<li>因为不需要捏造一个中心点</li>
+</ul></li>
+<li>代表是真实的点</li>
+</ul></li>
+</ul>
+<h3 id="适用于-categories的">适用于 categories的</h3>
+<h4 id="k-modes">K-modes</h4>
+<ul>
+<li>目标： 最小化簇内距离
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205221755345.png" alt="image-20231205221755345" style="zoom:50%;"></li>
+</ul></li>
+<li>距离：
+<ul>
+<li>如果两个在此特征不相等则为1，否则为0</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205221836990.png" alt="image-20231205221836990" style="zoom:50%;"></li>
+<li>不加权的简单重叠距离</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205221847434.png" alt="image-20231205221847434" style="zoom:50%;"></li>
+</ul></li>
+<li>代表：每个特征众数捏造出来的一个mode</li>
+<li>过程：
+<ul>
+<li>初始化随机选择K个初始点，</li>
+<li>计算每个其他点的距离，形成cluster</li>
+<li>以cluster内每个特征的众数，更新捏造出来一个新的mode</li>
+<li>循环</li>
+</ul></li>
+</ul>
+<h3 id="适用于混合数据类型的">适用于混合数据类型的：</h3>
+<h4 id="k-prototypes">K-prototypes</h4>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205222712446.png" alt="image-20231205222712446" style="zoom:50%;"></p>
+<p>大概相当于重新给类属性定义了距离和权重的普通kmeans</p>
+<h3 id="拓展">拓展：</h3>
+<p>对于非凸聚类可以考虑映射到高维空间简单k-means</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205222815583.png" alt="image-20231205222815583" style="zoom:50%;"></p>
+<h2 id="选择k的技术">选择K的技术</h2>
+<h3 id="sse-elbow">SSE elbow</h3>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205222908851.png" alt="image-20231205222908851" style="zoom:50%;"></p>
+<p>随着k上升，SSE肯定是下降的，但是K太高也失去了意义</p>
+<p>大概目测这么一个降速变缓慢的肘部K，只介绍了目测的方法</p>
+<h3 id="silhouette-peak">silhouette peak</h3>
+<p>选择silhouette最高的K</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205223022991.png" alt="image-20231205223022991" style="zoom:50%;"></p>
+<p>单个点的计算过程如下，大概思想是，使用某个点簇内平均距离和最近他簇平均距离来计算，后面还会介绍。</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205223307888.png" alt="image-20231205223307888" style="zoom:50%;"></p>
+<p>？这个average silhouette width是啥</p>
+<p><em><strong>可以看作是avg si</strong></em></p>
+<h3 id="calinski-harabasz-index">Calinski-Harabasz index</h3>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205223435985.png" alt="image-20231205223435985" style="zoom:50%;"></p>
+<p>使用簇间方差和簇内方差倒一下</p>
+<p>很适合K-means，因为K-means就是这么弄得</p>
+<ul>
+<li>值越大越好</li>
+</ul>
+<h3 id="gap-statistic">Gap statistic</h3>
+<p>生成若干随机数据，评估数据的簇内平均对距离</p>
+<p>最好的标准比较抽象，选择能满足要求的最小K</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231205223738112.png" alt="image-20231205223738112" style="zoom:50%;"></p>
+<h1 id="hierarchical-clustering">hierarchical clustering</h1>
+<p>这一章讲的脉络比较杂，简要归纳讲述重点大概可以分以下几个：</p>
+<ul>
+<li>不同的linkage区别</li>
+<li>和图论的关系</li>
+<li>Agglomerative凝聚和divisive分裂的区别</li>
+<li>派生的Bisecting K-means，效果可以集众家之长</li>
+</ul>
+<p>可能考察点：</p>
+<ul>
+<li>不同linkage（特别是那两个）对于形状的影响</li>
+<li>agglomerative情况下，不同linkage的演绎</li>
+<li>可能会考和图论的关系</li>
+</ul>
+<h2 id="层次聚类">层次聚类</h2>
+<p>以层次结构将数据组织成树状结构，逐渐合并/划分簇，最终形成层次树</p>
+<ol type="1">
+<li>每次选择linkage最近的两个cluster</li>
+<li>合并cluster，更新距离矩阵</li>
+</ol>
+<p>？为什么说顺序会对结果有影响？</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206042416906.png" alt="image-20231206042416906" style="zoom:50%;"></p>
+<h2 id="聚类方向">聚类方向</h2>
+<h3 id="agglomerative">Agglomerative</h3>
+<ul>
+<li>自底向上</li>
+<li>初始每个cluster为每个数据点</li>
+<li>优点：
+<ul>
+<li>容易实施</li>
+<li>比较慢，至少<span class="math inline">\(O(N^2)\)</span>(需要计算所有距离)
+<ul>
+<li>但是比divisive要快</li>
+</ul></li>
+</ul></li>
+<li>缺点：
+<ul>
+<li>早期决定由局部特征决定，晚点不能取消
+<ul>
+<li>局部最优</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="divisive">Divisive</h3>
+<ul>
+<li><p>自顶向下，逐步拆分</p></li>
+<li><p>具体怎么实施？好像并不容易——不太好像agglomerative那样，最小生成树拆掉一条最大边的样子</p>
+<ul>
+<li><p>一种介绍了的可能实施，可以是<strong>Bisecting
+K-means</strong></p>
+<ol type="1">
+<li>把SSE最高的cluster，拆分成两个cluster</li>
+<li>运用2-means，迭代<span class="math inline">\(q\)</span>次，选最好的结果</li>
+</ol>
+<ul>
+<li>优点：
+<ul>
+<li>高效</li>
+<li>和层次比效果也不错</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>优点：</p>
+<ul>
+<li>效果更好
+<ul>
+<li>因为更早创造大cluster，可以更好考虑全局特征</li>
+</ul></li>
+</ul></li>
+<li><p>缺点：</p>
+<ul>
+<li>慢，最快<span class="math inline">\(O(N^2logn)\)</span></li>
+</ul></li>
+</ul>
+<h2 id="linkage">linkage</h2>
+<p>这个算是hierarchical最tricky的地方：如何衡量cluster之间的距离？</p>
+<p>传统的K-representive，使用某个点代表cluster距离，然后继续正常算，但hierarchical中不是这么搞得</p>
+<p>不同的linkage度量方法对于结果影响比较大</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206041304570.png" alt="image-20231206041304570" style="zoom:50%;"><strong>最主要说得就是single（最近点距离）和complete（最远点距离）</strong></p>
+<ul>
+<li>single
+<ul>
+<li>形状：
+<ul>
+<li>elongated，拉长的</li>
+<li>straggly，稀疏的</li>
+<li>concentric cluster? 集中在一点的？</li>
+</ul></li>
+<li>选择最小距离</li>
+</ul></li>
+<li>Complete
+<ul>
+<li>形状：
+<ul>
+<li>small,小</li>
+<li>compact 紧凑的</li>
+<li>hyper-spherical 超球面的</li>
+<li>equal-sized 大小差不多</li>
+</ul></li>
+<li>选择最大距离</li>
+</ul></li>
+</ul>
+<p>Single 容易通过链式效应逐步拉长</p>
+<p><em>图中的就通过链状噪声包括了一部分别的cluster的</em></p>
+<p>但是complete会和旁边的cluster均分噪声</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206041912590.png" alt="image-20231206041912590" style="zoom: 50%;"></p>
+<ul>
+<li>Average
+<ul>
+<li>非常紧凑</li>
+<li>允许不同大小和密度</li>
+</ul></li>
+<li>Ward（最小方差）
+<ul>
+<li>选择最小化合并后簇的方差增量</li>
+<li>紧凑，</li>
+<li>well-separated 分离的好</li>
+<li>超球面的 hyper-spherical</li>
+<li>大小相近</li>
+<li><strong>不容易拉长</strong></li>
+</ul></li>
+<li>质心距离
+<ul>
+<li>相对球球形</li>
+<li>大小相近</li>
+<li>不拉长</li>
+</ul></li>
+</ul>
+<h2 id="和图论的关系">和图论的关系</h2>
+<p>Single linkage类似于联通量，比较像最小生成树</p>
+<p>Complete linkage
+类似于clique，连出了clique才用最长的代价来合并cluster</p>
+<ul>
+<li>Single linkage：
+<ul>
+<li>每次添加一条最短边</li>
+<li>联通的分量就合并成cluster</li>
+<li>直到形成最小生成树</li>
+</ul></li>
+<li>Complete linkage：
+<ul>
+<li>每次添加一条最短边</li>
+<li>联通的clique才形成一个cluster</li>
+<li>联通clique的最后一条边是最远的代价（没有比它更短的了</li>
+<li>直到形成完全连通图</li>
+</ul></li>
+</ul>
+<h2 id="不同的展示方法">不同的展示方法：</h2>
+<p>不同的树状图dendrograms来展示：</p>
+<ul>
+<li>Threshold dendrogram：
+<ul>
+<li>主要展示顺序</li>
+</ul></li>
+<li>Proximity dendrogram：
+<ul>
+<li>增加刻度，显示添加每一个点的代价</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206042738597.png" alt="image-20231206042738597" style="zoom:50%;"></p>
 <h1 id="谱聚类-spectral-clustering">谱聚类 Spectral clustering</h1>
-<p>9.19</p>
+<p><em>这个玩意应该不怎么会考。</em></p>
+<p>主要讲解的点：</p>
+<ol type="1">
+<li>如何进行spectral clustering
+<ol type="1">
+<li>流程是什么</li>
+<li>中间有什么选择</li>
+<li>相比于其他方法有哪些优点</li>
+</ol></li>
+<li>如何构建相似图
+<ol type="1">
+<li>不同的建图方法。</li>
+</ol></li>
+</ol>
+<h4 id="优点">优点：</h4>
+<ol type="1">
+<li>可以检查到任意形状的簇
+<ul>
+<li>因为要降维 当前维度形状不影响</li>
+</ul></li>
+<li>就算不同簇的密度不一样也不怕
+<ul>
+<li>如果用了KNN来建图</li>
+</ul></li>
+<li>只要有成对的相似度/距离，任意数据类型都能搞</li>
+</ol>
+<h4 id="缺点">缺点：</h4>
+<ol type="1">
+<li>计算代价高</li>
+<li>要选择的参数多 不好调</li>
+</ol>
+<h2 id="spectral-clustering">Spectral clustering</h2>
+<h3 id="主旨">主旨</h3>
+<ol type="1">
+<li>创造一个相似图
+<ul>
+<li>相似图怎么创建并不容易，一般来说，首先要有所有的点对距离</li>
+<li>然后利用距离进行相似度建图，这一步比较有技术含量，不同的建图手段对结果影响很大</li>
+</ul></li>
+<li>在相似图中，利用多个矩阵将数据呈现在低维空间中
+<ul>
+<li>这一步是本节主要讲解的知识点</li>
+</ul></li>
+<li>对新的数据进行聚类（比如说用K-means）</li>
+</ol>
+<p>这里主要讲解第二步。</p>
+<h4 id="名词解释">名词解释：</h4>
+<ul>
+<li>weight matrix W 记录了每个点到别的店的相似度</li>
+<li>diagonal degree matrix Λ
+对角阵，记录了每个点所有相似度的求和（加权度）</li>
+<li>Laplacian matrix L = Λ −
+W，如题，对他求解通过特征向量得到数据的低位表示</li>
+<li>normalized Laplacian matrices <span class="math inline">\(L_{rw}\)</span>, <span class="math inline">\(L_{sym }\)</span>if desired)
+其他手段得到的拉普拉斯矩阵</li>
+</ul>
+<h4 id="步骤">步骤：</h4>
+<ol type="1">
+<li>通过W得到Λ ，再计算L = Λ − W</li>
+</ol>
+<p><em>对于另外两种拉普拉斯矩阵另有计算方式：</em></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206235240164.png" alt="image-20231206235240164" style="zoom:50%;"></p>
+<ol start="2" type="1">
+<li><p>我们希望找到<span class="math inline">\(y\)</span>这个向量组作为数据的低纬度嵌入，可以让目标函数最小：</p>
+<ul>
+<li><p>希望非平凡解：<span class="math inline">\(y_i!=0\)</span></p></li>
+<li><p>希望标准化：<span class="math inline">\(y^Ty=1\)</span></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206235527465.png" alt="image-20231206235527465" style="zoom:50%;"></p></li>
+</ul></li>
+<li><p>通过数学证明可以知道，L的最小的对应非平凡特征向量组成的向量组，满足条件</p></li>
+<li><p>对L计算他的特征值，选择它前<span class="math inline">\(k\)</span>个最小特征值对应的特征向量，组成新的矩阵<span class="math inline">\(Y\)</span></p>
+<ul>
+<li><span class="math inline">\(k\)</span>，降维后的维度</li>
+<li>前<span class="math inline">\(k\)</span>个不算0，一般连通图都能算出来一个0.
+<ul>
+<li>python算出来特别小的也可以认为是浮点数误差导致的</li>
+</ul></li>
+</ul></li>
+<li><p>对新的矩阵Y用K-means聚类</p></li>
+</ol>
+<h4 id="怎么挑选k">怎么挑选k？</h4>
+<p>一般来说<span class="math inline">\(k=K\)</span>(降得维度等于簇数)，或者<span class="math inline">\(k&lt;K\)</span></p>
+<p>可以通过这样的Eigengap来选择：k再大就要跃一个台阶了</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231207000050697.png" alt="image-20231207000050697" style="zoom:50%;"></p>
+<h4 id="三种拉普拉斯矩阵怎么选">三种拉普拉斯矩阵，怎么选？</h4>
+<p>一般来说就用unnormalized的，要试试就先试试random-walk</p>
+<ul>
+<li>其实这里有一个小问题，其实其他的相似度建图方法并不能保证unnormalized
+建出来的<span class="math inline">\(L\)</span>对称，但由于他给的应该是mutual-KNN，所以<span class="math inline">\(W\)</span>就是对称的，所以没问题</li>
+<li>一般来说其实后两种标准化的可以保证不是对称的W也能建出对称拉普拉斯</li>
+</ul>
+<h2 id="similarity-graph">Similarity graph</h2>
+<h4 id="要求">要求：</h4>
+<ul>
+<li>应该能反应局部特征（近邻）</li>
+<li>对结果影响大</li>
+<li>希望相似矩阵<span class="math inline">\(W\)</span>稀疏，但能保证是连通图
+<ul>
+<li>或者联通分量远小于<span class="math inline">\(K\)</span></li>
+</ul></li>
+</ul>
+<h4 id="步骤-1">步骤：</h4>
+<ol type="1">
+<li><p>首先计算两个向量的相似度，</p>
+<ul>
+<li><p>对于numeric，一般用Gaussian
+similarity，<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231207001035688.png" alt="image-20231207001035688" style="zoom:33%;"></p></li>
+<li><p>上面那一坨是两个向量距离的平方</p></li>
+</ul></li>
+<li><p>有了相似度之后，考虑如何得到<span class="math inline">\(w_{ij}\)</span>，这里介绍了四种方法。</p></li>
+<li><p>痛点：多个参数，并不好选<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231207001620663.png" alt="image-20231207001620663" style="zoom:50%;"></p></li>
+</ol>
+<h4 id="ǫ-neighbourhood">ǫ-neighbourhood</h4>
+<p>阈值法，只保留相似度够高的</p>
+<ul>
+<li>对于密度不同的cluster很难搞</li>
+<li>不怎么用</li>
+</ul>
+<h4 id="k-nearest-neighbour">k-nearest neighbour</h4>
+<p>对于每个点，保留他的k个最近邻</p>
+<ul>
+<li>通常是第一选择</li>
+<li>可以把图变成若干联通分量
+<ul>
+<li>也就是不对称了</li>
+</ul></li>
+</ul>
+<h4 id="mutual-k-nearest-neighbour">mutual k-nearest neighbour</h4>
+<p>只有互为k近邻才保留</p>
+<h4 id="fully-connected-graph">fully connected graph</h4>
+<p>直接放</p>
+<p>问题：</p>
+<ul>
+<li>矩阵并不稀疏——计算代价大！</li>
+</ul>
+<h3 id="以前的草稿但有例子">以前的草稿，但有例子</h3>
+<ul>
+<li></li>
+</ul>
 <blockquote>
 <p>它的主要思想是把所有的数据看做空间中的点，这些点之间可以用边连接起来。距离较远的两个点之间的边权重值较低，而距离较近的两个点之间的边权重值较高，通过对所有数据点组成的图进行切图，让切图后不同的子图间边权重和尽可能的低，而子图内的边权重和尽可能的高，从而达到聚类的目的。</p>
 </blockquote>
@@ -1670,6 +2262,8 @@ tendency</h1>
 <li>边权<span class="math inline">\(w_{ij}\)</span> 两点间的相似性</li>
 </ul></li>
 </ul>
+<p>参考：</p>
+<p>https://www.cnblogs.com/pinard/p/6221564.html</p>
 <h2 id="图">图</h2>
 <p>需要四个矩阵</p>
 <ol type="1">
@@ -1698,11 +2292,1243 @@ W\)</span></p>
 <li>特征值都是实数（为啥）</li>
 </ul></li>
 <li>半正定的，最小的特征值等于0</li>
-<li></li>
-<li>将数据展现在低微向量空间中</li>
 </ul>
+<p>最后算出来就是这样的：</p>
+<p>可以认为是<span class="math inline">\(k=1\)</span>，结果就非常明显</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231207000354898.png" alt="image-20231207000354898" style="zoom:50%;"></p>
 <h1 id="聚类验证">聚类验证</h1>
-<p>9。19</p>
+<p>这一章讲的内容主要涵盖了以下几点：</p>
+<ol type="1">
+<li>不同验证系数的介绍
+<ul>
+<li>内部系数</li>
+<li>外部系数</li>
+<li>使用统计中的假设检验</li>
+</ul></li>
+<li>使用聚类验证手段的目的</li>
+<li>渗透一般的验证思想</li>
+</ol>
+<h3 id="聚类验证的目的">聚类验证的目的</h3>
+<ol type="1">
+<li>检测选取的特征好不好——看看他们聚类的效果怎么用</li>
+<li>检测簇数（或者其他超参数）是否合适</li>
+<li>单纯看看聚类效果好不好（goodness of clustering)
+<ul>
+<li>可以拿来对比聚类方法</li>
+<li>和分类相比</li>
+</ul></li>
+</ol>
+<p>这些都取决于聚类的目的</p>
+<ul>
+<li>包括对于数据的假设，形状等</li>
+</ul>
+<h2 id="三种聚类评估手段">三种聚类评估手段</h2>
+<h4 id="internal-criteria">Internal criteria</h4>
+<ul>
+<li>验证系数，不需要标签</li>
+<li>类似于聚类时的目标函数
+<ul>
+<li>适合于比较相同的算法来调参</li>
+<li>好的聚类在不同的目标（函数）时，也可能评分很差</li>
+</ul></li>
+<li><strong>很多</strong>更偏好/适用于convex |hyperspherical的形状</li>
+<li>对于不同目的的聚类没用（不能评估）</li>
+</ul>
+<h4 id="external-criteria">External criteria</h4>
+<ul>
+<li>和预定义的标签比较</li>
+<li><em>但是标签不一定总能反应真实的cluster</em></li>
+</ul>
+<h4 id="statistical-hypothesis-testing">Statistical hypothesis
+testing</h4>
+<ul>
+<li>最可靠，但代价最高</li>
+</ul>
+<h3 id="internal-criteria-1">Internal criteria</h3>
+<h4 id="silhouette-index">Silhouette index</h4>
+<p>评估每个点的簇内距离和最近簇平均距离，使用平均Silhouette
+index来评估整体聚类效果如何</p>
+<ul>
+<li>范围：[-1,1]
+<ul>
+<li>越高越好</li>
+</ul></li>
+<li>公式：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206211115821.png" alt="image-20231206211115821" style="zoom:50%;"></li>
+</ul></li>
+<li>距离：适用于任意距离</li>
+<li>例题：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206211157153.png" alt="image-20231206211157153" style="zoom:50%;"></li>
+<li>对于negative
+values，意味着一些点的本簇内平均其他点对距离小于最近簇的
+<ul>
+<li>很可能是分错了</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="calinski-harabasz-index-1">Calinski-Harabasz index</h4>
+<p>评估簇内方差和簇间方差</p>
+<ul>
+<li>范围：[0,+∞]
+<ul>
+<li>越大越好</li>
+</ul></li>
+<li>公式：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206211433741.png" alt="image-20231206211433741" style="zoom:50%;"></li>
+</ul></li>
+<li>需要K&gt;2</li>
+<li>偏好：
+<ul>
+<li>K-means 因为和Kmeans的目标函数一直</li>
+</ul></li>
+<li>距离：
+<ul>
+<li>需要用<span class="math inline">\(L_{2}\)</span>距离</li>
+</ul></li>
+</ul>
+<h4 id="davies-bouldin-index">Davies-Bouldin index</h4>
+<p>衡量簇内点到质心的距离和簇间距离的比值</p>
+<ul>
+<li>范围：[0,+∞]
+<ul>
+<li>越小越好</li>
+</ul></li>
+<li>公式：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206211951371.png" alt="image-20231206211951371" style="zoom:50%;"></li>
+<li>在这种情况下，对于每个簇，检查和他比较最坏的簇（max)</li>
+<li>也可以换成avg</li>
+</ul></li>
+<li>距离：
+<ul>
+<li>需要和聚类用一样的<span class="math inline">\(L_p\)</span></li>
+</ul></li>
+<li>什么时候能等于0？
+<ul>
+<li>全都是singleton的时候</li>
+<li>一种惩罚措施是，对于singleton，给一个惩罚性高代价</li>
+</ul></li>
+<li>可以用它去检查K</li>
+</ul>
+<h3 id="external-validation">External Validation</h3>
+<p>比较聚类结果<span class="math inline">\(C_i\)</span>和预定义标签<span class="math inline">\(D_i\)</span></p>
+<p>主要介绍了标准化的互信息NMI</p>
+<p>摆了一个Rand index，没说</p>
+<p>捎带介绍了一下purity</p>
+<h4 id="purity">purity</h4>
+<p>比较弱，检查了对于每个聚类，和它交集最多的class能交多少的和</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206212459521.png" alt="image-20231206212459521" style="zoom:50%;"></p>
+<p>肯定会随着K增大而增大</p>
+<h4 id="nminormalized-mutual-information">NMI(Normalized mutual
+information)</h4>
+<p>计算了每个cluster和class的互信息，并用每一个的熵进行了标准化</p>
+<ul>
+<li>优点：
+<ul>
+<li>不依赖cluster和标签的数量</li>
+</ul></li>
+<li>缺点：
+<ul>
+<li>对于singleton处理的不好</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206220934681.png" alt="image-20231206220934681" style="zoom: 33%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206221119730.png" alt="image-20231206221119730" style="zoom: 50%;"></p>
+<p>其中的<span class="math inline">\(P\)</span>可以看作频数，是每个大小的标准化</p>
+<h3 id="statistical-hypothesis-testing-1">Statistical hypothesis
+testing</h3>
+<ul>
+<li>过程：
+<ul>
+<li>选择需要检验的零假设<span class="math inline">\(H_0\)</span>（没有观察到显著的不同）</li>
+<li>选择需要检验的统计量<span class="math inline">\(T\)</span>,比如SI</li>
+<li>看看当<span class="math inline">\(T=t\)</span>（能够得到我们算出来的统计量）
+p值如何？能否拒绝零假设？</li>
+</ul></li>
+<li>问题在于不知道T的分布
+<ul>
+<li>一般采用蒙特卡洛实验，多次模拟分布</li>
+<li>P值就是随机试验中能够观测到<span class="math inline">\(T=t\)</span>的频率</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231206221530091.png" alt="image-20231206221530091" style="zoom:50%;"></p>
+<ul>
+<li>计算代价大</li>
+<li>替代方法多</li>
+</ul>
+<h2 id="其他方法">其他方法</h2>
+<ul>
+<li>看看簇的大小：一个很大，一个就几个点——那几个可能是outliers</li>
+<li>不同的cluster可能区别于用了不同的特征（大小，或者其他标准）</li>
+</ul>
+<h3 id="总结-1">总结</h3>
+<ul>
+<li>验证很重要！
+<ul>
+<li>就算随机数据也能聚类出来，但难以通过验证</li>
+<li>这些指标也可能有偏差，无法反映潜在的聚类</li>
+<li>使用多种验证手段</li>
+</ul></li>
+<li>目标，距离和聚类手段应该吻合</li>
+</ul>
+<h1 id="association-discovery">Association discovery</h1>
+<p>例子：</p>
+<ul>
+<li>子图</li>
+<li>集合</li>
+<li>关联规则</li>
+<li>序列</li>
+<li>片段</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231010162740226.png" alt="image-20231010162740226" style="zoom:50%;"></p>
+<h3 id="好处">好处：</h3>
+<ul>
+<li>大数据集上可能很好用
+<ul>
+<li>有时候在np难问题上会有全局优化的解法</li>
+<li>可以在短时间内处理大量特征丰富的数据</li>
+</ul></li>
+</ul>
+<p><strong>binarized data</strong></p>
+<ul>
+<li>应用多</li>
+<li>依赖分析通常是数据建模的第一步：帮助选择特征</li>
+<li>可以是别的办法的一部分</li>
+</ul>
+<h2 id="数据">数据</h2>
+<p><strong>处理的数据通常是二元的或者是类的（Binarization and
+discretization）</strong>**</p>
+<p>对于数类的进行类似的处理通常会丢失信息但是也减少了噪声</p>
+<p>如何处理数类数据？四种途径：</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231010163741912.png" alt="image-20231010163741912">
+<figcaption aria-hidden="true">image-20231010163741912</figcaption>
+</figure>
+<p>Association通常的形式如下：</p>
+<ul>
+<li>set 经常有几个元素会取共同的值</li>
+<li>rule 若干元素取若干值 可以推断出其他元素取若干值</li>
+</ul>
+<p>考虑到可能的取值范围只有0或1，所以就可以更加简化：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231010164733337.png" alt="image-20231010164733337" style="zoom:33%;"></p>
+<p>下来先从统计的角度看看</p>
+<p>这里给了两个判定标准</p>
+<ul>
+<li><p><span class="math inline">\(\delta\)</span> leverage</p></li>
+<li><p><span class="math inline">\(\gamma\)</span> lift</p></li>
+</ul>
+<blockquote>
+<p>统计小课堂：</p>
+<p>事件是某种特定的结果或观察，是离散的，明确定义的，可以计数的，比如
+某某干了某某这种</p>
+<p>而变量是可以取不同值的属性，如离散变量或连续变量</p>
+<p>这里还有互相独立变量 mutually independent 和独立集合 independence
+set</p>
+</blockquote>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231010170404037.png" alt="image-20231010170404037" style="zoom: 50%;"></p>
+<p>这里给出了两个事件独立和变量独立的判定：</p>
+<ul>
+<li>变量独立要求两个变量能发生的所有事件都独立</li>
+</ul>
+<p>对于二元变量来说，这两个可以说等价</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231012193235494.png" alt="image-20231012193235494" style="zoom: 33%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231012193615256.png" alt="image-20231012193615256" style="zoom:33%;"></p>
+<p>在这个里面使用了极大似然估计的<span class="math inline">\(P\)</span>（频数除以总数）简化代替了真实的概率P</p>
+<p>在这个基础上，我们定义了事件之间相关性的计算</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231012172002438.png" alt="image-20231012172002438" style="zoom: 33%;"></p>
+<p>以及还有衡量规则强度，即相关性强度的指标</p>
+<p>信心程度（confidence，cf，<span class="math inline">\(\phi\)</span>的计算)：条件概率</p>
+<p>认为X能推出C，就需要在发生X的情况下发生C的概率很高，大于一个指定阈值</p>
+<p>但是高的cf不一定就能保证统计的依赖</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231012173013495.png" alt="image-20231012173013495" style="zoom:33%;"></p>
+<p>??? 这里很多东西都没看懂</p>
+<h1 id="part-2">Part 2</h1>
+<p><strong>先找frequent set 再后处理很慢!</strong></p>
+<p>在判断找到的关联/规则好不好的时候，我们是应该用leverage <span class="math inline">\(\delta\)</span> 还是用 lift <span class="math inline">\(\gamma\)</span> 呢？</p>
+<p>取决于我们想要数据发掘的目的：</p>
+<p>我们是想要关于两个变量，<span class="math inline">\(X,
+C\)</span>之间的关系，还是说两个变量取得具体的值，<span class="math inline">\(X=1,C=c\)</span>的关系呢？</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231017224723456.png" alt="image-20231017224723456" style="zoom: 33%;"></p>
+<ul>
+<li><span class="math inline">\(\gamma\)</span>
+用来衡量值之间的关联</li>
+<li><span class="math inline">\(\delta\)</span>
+用来衡量变量之间的关联</li>
+</ul>
+<p>第二个规则只对甜的好使，说明你更关心甜的——什么样能保证是甜的，即使有遗漏。——<span class="math inline">\(\gamma\)</span>更高</p>
+<p>而第一个规则更关心变量之间的关系，<span class="math inline">\(\delta\)</span> 更高</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231017224947618.png" alt="image-20231017224947618" style="zoom: 33%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231017180234281.png" alt="image-20231017180234281" style="zoom:50%;"></p>
+<ul>
+<li>$$对<span class="math inline">\(1\)</span>这种非常敏感，因为case都非常罕见，就能得到<span class="math inline">\(\gamma\)</span>的最大可能值——n
+<ul>
+<li>不要单独用<span class="math inline">\(\gamma\)</span></li>
+<li>对2来说就会更好一点</li>
+<li><span class="math inline">\(\gamma\)</span>更偏好罕见的规则</li>
+<li><figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018191804300.png" alt="image-20231018191804300">
+<figcaption aria-hidden="true">image-20231018191804300</figcaption>
+</figure></li>
+</ul></li>
+<li><span class="math inline">\(\delta\)</span> 更偏好接近一半的概率：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018192055624.png" alt="image-20231018192055624" style="zoom:67%;"></li>
+<li>看起来 4比3更强，但是算下来的<span class="math inline">\(\delta\)</span> 看着还比3低一点</li>
+</ul></li>
+</ul>
+<p>下面要使用统计的显著性来讲，你已经找到了一个规则
+想看看它是不是显著。</p>
+<p>比方说使用p值计算，小的就可以认为假设成立</p>
+<h2 id="显著性检验">显著性检验</h2>
+<h4 id="fishers-exact-p-value">Fisher’s exact p-value</h4>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018192755723.png" alt="image-20231018192755723" style="zoom: 80%;"></p>
+<ul>
+<li><strong>越小越好</strong></li>
+<li>一般来说，数据集很大的时候<span class="math inline">\(pF\)</span>会很小，所以会算他的对数值来报告，看着更明白</li>
+<li>可以看出来，这个就能把4比3强分得很明显了</li>
+<li>有时候算这个太麻烦 就用互信息来说了</li>
+</ul>
+<h4 id="互信息-卡方">互信息&amp; 卡方</h4>
+<ul>
+<li><ul>
+<li>互信息算出来的值和p不一样，但是顺序应该是一样的</li>
+<li>越大越好</li>
+<li>某种程度上可以用它得到p值</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018194324369.png" alt="image-20231018194324369" style="zoom:80%;"></p>
+<p>第三种长得像卡方，但是念 squared measure</p>
+<ul>
+<li>大的更好</li>
+<li>可以从这个分布里找出p值？</li>
+<li>不太推荐，因为对于假设是真的非常敏感，如果是半真不假的算出来很差</li>
+<li>好处是好算 快</li>
+</ul>
+<p>还有一个问题是，由于要检验的假说非常多，会让很多假的偶尔通过了检验：</p>
+<blockquote>
+<p>这种问题被称为 Multiple hypothesis testing
+problem，目前仍然有阉阄</p>
+</blockquote>
+<p>解决方法：</p>
+<ul>
+<li>放低阈值</li>
+<li>别的办法</li>
+</ul>
+<p>？？虽然这里的阈值放在0.05就有5%凑巧能通过不是很理解</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018201438252.png" alt="image-20231018201438252" style="zoom:80%;"></p>
+<h2 id="避免过拟合或冗余的规则">避免过拟合或冗余的规则</h2>
+<h3 id="冗余规则">冗余规则</h3>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018202054468.png" alt="image-20231018202054468" style="zoom:50%;"></p>
+<p>如果v-&gt;h强，再加一个无关的S也会强，这是一种继承的联系</p>
+<p>如果只知道6
+会觉得可能一起吃才坏，但其实都知道了以后会发现V,S可能是条件独立的，甚至S还有点反作用</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018202927258.png" alt="image-20231018202927258" style="zoom: 67%;"></p>
+<blockquote>
+<p>统计小课堂：条件独立</p>
+<p>条件独立是一个概率论和统计学中的概念，用于描述两个随机变量在给定另一个随机变量的条件下是否相互独立。具体来说，随机变量A和B在给定随机变量C的条件下是条件独立的，如果满足以下条件：</p>
+<p>P(A, B | C) = P(A | C) * P(B | C)</p>
+<p>这意味着在已知C的情况下，事件A和事件B的联合概率等于它们的条件概率的乘积。如果上述等式成立，那么A和B就被称为在条件C下是独立的。</p>
+</blockquote>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018204747685.png" alt="image-20231018204747685" style="zoom:33%;"></p>
+<h3 id="虚假规则">虚假规则</h3>
+<p>R3 就是</p>
+<p>40%吃蛋糕的人也喝了酒，所有人里面有50%的人考挂了，但是吃了蛋糕的考挂有54%——多出来的这些其实是吃了蛋糕的人会喝酒，而喝酒的人更容易挂导致的</p>
+<p>这张图里，就是在假定，在A的前提下，C和F是独立的，算了一堆值，最后算出来的fr(CF)是和真的一样的——说明确实独立</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018205516930.png" alt="image-20231018205516930" style="zoom:67%;"></p>
+<p>这个以后还会讲，下来说overfitted rule</p>
+<h3 id="过拟合规则">过拟合规则</h3>
+<p>首先说了
+这取决于想要value-based还是variable-based的，前者会比较容易</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231018210053244.png" alt="image-20231018210053244" style="zoom:67%;"></p>
+<p>当条件更多时，只有频率更高才称为有改善</p>
+<ul>
+<li>如果一致，说明X,Q独立</li>
+<li>如果更低，应该就是负相关（给定X，C和Q负相关？）</li>
+<li>但是如果多加了一个条件，只高了一点呢？</li>
+<li>就需要显著性检验了（fisher`s P,etc.)</li>
+<li>图里的<span class="math inline">\(M_C\)</span>是一个统称</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019173633545.png" alt="image-20231019173633545" style="zoom:50%;"></p>
+<p>在我们关心值的时候，也就是希望能得到更多正例，可以通过R,B-&gt;S来提高S的概率，相对于R-&gt;S,但是问题在于反例
+~（R,B)-&gt;~S 不红不大到甜的概率降低了</p>
+<ul>
+<li>所以说两个方向都要评估
+才知道多加的一个条件，也就是更苛刻的规则是否有改善</li>
+</ul>
+<hr>
+<p>这里学到的就是两个东西：</p>
+<ul>
+<li>统计的显著性
+<ul>
+<li>揭示了目前发现的这个规则到底有多强</li>
+<li>揭示了再繁复的变量会不会改善规则，即是不是冗余或虚假的</li>
+<li>同样对未来的数据好事</li>
+</ul></li>
+<li>Multiple hypothesis testing problem
+<ul>
+<li>规则太多，都要验证</li>
+</ul></li>
+</ul>
+<p>在做关联挖掘的时候，首先要决定是干变量的还是值的——决定了验证的手段</p>
+<p>考虑筛掉过拟合和虚假关联</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019180942143.png" alt="image-20231019180942143" style="zoom:50%;"></p>
+<h2 id="搜索空间剪枝">搜索空间剪枝</h2>
+<p>问题：统计关联和显著性不是单调属性</p>
+<p><strong>这个measure M 是用来衡量关联的强度或者显著性的</strong></p>
+<p>这个measure<span class="math inline">\(M\)</span> 由四部分决定：</p>
+<ul>
+<li>数据集大小<span class="math inline">\(n\)</span></li>
+<li>pattern 的 frequency</li>
+<li>条件和结果的frequency</li>
+</ul>
+<p><span class="math inline">\(M\)</span>可以分为两种：</p>
+<ul>
+<li>ibg，越大越好，
+<ul>
+<li><span class="math inline">\(\delta,\gamma,卡方，MI\)</span></li>
+</ul></li>
+<li>dbg，越小越好：
+<ul>
+<li><span class="math inline">\(p_F,ln p_f\)</span></li>
+</ul></li>
+</ul>
+<p>就是利用了这些 Goodness measure
+进行了筛选和剪枝，只有条件更多结果更好才继续搜下去</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019181154631.png" alt="image-20231019181154631" style="zoom:50%;"></p>
+<p><strong>strength 就是δ and γ</strong></p>
+<p>剪枝：</p>
+<p>在算频繁项集的时候就开始了</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019191023412.png" alt="image-20231019191023412" style="zoom: 67%;"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019191040756.png" alt="image-20231019191040756" style="zoom:50%;"></p>
+<p>算到AB的时候，就有可能可以把AB以后的全部剪掉：</p>
+<p>例如，如果我们的M是越大越好，那么通过某项的概率来简单估算他的上限：</p>
+<p>以<span class="math inline">\(\delta\)</span>作为M为例：</p>
+<ul>
+<li>可以用<span class="math inline">\(P(C)\)</span>,结果的频率来估算上界</li>
+<li>可用条件的频率估算上界</li>
+<li>可用条件结果的频率估算上界</li>
+</ul>
+<p>上界不够阈值都可以直接剪枝</p>
+<p><strong>如果想要最好的多少多少条，可以随着搜索而更新阈值</strong></p>
+<h5 id="冗余剪枝">冗余剪枝:</h5>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231210181333890.png" alt="image-20231210181333890" style="zoom:50%;"></p>
+<p>大概是说，有两类评估/搜索方法，</p>
+<p>一种是基于值的，<strong>Magnum Opus</strong></p>
+<ul>
+<li>只评估一个方向</li>
+<li>只用leverage和lift</li>
+</ul>
+<p>一种是基于变量的<strong>Kingfisher</strong></p>
+<ul>
+<li>要用剩下的统计显著性</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019193244353.png" alt="image-20231019193244353" style="zoom:50%;"></p>
+<h3 id="kingfisher-algorithm">Kingfisher algorithm</h3>
+<ul>
+<li>剪枝思想都一样</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019193650207.png" alt="image-20231019193650207" style="zoom:50%;"></p>
+<p>这边</p>
+<ul>
+<li>使用p值 做measurement</li>
+<li>假设规则都是非冗余的：图里有定义</li>
+<li>思路：加速的 branch&amp;bound</li>
+</ul>
+<blockquote>
+<p>branch &amp;bound</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019194440045.png" alt="image-20231019194440045" style="zoom: 50%;"></p>
+</blockquote>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231019194349838.png" alt="image-20231019194349838" style="zoom:50%;"></p>
+<p>？？ 没看懂这个剪枝在干嘛</p>
+<h1 id="graph-mining-web-and-recommender-systems">Graph mining: Web and
+recommender systems</h1>
+<p>一般来说，把需要mining的Web看成两部分：</p>
+<ul>
+<li>Web的内容：
+<ul>
+<li>包括网络结构和网站本身作为文档得内容</li>
+</ul></li>
+<li>Web附加的内容：
+<ul>
+<li>浏览记录，行为，排序，日志</li>
+</ul></li>
+</ul>
+<p>对应的就有两类应用：</p>
+<ul>
+<li>以内容为中心：文档聚类，网页搜索 连接发现</li>
+<li>以使用为中心：推荐系统或日志分析</li>
+</ul>
+<p>非常简单的介绍了Web Search</p>
+<h3 id="web-search">Web Search</h3>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121212705032-17005948256241.png" alt="image-20231121212705032">
+<figcaption aria-hidden="true">image-20231121212705032</figcaption>
+</figure>
+<p>经典预处理手段：</p>
+<h3 id="inverted-indices">Inverted indices</h3>
+<p>反向索引——原来是通过文档能查到词，现在通过这个 就能用词查到文档了</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121213421288.png" alt="image-20231121213421288" style="zoom: 67%;"></p>
+<hr>
+<p>重点在于排序算法：</p>
+<p>排序算法有两种主流的思路：</p>
+<ul>
+<li>基于内容的评分：
+<ul>
+<li>使用关键词的出现频率，包括他的加权（是否是标题/字体，相对位置等）</li>
+<li>容易被伪造攻击，计算开销应该也大</li>
+</ul></li>
+<li>基于自然投票的名声评分：
+<ul>
+<li>厉害的网页应该由很多（厉害的）网页指向</li>
+<li>用户反馈/相似的选择</li>
+</ul></li>
+</ul>
+<p>这里介绍的HITS和PageRank都是使用后一种，即在网络层面研究的。</p>
+<hr>
+<h2 id="排序算法">排序算法</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>HITS
+<ul>
+<li>Hyperlink-Induced Topic Search（超链接导出主题搜索）</li>
+<li>和查询相关</li>
+<li>通过包含给定的查询词的网页作为基础，添加他们指向和被指的网页，就此两方面给出评分。</li>
+<li>分别给出Authority（谁是好的源头）和Hubs（谁指向好的）</li>
+</ul></li>
+<li>Pagerank
+<ul>
+<li>查询无关的</li>
+<li>好的网页更可能被其他好网页引用，结构相对简单</li>
+</ul></li>
+</ul>
+<h3 id="hits">HITS</h3>
+<ul>
+<li>Hub：指向评分</li>
+<li>Authority：被指评分</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121214418313.png" alt="image-20231121214418313" style="zoom:67%;"></p>
+<h4 id="构造方法">构造方法：</h4>
+<ul>
+<li>因为是查询相关的，首先构造查询涉及的点导出子图
+<ol type="1">
+<li>首先选出和查询最相关的top-K个网页，作为 root set <span class="math inline">\(R\)</span></li>
+<li>添加<span class="math inline">\(R\)</span>中指向的网页，和一部分指向<span class="math inline">\(R\)</span>的网页（比方说每个节点最多50个） 构造出
+base set <span class="math inline">\(V\)</span></li>
+<li>构造出<span class="math inline">\(G_{sub}=(V,E)\)</span>的点导出子图</li>
+</ol></li>
+<li>子图中，对每一个计算Hub和Authority值，多轮迭代直至收敛
+<ul>
+<li><span class="math inline">\(\forall v \in V, h(v) = a(v)=
+C\)</span>,初始值满足<span class="math inline">\(\Sigma_i h(v_i)^2 =
+\Sigma_i a(v_i)^2 =
+1\)</span>,一个常见的初始取值是<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121215213683.png" alt="image-20231121215213683" style="zoom:50%;"></li>
+<li>迭代以下步骤直至收敛：
+<ul>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121215258382.png" alt="image-20231121215258382" style="zoom:50%;"></li>
+<li>Hub，指向评分= 指向的点的被指评分的和</li>
+<li>Authority， 被指评分 = 被指点的指向评分和</li>
+<li>对评分进行算数初始化</li>
+</ul></li>
+<li>一般来说，会关注<span class="math inline">\(a(v_i)\)</span>最高的点</li>
+</ul></li>
+</ul>
+<h3 id="pagerank">PageRank</h3>
+<ul>
+<li><p>入点越多，入店的访问频率越高，这个点的PR就越高</p></li>
+<li><p>评分取决于surfer（半随机游走者）的访问频率，也就是平稳状态概率<span class="math inline">\(\pi\)</span></p></li>
+<li><p>最后算的是这么一个东西：<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121215813658.png" alt="image-20231121215813658" style="zoom:50%;"></p>
+<p>因为其实是马尔科夫链，也有快一点算的办法（换句话说就是不用模拟）</p></li>
+</ul>
+<h4 id="随机游走模型">随机游走模型：</h4>
+<ol type="1">
+<li>随机放一个walker在图上某节点</li>
+<li>这个walker下一步要移动到另一个点：
+<ul>
+<li>以<span class="math inline">\(\alpha\)</span>概率乱跳到全图随机一个点上（每个点公平平分）</li>
+<li>剩下的<span class="math inline">\(1-\alpha\)</span>中，随机在这个点的出点中找一个转移
+<ul>
+<li>通常<span class="math inline">\(\alpha=0.1\)</span>,称为
+<strong>smoothing or damping probability</strong></li>
+</ul></li>
+</ul></li>
+<li>记录每个点被访问的频数，最后的频率就是PR评分</li>
+</ol>
+<p>一般来说，这种分量里面的PR会高，关门打狗</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121220224610.png" alt="image-20231121220224610" style="zoom:50%;"></p>
+<h4 id="矩阵模型">矩阵模型</h4>
+<p>在以上的基础上，把概率矩阵多次迭代，可以避免模拟：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121222308351.png" alt="image-20231121222308351" style="zoom:50%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121222330328.png" alt="image-20231121222330328" style="zoom:50%;"></p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121222416987.png" alt="image-20231121222416987" style="zoom:50%;"></p>
+<p>使用收敛阈值：当下降速度够慢，认为已经收敛，返回</p>
+<h4 id="另外的pagerank">另外的PageRank：</h4>
+<ul>
+<li>内容敏感的PageRank：
+<ul>
+<li>转移的时候仅在相关内容节点之间转移</li>
+</ul></li>
+<li>SimRank：
+<ul>
+<li>朴素思想：如果两个点的入点集合相似，那么这两个点相似</li>
+<li>好处：纯粹的图论算法，内容无关；可以比较任意两个节点间的相似度，而非PR每个结点的重要性。</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121223129142.png" alt="image-20231121223129142" style="zoom:50%;"></li>
+<li>也可以用随机游走模拟，两个walker分别从点a,b出发，相遇时间的期望函数再对阻尼系数算一下。</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231121223225109.png" alt="image-20231121223225109" style="zoom:50%;"></li>
+</ul></li>
+<li></li>
+</ul>
+<h1 id="recommender-systems">Recommender systems</h1>
+<p>这一章的主题是根据user，item和user-item
+的信息来进行推荐系统，算是一种和文档挖掘，图挖掘相关的，应用层面的知识。</p>
+<p>推荐主要可以分为两类：</p>
+<ul>
+<li>Collaborative Filtering:
+<ul>
+<li>主旨是通过user/item相似性，进行的预测来进行推荐</li>
+<li>相对复杂，高级，抽象</li>
+</ul></li>
+<li>Content-Based Filtering
+<ul>
+<li>主旨是分析每个节点的性质来配对</li>
+<li>比较Naive</li>
+</ul></li>
+</ul>
+<p>重点放在第一种上。</p>
+<h2 id="手里的数据">手里的数据</h2>
+<p>主要分为三类：</p>
+<ul>
+<li><p>user profile</p>
+<ul>
+<li>包括购买历史，隐式或显式的兴趣</li>
+</ul></li>
+<li><p>Item profile：</p>
+<ul>
+<li>文字描述，关键词</li>
+</ul></li>
+<li><p>Utility matrix</p>
+<ul>
+<li>描述了每个用户（row）对每个产品（column）的兴趣</li>
+<li>分为两类
+<ul>
+<li>一种是只有positive/null的，表明看过/买过</li>
+<li>一种是有评分的，喜不喜欢</li>
+<li>用的时候差别不大</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122222929872.png" alt="image-20231122222929872" style="zoom:50%;"></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="content-based-filtering">Content-Based Filtering</h2>
+<p>这个比较简单：</p>
+<ul>
+<li>如果手里没有矩阵：
+<ul>
+<li>直接变成了文本问题，从item中找到K个最合适user的,
+例如使用tf-idf+cos</li>
+<li>感觉word embedding也能干</li>
+</ul></li>
+<li>如果有矩阵：
+<ul>
+<li>就变成了一个预测问题</li>
+<li>根据矩阵的形式（二元或numerical）来训练一个分类器或逻辑回归</li>
+<li>问题在于一般来说训练集都很小，容易做出同质化推荐</li>
+</ul></li>
+</ul>
+<h2 id="collaborative-filtering">Collaborative filtering</h2>
+<p>主流思想是考虑其他的样本关系，甚至整个数据集来做出预测，不太考虑预测样本本身的特质。</p>
+<p>主要分为四类，但详细讲了前两类。</p>
+<ul>
+<li><ol type="i">
+<li>Neighbourhood-based</li>
+</ol>
+<ul>
+<li>找到相似的用户/项目，根据别的来预测这个的</li>
+</ul></li>
+<li><ol start="2" type="i">
+<li>Graph-based</li>
+</ol></li>
+<li>根据评分关系建图，利用图上计算的指标来推荐</li>
+</ul>
+<p>后两种没太看懂</p>
+<ol start="3" type="i">
+<li><p>Clustering-based</p></li>
+<li><p>Latent factor -based</p></li>
+</ol>
+<h3 id="neighbourhood-based">Neighbourhood-based</h3>
+<p>分为两种，item-based和user-based</p>
+<h4 id="user-based">user-based</h4>
+<ol type="1">
+<li>计算用户的相似性
+<ul>
+<li>每个用户被表示为评分的向量</li>
+<li>可以通过类似Pearson correlation coefficient 来评分相似性</li>
+<li>只考虑都有评分的项目</li>
+</ul></li>
+<li>找到可用辅助预测的邻居
+<ul>
+<li>找到K个最近邻</li>
+<li>移除相似度小于阈值的</li>
+<li>对某邻居，每一个评分标准化（减去均值）</li>
+<li>最终目标用户的项目预测得分，是相似性加权平均后，该项得分，再加上目标用户其余评分的均值。</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122224656345.png" alt="image-20231122224656345" style="zoom:67%;"></li>
+</ul></li>
+</ol>
+<p>例子：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122224713844.png" alt="image-20231122224713844" style="zoom: 67%;"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122224722045.png" alt="image-20231122224722045" style="zoom: 67%;"></p>
+<h4 id="item-based">item-based：</h4>
+<p>类似的，相当于矩阵经过了一次转置——找到若干个相似的item，根据该用户对他们的评分预测此item的分数</p>
+<hr>
+<p>有哪些相似性度量可以用在这里？</p>
+<ul>
+<li>Pearson Correlation， 当然可以用，顺便也能用mean centreing</li>
+<li>调整过的 cosine similarity:
+<ul>
+<li>用不用mean-centering 是个问题，因为0向量不好处理</li>
+<li>只对所有值都是正的才好用</li>
+</ul>
+<h3 id="graph-based">Graph-based</h3></li>
+</ul>
+<p>建图：如果user_i对item_j有评价，就连一条边，最后的图，<span class="math inline">\(V={U,I}\)</span></p>
+<ul>
+<li>边(可以是有权的，也可以对其进行标准化，不过如果标准出了负权图就很麻烦）</li>
+</ul>
+<p>课上只介绍了简单情况:只考虑无权边</p>
+<h4 id="只用g来找最近邻">只用G来找最近邻</h4>
+<p>用G来计算Pagerank/SimRank，以此作为相似性衡量标准</p>
+<p>有了相似性之后就和前面的neighbor-based没区别了</p>
+<h4 id="考虑pr-值的推荐">考虑PR 值的推荐</h4>
+<p>当PR的随机跳转到user_i时，给他最大PR的item</p>
+<p>当PR的随机跳转到item_j时，把他推给最大的user</p>
+<p><span class="math inline">\(\alpha\)</span> 的影响：</p>
+<ul>
+<li>小的话，就总是推荐流行的item
+<ul>
+<li>都是靠随机游走走过去的</li>
+</ul></li>
+<li>大的话，每个用户都会比较specific
+<ul>
+<li>因为随机性强？</li>
+</ul></li>
+</ul>
+<p>？这里没太搞懂</p>
+<h3 id="clustering-based">Clustering-based</h3>
+<p>目标：希望能够通过聚类提前知道相似的user/item community</p>
+<p>问题：数据过于稀疏</p>
+<p>解决：改进K-means，对都有评价的子集做</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122230614477.png" alt="image-20231122230614477" style="zoom:67%;"></p>
+<h3 id="latent-factor--based">Latent factor -based</h3>
+<p>只简单提了一下，但越来越流行</p>
+<p>目标：通过两个低维向量乘积来大概表示utility matrix</p>
+<p>手段：
+将每个user/item表示为一个向量，想要知道他们的评分乘一下就知道了</p>
+<p>​ 可以用调整的SVD做这个事</p>
+<p><strong>会丢失信息</strong></p>
+<h1 id="section"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122231032224.png" alt="image-20231122231032224" style="zoom:50%;"></h1>
+<h1 id="mining-database-of-multiple-graphs">Mining database of multiple
+graphs</h1>
+<p>这章主要讲了如何评估图之间的距离，在不同距离基础上进行对图的聚类。</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122235648191.png" alt="image-20231122235648191" style="zoom:80%;"></p>
+<p>重要的子知识点包括</p>
+<ul>
+<li>图的同构，最大相似子图</li>
+<li>频繁子图</li>
+<li>图的表示</li>
+</ul>
+<h2 id="图的同构">图的同构：</h2>
+<p>如果两个图是同构的（isomorphic）
+那么他们对应的点应该有对应的边，匹配关系被表示为：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122231802113.png" alt="image-20231122231802113"> <span class="math display">\[
+M = { ( v, u ) | v ∈ V, u ∈ U, u = f ( v ) }
+\]</span></p>
+<ul>
+<li>当有标签时，对应点的标签相同</li>
+</ul>
+<p>在此基础上有了<strong>子图同构(Subgraph
+isomorphism)</strong>,要求一个图经过映射可以称为另一个的子图，讨论范围只考虑联通的情况：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122231934349.png" alt="image-20231122231934349" style="zoom:50%;"></p>
+<p>？暂时不知道最下面的条件为什么更弱</p>
+<p>在此基础上有了<strong>最大相似子图Maximum common subgraph
+(MCG)</strong>：</p>
+<ul>
+<li><span class="math inline">\(G_0\)</span>是<span class="math inline">\(G_1,G_2\)</span>的同构子图</li>
+<li>点数最多</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>可以用来判断距离/频繁子图挖掘</li>
+<li>只有NP-HARD的解法，基本就是穷举：</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232256067.png" alt="image-20231122232256067" style="zoom:50%;"></p>
+<ul>
+<li>应该能看懂吧?核心就是那一句递归 类似于DFS的动规了</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232313041.png" alt="image-20231122232313041" style="zoom:50%;"></p>
+<ul>
+<li>判断新加入的是否合理,就是看是否对于已经加入映射关系的<span class="math inline">\(v2,u2\)</span>,新的映射关系能够拓展的一条边在另一个图中不存在</li>
+</ul>
+<h2 id="图的距离">图的距离：</h2>
+<p>两个思路，一种是通过图的匹配来看（MCS,最小编辑距离），另一种是将图变形（更像是嵌入）之后来算。</p>
+<h3 id="图的匹配">图的匹配</h3>
+<h4 id="mcs-based">MCS-based：</h4>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232539597.png" alt="image-20231122232539597" style="zoom:50%;"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232555248.png" alt="image-20231122232555248" style="zoom:50%;"></p>
+<p>基本就是考虑他们没有在MCS中的点数和，以及可能进行标准化</p>
+<p><strong>只对以下条件适用：</strong></p>
+<ul>
+<li>小图，不然效率低</li>
+<li>大小差距不大，要不然MCS影响不大</li>
+</ul>
+<h4 id="最小编辑距离">最小编辑距离：</h4>
+<p>不同操作代价不同，根据应用定义</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232727124.png" alt="image-20231122232727124" style="zoom:50%;"></p>
+<h3 id="transformation-based">Transformation-based</h3>
+<p>Idea：在新的空间中表示</p>
+<h4 id="频繁子图表示法">频繁子图表示法</h4>
+<p>找到图里的若干频繁子图，通过这些频繁子图的频数形成向量<span class="math inline">\(F={f_1,...,f_d}\)</span>来表示图</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122232913846.png" alt="image-20231122232913846" style="zoom: 67%;"></p>
+<p>？为什么是text-similarity</p>
+<p>？ 为什么dont overlap too much</p>
+<h4 id="拓扑标识符">拓扑标识符</h4>
+<p>从图中计算若干指数作为新的特征，从此计算距离：</p>
+<p>例子：</p>
+<p>计算图中所有最短路的和（感觉很烂）</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122233235261.png" alt="image-20231122233235261" style="zoom:67%;"></p>
+<ul>
+<li>丢失了结构信息</li>
+<li>需要领域知识</li>
+</ul>
+<h4 id="核方法相似性">核方法相似性：</h4>
+<p>将图投射到 Hilbert
+空间（欧几里得空间是他的子集），两个图的点积就是他们的相似性</p>
+<p>（应该知道就行了）</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122233542565.png" alt="image-20231122233542565" style="zoom:50%;"></p>
+<h2 id="频繁子图发掘">频繁子图发掘</h2>
+<p>在距离和聚类都有应用</p>
+<p>基本类似于前面学过的那个，用了个GraphApriori 找频繁集</p>
+<p>？后面学会了在这补上</p>
+<h2 id="图聚类">图聚类</h2>
+<h4 id="基于距离的">基于距离的：</h4>
+<ol type="1">
+<li>K-medoids（几乎就是Kmeans）</li>
+<li>Spectral and other graph-based
+methods（层次聚类，或者别的图算法？）</li>
+</ol>
+<p>（用距离的都能用）</p>
+<p><strong>图距离计算开销大，一般小图才这么干</strong></p>
+<h4 id="基于频繁子图的">基于频繁子图的：</h4>
+<ul>
+<li><p>使用频繁子图，将图表示为向量，跟上面算距离的思路一样</p></li>
+<li><p>第二种方法：</p>
+<p>？没看懂（录像这块没录到）</p>
+<p>大概也就是一种检测共同子图频数来做的分类，不断迭代</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122235224832.png" alt="image-20231122235224832" style="zoom:50%;"></p></li>
+</ul>
+<h1 id="overview-of-social-network-analysis">Overview of social network
+analysis</h1>
+<p>如题所示，这节课确实就是个overview</p>
+<p>提出了以下四个任务，主要还是在图聚类的基础上做Community detection</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122235758023.png" alt="image-20231122235758023" style="zoom:50%;"></p>
+<h2 id="social-influence-analysis">Social influence analysis</h2>
+<p>这个研究的有两个问题，</p>
+<ul>
+<li>如何衡量每个点的影响力：
+<ul>
+<li>无向图中叫centrality</li>
+<li>有向图叫prestige</li>
+</ul></li>
+<li>影响传播或扩散模型
+<ul>
+<li>在边权的基础上，考虑一些点的影响力</li>
+<li>找到能最大化影响的seed set</li>
+<li>提了一下</li>
+</ul></li>
+</ul>
+<p>关于点的影响力，给了以下若干指标：</p>
+<ul>
+<li>Degree centrality
+<ul>
+<li>基本就是度的标准化</li>
+</ul></li>
+<li>Closeness centrality:
+<ul>
+<li>衡量某节点到其他所有节点最短距离的逆（倒数）</li>
+</ul></li>
+<li>Betweenness centrality：
+<ul>
+<li>衡量某节点在多少最短路上</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231123200822701.png" alt="image-20231123200822701" style="zoom:50%;"></p>
+<h2 id="community-detection">Community detection</h2>
+<p>目标：找到若干切边，能够形成分组，使得切边代价和最小</p>
+<p>一般情况是NP-HARD</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231123200945775.png" alt="image-20231123200945775" style="zoom:50%;"></p>
+<p>方法：</p>
+<ul>
+<li><p>层次聚类：(Spectral clustering)</p></li>
+<li><p>Kerninghan-Lin</p>
+<ul>
+<li>用于平衡的二分图（两组点数尽可能接近）</li>
+<li>每次迭代，交换一对点，将能给出最大改进的作为目标</li>
+</ul></li>
+<li><p>Girwan-Newman algorithm</p>
+<ul>
+<li>移除 bridge edges</li>
+<li>通常考虑betwenness最高的边</li>
+<li>有点像迪杰斯特拉？</li>
+</ul></li>
+<li><p>METIS algorithm：</p>
+<ul>
+<li>通过将紧密相连的点合并，在更简单的图上再划分</li>
+<li>划分完再恢复回去</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231123201500373.png" alt="image-20231123201500373" style="zoom: 67%;"></li>
+</ul></li>
+</ul>
+<h2 id="链接预测与点的相似性">链接预测与点的相似性</h2>
+<p>主要有若干思路：</p>
+<ul>
+<li>分析点的相似性来做：
+<ul>
+<li>计算代价低</li>
+</ul></li>
+<li>训练分类器来看这个边应该有否：
+<ul>
+<li>代价高，但更准</li>
+</ul></li>
+<li>使用缺失值预估法，类似于矩阵分解为向量相乘</li>
+</ul>
+<p>下面介绍了两种点相似性的算法：</p>
+<ol type="1">
+<li><p>使用公共邻居来衡量：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231123202029666.png" alt="image-20231123202029666" style="zoom:50%;"></p></li>
+<li><p>使用随机游走-基础的方法：</p></li>
+</ol>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231123202122036.png" alt="image-20231123202122036" style="zoom:50%;"></p>
+<p>？ 第一个没看懂</p>
+<ul>
+<li>SimRank</li>
+<li>Katz-measure：
+<ul>
+<li>两个点之间通路越多，越相似</li>
+<li>更长的通路衰减的更狠</li>
+</ul></li>
+</ul>
+<h1 id="text-mining">Text mining</h1>
+<p>讲的东西主要分以下几部分：</p>
+<ul>
+<li>预处理</li>
+<li>词的表示
+<ul>
+<li>tf-idf</li>
+</ul></li>
+<li>文本聚类和应用
+<ul>
+<li>算是重点</li>
+</ul></li>
+</ul>
+<p>还顺便提了一下 word -embedding</p>
+<p>基本概念：</p>
+<ul>
+<li>Corpus，语料，可以认为是文档集合</li>
+<li>Lexicon，词典，词的集合</li>
+</ul>
+<p>文档本来是有序的词序列，但</p>
+<ul>
+<li>经过bags of words 模型处理，就变成了词和对应频数
+<ul>
+<li>, e.g., Our cat likes the neighbour’s cat. → {our: 1, cat: 2, likes:
+1, the: 1, neighbour’s: 1 }</li>
+</ul></li>
+<li>再下改良空间中，用一个向量表示一个文档
+<ul>
+<li>非常稀疏</li>
+<li>出现的词会更重要一点</li>
+</ul></li>
+</ul>
+<h2 id="预处理-1">预处理：</h2>
+<p>一般来收，这些预处理步骤非常naive</p>
+<p>通常的步骤：</p>
+<ul>
+<li>Tokenization
+<ul>
+<li>通常就是word=toekn</li>
+</ul></li>
+<li>清洗，合并：
+<ul>
+<li>Lower-casing</li>
+<li>移除 stopwords，（考虑转小写的顺序）</li>
+<li>合并为本身的形式：
+<ul>
+<li>stemming——移除词缀，去掉ing等</li>
+<li>Lemmatizaton——通过词典移除派生词，对付was这种</li>
+</ul></li>
+<li>去除标点
+<ul>
+<li>考虑数字怎么办</li>
+<li>复合词中的破折号 dash</li>
+</ul></li>
+</ul></li>
+<li>Stopwords：
+<ul>
+<li>缺乏信息，多次出现的词</li>
+<li>考虑上下文，可能需要调整</li>
+</ul></li>
+<li>stemming
+<ul>
+<li>可能把多义词搞坏</li>
+<li>也可能没检测到(e.g., alumnus → alumnu vs. alumni → alumni)</li>
+<li>rule-based，可能会查表</li>
+</ul></li>
+<li>Lemmatization：
+<ul>
+<li>考虑上下文，词性标注和查表</li>
+<li>更慢，更准</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124205116146.png" alt="image-20231124205116146" style="zoom: 67%;"></p>
+<center>
+一个经过不同处理的例子
+</center>
+<h2 id="表示">表示</h2>
+<p>这里研究的都是文档级别的表示</p>
+<ol type="1">
+<li>频数模型：向量的每个分量就是词在对应文档中的频数，可能还正则化了</li>
+<li>二元；只考虑出现与否</li>
+<li>TF-IDF表示</li>
+</ol>
+<p>这里主要介绍TF-IDF</p>
+<h3 id="tf-idf">Tf-idf</h3>
+<p>TF: term-frequency</p>
+<p>IDF：Inverse document frequency</p>
+<p>某个词在文档中的词频乘以含有其文档的频率的倒数</p>
+<p>最常见的计算方法：</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124210008896.png" alt="image-20231124210008896">
+<figcaption aria-hidden="true">image-20231124210008896</figcaption>
+</figure>
+<p>文档词频越高，出现的文档越少，值就越高</p>
+<p>具体计算方法取决于实现</p>
+<p>常见的其他实现：</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124210112067.png" alt="image-20231124210112067" style="zoom: 67%;"></p>
+<h3 id="词是很好的特征吗">词是很好的特征吗？</h3>
+<p>问题：</p>
+<ul>
+<li>单个单词可能只是有用信息的一部分：
+<ul>
+<li>n-gram来看</li>
+</ul></li>
+<li>频率过高的词区分能力不足
+<ul>
+<li>停用词来帮忙</li>
+</ul></li>
+<li>独特或罕见的词看不出来相似性
+<ul>
+<li>多义词/同义词</li>
+<li>用Wordnet/embedding LSA（潜在语义分析来搞）</li>
+<li>拼写错误或英美区别</li>
+</ul></li>
+<li>多义词或同义词</li>
+</ul>
+<p>可以考虑用N-gram搞：</p>
+<p>规定gram长度？</p>
+<p>会导致很多特征，还需要过滤一下：</p>
+<pre><code>* gram 频率
+* 卡方，互信息，LSA</code></pre>
+<p>来筛出需要的gram</p>
+<blockquote>
+<p>LSA是什么？ 就是text上的SVD，用低位向量表示高维矩阵</p>
+<p>对于同义词有用，多义词有一点用（不太显著吧）</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124212907723.png" alt="image-20231124212907723" style="zoom:67%;"></p>
+</blockquote>
+<h2 id="聚类">聚类:</h2>
+<p>在得到了文档的向量空间表示后，其实一般的聚类方法都能试试。</p>
+<ul>
+<li>距离一般用cosien.如果两个向量都是标准化过的（范数为1），那么他们的<span class="math inline">\(L_2范数\)</span>和cos距离有一下关系：
+<ul>
+<li><figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124214911673.png" alt="image-20231124214911673">
+<figcaption aria-hidden="true">image-20231124214911673</figcaption>
+</figure></li>
+</ul></li>
+<li>PCA/LSA可以试着搞一下</li>
+<li>K-means可以作为baseline</li>
+</ul>
+<p>介绍了许多莫名其妙的技巧：</p>
+<ul>
+<li>使用cluster digests-最高频词
+来代替representative，更好地显示cluster的属性</li>
+<li>聚类时，对每个cluster额外维护一个高频词的属性</li>
+</ul>
+<p>下来还讲了一个技巧用于给text找更好的种子（然后K-MEANS）</p>
+<h3 id="scattergather">Scatter/Gather</h3>
+<p>找种子：</p>
+<ol type="1">
+<li><p>Buckshot：</p>
+<p>不在整个上找种子，而是先对部分样本聚类成K个，K个质心作为种子</p>
+<ul>
+<li>快</li>
+</ul></li>
+<li><p>Fractionation</p>
+<p>更好地把握局部特征：</p>
+<p>先将数据分为若干个桶，桶内若干文档分为若干cluster，每个cluster合并成为一个更大的文档，以此重复直到只剩K个cluster，他们的centroid作为seed</p>
+<ul>
+<li>质量更好</li>
+<li>为什么还要再跑一边Kmeans？这样考虑全局，避免引入随机分桶的噪声</li>
+</ul></li>
+</ol>
+<p>下来跑一遍K-MEANS</p>
+<p>精炼：</p>
+<ol type="1">
+<li><p>检测：</p>
+<p>如果平均相似分太低（和质心的或者两两之间的）
+就掰开，重新聚类</p></li>
+<li><p>合并：</p>
+<p>主题词显著重叠，就合并</p></li>
+</ol>
+<h3 id="其他方法-1">其他方法：</h3>
+<p>可以这么简单重排，</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124235509749.png" alt="image-20231124235509749" style="zoom:50%;"></p>
+<p>或者像二分图求最小割一样</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124235554911.png" alt="image-20231124235554911" style="zoom:50%;"><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231124235605069.png" alt="image-20231124235605069" style="zoom:50%;"></p>
+<h3 id="应用">应用：</h3>
+<ol type="1">
+<li>分类</li>
+</ol>
+<p>对于新文档来说，找到他的K个最近邻digests（每个clusterd都有若干digests），将其主导的标签作为其标签就行了</p>
+<p>？为什么说这比KNN要快</p>
+<p>？以及可以处理同义词和多义词</p>
+<ol start="2" type="1">
+<li><p>创新检测：</p>
+<p>维持若干文档clusters
+的时间戳，对新文档计算所有的（cosine）相似度（和每个cluster digest）</p>
+<p>如果能加入某个cluster（相似度大于阈值），那么更新cluster及其时间戳</p>
+<p>如果不能，就把他当作最新的一个cluster并移除一个最老的cluster</p>
+<p>感觉可以被特定的序列攻击？</p></li>
+</ol>
+<h2 id="额外知识">额外知识：</h2>
+<ul>
+<li><p>Word embedding：</p>
+<p>词向量的距离可以反映语义相似度</p>
+<ul>
+<li><p>常用方法：</p>
+<ul>
+<li><p>矩阵分解：</p>
+<p>类似SVD,分解word co-occurrence matrix</p></li>
+<li><p>Word2vec:</p>
+<p>使用隐式神经网络的权重</p>
+<ul>
+<li>CBOW： 用上下文预测词</li>
+<li>Skip-gram：用词预测上下文</li>
+</ul></li>
+<li><p>Word2vec:</p>
+<ul>
+<li>需要大语料，所以像tf-idf从零开始不太能</li>
+<li>但是好处是可以迁移</li>
+</ul></li>
+<li><p>Glove：</p>
+<ul>
+<li>需要的预料更少，更快</li>
+<li><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231128152317013.png" alt="image-20231128152317013" style="zoom:50%;"></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="summary">Summary：</h2>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231128152346894.png" alt="image-20231128152346894" style="zoom:50%;"></p>
+<h1 id="data-randomization-for-assessing-the-results">Data randomization
+for assessing the results</h1>
+<ul>
+<li>零假设（null hypothesis）</li>
+</ul>
+<h1 id="专题">专题</h1>
+<h2 id="名词解释类问题">名词解释类问题：</h2>
+<ul>
+<li>Data cleaning:</li>
+</ul>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231201210715587.png" alt="image-20231201210715587" style="zoom:67%;"></p>
+<p>covariance： 协方差</p>
+<p>matrices：矩阵（复数）</p>
+<p>singular vectors 奇异向量</p>
+<p>eigenvector 特征向量</p>
+<p>orthogonal basis vectors 正交基向量</p>
+<p>Entropy 熵</p>
+<p>singleton 单独的，单点成簇</p>
+<h3 id="数据类型">数据类型：</h3>
+<ul>
+<li>numerical</li>
+<li>categorical</li>
+<li>bianry</li>
+<li>graph</li>
+</ul>
+<h2 id="计算复杂度">计算复杂度</h2>
+<ul>
+<li>如果写的很傻逼 多项式算法也可能很烦：（例如每次都重复算距离）</li>
+</ul>
+<p>？ 这里再重复统计一下常见算法的复杂度</p>
+<ul>
+<li>hierarchical(On2) spectral(On3,Kmeans(OnKq))</li>
+<li>memory可能也是问题</li>
+<li>需要对计算量有预估</li>
+</ul>
+<h2 id="generic-apriori">Generic Apriori</h2>
+<p><strong>这可能是最有名的/常见的DM算法</strong></p>
+<h2 id="不同的指标和使用情景">不同的指标和使用情景</h2>
+<ul>
+<li>leverage</li>
+<li>lift</li>
+<li>MI</li>
+</ul>
+<h1 id="卷子的知识点">卷子的知识点</h1>
+<ul>
+<li>选择相似图/cluster的距离阈值</li>
+</ul>
+<h3 id="association-mining相关内容">Association mining相关内容</h3>
+<ul>
+<li><p>one-item set</p>
+<ul>
+<li>相关概念</li>
+<li>展现为trasaction形式</li>
+</ul></li>
+<li><p>Apriori</p>
+<ul>
+<li>会模拟</li>
+<li>直到最小频率</li>
+<li>展示candidate</li>
+<li>频繁集</li>
+<li>enumeration tree</li>
+</ul></li>
+<li><p>为什么有的时候剪枝可以不用数</p></li>
+<li><p>不同的集合</p>
+<ul>
+<li>maximal</li>
+<li>closed</li>
+<li>0-free</li>
+</ul></li>
+<li><p>对于给定集合的指标计算</p>
+<ul>
+<li>confidence</li>
+<li>leverage</li>
+<li>lift</li>
+<li>nMI给出算式要会算</li>
+</ul></li>
+<li><p>怎么通过上面那些值找候选规则之间的正向统计依赖</p></li>
+<li><p>怎么看一个规则是significant的</p>
+<ul>
+<li>怎么通过指标看看一个是不是要被剪枝掉</li>
+</ul></li>
+<li><p>知道一般筛选规则的步骤</p>
+<ul>
+<li>先用什么在用什么</li>
+</ul></li>
+</ul>
+<h1 id="questions">questions</h1>
+<p>w为什么说最下面的这是个更弱的条件</p>
+<p><img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122201721586.png" alt="image-20231122201721586" style="zoom: 50%;"></p>
+<p>这里的图apriori暂时看不太懂 回头看看apriori再继续搞</p>
+<figure>
+<img src="/2023/09/16/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20CSE4650-Methods-of-Data-Mining/image-20231122212220148.png" alt="image-20231122212220148">
+<figcaption aria-hidden="true">image-20231122212220148</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>Substance</category>
@@ -1978,6 +3804,12 @@ expr</p>
 <h1 id="introduction">Introduction</h1>
 <p>典型任务：分类，回归，排序</p>
 <ul>
+<li>分类：
+<ul>
+<li>将数据通过 决定面或边界 来分到预定义的类中</li>
+<li>Multi-label Classification： 某个样本可以同时属于多个类</li>
+<li>Extreme classification：类非常非常多</li>
+</ul></li>
 <li>回归
 <ul>
 <li>期望的输出是数字变量</li>
@@ -1990,16 +3822,14 @@ expr</p>
 </ul>
 <p>定义了输入空间，输出空间，损失函数等内容。</p>
 <p>将模型记作<span class="math inline">\(h\)</span></p>
-<figure>
-<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927192311142-16958321007251.png" alt="image-20230927192311142">
-<figcaption aria-hidden="true">image-20230927192311142</figcaption>
-</figure>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927192311142-16958321007251.png" alt="image-20230927192311142" style="zoom:50%;"></p>
 <p>值得注意的是有一个没见过的东西：</p>
-<p>empirical risk ：</p>
-<p>​ 通过计算单个例子的平均loss 来衡量模型的错误近似水平</p>
+<h4 id="empirical-risk">empirical risk ：</h4>
+<p>​ 通过计算训练集的平均loss 来衡量模型的错误近似水平</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927191941385.png" alt="image-20230927191941385" style="zoom: 67%;"></p>
 <p>在训练集上使用，评估模型对于训练集的拟合能力</p>
 <p><span class="math inline">\(R\)</span> 有一个帽子，是训练集上的</p>
+<p>####generalization error</p>
 <p>另一个东西是 泛化误差 （generalization error) 或者称之为（真实）风险
 (<strong>risk</strong>)</p>
 <figure>
@@ -2007,14 +3837,33 @@ expr</p>
 <figcaption aria-hidden="true">image-20230927192755056</figcaption>
 </figure>
 <p>大概意思是，这个数值是 损失函数在真实数据集的期望，其中<span class="math inline">\(D [ L(h(x), y)
-]\)</span>是给定数据下损失函数的期望。</p>
-<p>（还是没太搞懂）</p>
-<p>在我们不知道整体数据分布<span class="math inline">\(D\)</span>的前提下，我们怎么通过<span class="math inline">\(R(h)\)</span>和模型类<span class="math inline">\(H\)</span>来说<span class="math inline">\(R(h)\)</span>呢？</p>
+]\)</span>真实数据下损失函数的期望。</p>
+<p>在我们不知道整体数据分布<span class="math inline">\(D\)</span>的前提下，我们怎么通过训练集和模型类<span class="math inline">\(H\)</span>来说<span class="math inline">\(R(h)\)</span>呢？</p>
 <p>有两种方法：</p>
 <ul>
 <li>通过测试集的经验风险评估</li>
 <li>统计学习理论（下面要学的）</li>
 </ul>
+<p>这给俩名词解释：</p>
+<h4 id="hypothesis-classes-or-model-families">hypothesis classes or
+model families</h4>
+<p>指的就是大类模型：</p>
+<ul>
+<li>线性模型
+<ul>
+<li>逻辑回归</li>
+</ul></li>
+<li>神经网络</li>
+<li>核方法
+<ul>
+<li>SVM</li>
+</ul></li>
+<li>组装方法
+<ul>
+<li>Random Forests</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208033807955.png" alt="image-20231208033807955" style="zoom: 50%;">可以认为是一个超参数未定的模型，而<span class="math inline">\(h\)</span>就是一个我们给出了的确定参数的模型</p>
 <h2 id="线性回归">线性回归</h2>
 <figure>
 <img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927194640083.png" alt="image-20230927194640083">
@@ -2033,15 +3882,25 @@ expr</p>
 <h2 id="二元分类">二元分类</h2>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927200137127.png" alt="image-20230927200137127" style="zoom:67%;"></p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927200148870.png" alt="image-20230927200148870" style="zoom:67%;"></p>
+<h4 id="consistent-hypothesis">consistent hypothesis</h4>
 <p>下面探讨关于学到的<span class="math inline">\(h\)</span></p>
+<p><strong>当然需要训练集上（数据）没问题</strong></p>
 <p>如果一个<span class="math inline">\(h\)</span>能够在训练集上全部分对，那么我们称其为一致假设(<strong>consistent
-hypothesis</strong>*) 并在此基础上有两个极端例子：</p>
+hypothesis</strong>) 并在此基础上有两个极端例子：</p>
 <ul>
 <li>最兼容假设(Most general hypothesis)<span class="math inline">\(G\)</span></li>
 <li>最特定假设(Most specific hypothesis)<span class="math inline">\(S\)</span></li>
 </ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927200435685.png" alt="image-20230927200435685" style="zoom:67%;"></p>
 <p>直观上来说，选一个中间的会最安全：</p>
+<ul>
+<li>Margin：
+<ul>
+<li>the minimum distance between the decision boundary and a training
+point</li>
+<li>在决定边界核训练点之间的最小距离</li>
+</ul></li>
+</ul>
 <p><strong>最小化到两个极端例子的距离</strong></p>
 <p>这种方式在SVM支持向量机中使用</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927200655041.png" alt="image-20230927200655041" style="zoom:67%;"></p>
@@ -2058,18 +3917,51 @@ hypothesis</strong>*) 并在此基础上有两个极端例子：</p>
 <li>这里的阴和阳说的是预测结果</li>
 </ul>
 <p>一般来说，更加specific的模型会倾向于假阴更多，假阳更少（更趋向于预测阴？）</p>
+<p><strong>长方形面积更小</strong></p>
 <p>如果更general就相反</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927201411977.png" alt="image-20230927201411977" style="zoom:67%;"></p>
 <p><strong>Confusion matrix</strong>（混淆矩阵/误差矩阵）</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927201544950.png" alt="image-20230927201544950" style="zoom:67%;"></p>
 <p>在此基础上，引入了四个评价模型的指标</p>
+<ul>
+<li>Empirical risk
+<ul>
+<li>错误预测的比例</li>
+</ul></li>
+<li>Precision/Positive Predictive Value
+<ul>
+<li>预测为阳中，正确的比例</li>
+</ul></li>
+<li>Recall/Sensitivity
+<ul>
+<li>真阳中对了多少</li>
+</ul></li>
+<li>F1
+<ul>
+<li>Recall 核 Precision搞一起的一个东西</li>
+<li></li>
+</ul></li>
+</ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927201913451.png" alt="image-20230927201913451" style="zoom:67%;"></p>
 <p>在这个基础上，引入了一个称为<strong>ROC</strong>的概念。引入某种分类时候模型给出的可信度阈值<span class="math inline">\(θ\)</span>，大于他算成阳反之则阴，通过调节这个东西可以调节模型的假阴假阳占比</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927202255998.png" alt="image-20230927202255998" style="zoom:67%;"></p>
 <p>ROC曲线可以衡量一个模型的指标，包括在假阴假阳上的权衡/是否有全局最优的<span class="math inline">\(h\)</span></p>
+<ul>
+<li>底下的面积称为AUC/AUROC</li>
+<li>一般来说，一个分类器越倾向于预测为阳，其中真/假的比例就越高</li>
+</ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927202511785.png" alt="image-20230927202511785" style="zoom:67%;"></p>
+<p>怎么估计模型在更广阔数据中的表现呢？</p>
+<ul>
+<li>可以使用独立测试集的 empirical risk来估计，期望就是
+<ul>
+<li>测试集上的Rh 肯定更低</li>
+<li>模型越复杂，empirical risk越低，可能把模型太复杂了</li>
+<li>可能搞的是fitting而非learning</li>
+</ul></li>
+</ul>
 <h1 id="统计学习方法">统计学习方法</h1>
-<p>我们希望可以最小化这个东西 true risk：</p>
+<p>我们希望可以最小化这个东西 true risk/generalization error：</p>
 <figure>
 <img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230927192755056-16958321038722.png" alt="image-20230927192755056">
 <figcaption aria-hidden="true">image-20230927192755056</figcaption>
@@ -2091,21 +3983,27 @@ framework，形式化了机器学习的泛化概念</p>
 <li>能够学到一个目标假设类<span class="math inline">\(h_s\)</span>∈<span class="math inline">\(H\)</span></li>
 <li>能使得泛化误差小于<span class="math inline">\(\epsilon\)</span>的概率大于1-δ</li>
 </ul>
+<p><strong>对于任何分布和随机<span class="math inline">\(\epsilon\)</span>，sample size <span class="math inline">\(m\)</span>对1/<span class="math inline">\(\epsilon\)</span>,1/δ多项式增长，只要两个</strong></p>
 <p>在此基础上，增加了一个 efficiently
-PAC-learnable的概念，如果训练的算法<span class="math inline">\(A\)</span>能够以某种多项式复杂度时间对这三个变量增长的话</p>
+PAC-learnable的概念，<strong>更强，对数据集大小<span class="math inline">\(m\)</span>也有要求</strong>，如果训练的算法<span class="math inline">\(A\)</span>能够以某种多项式复杂度时间对这三个变量增长的话</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929165522922.png" alt="image-20230929165522922" style="zoom:50%;"></p>
 <p>具体解释一下这个式子：</p>
 <ul>
 <li>$<span class="math inline">\(, Generalization error
 bound，泛化误差，我们有信心这个学到的概念类\)</span>h<span class="math inline">\(在全局数据上的错误率 通常采用\)</span>$</li>
-<li><span class="math inline">\(\delta\)</span>, Confidence
-level，信心程度，我们认为前面那个错误率小于多少多少的失败率，通常采用<span class="math inline">\(\delta =0.05\)</span></li>
+<li><span class="math inline">\(1-\delta\)</span>, Confidence
+level，信心程度，我们认为前面那个错误率小于多少多少的失败率，通常采用<span class="math inline">\(\delta =0.05\)</span> <strong><span class="math inline">\(\delta\)</span>可以说是错误率</strong></li>
 <li>所需的样本大小和运行时间，不应该随着误差降低和信心增强，而爆炸增长——需要多项式复杂度</li>
 <li><span class="math inline">\(\{R(h_S ) ≤ \epsilon\}\)</span>
-被看成了一个随机变量，因为我们确实不知道他在真实数据上的表现（这一句和最后一句不一样，有点问题）</li>
+被看成了一个随机变量，因为我们确实不知道哪个<span class="math inline">\(H中的h\)</span>会被挑出来，以及他在真实数据上的表现（这一句和最后一句不一样，有点问题）</li>
 </ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929170658370.png" alt="image-20230929170658370" style="zoom:50%;"></p>
-<p>上面概念的可视化：</p>
+<p>上面概念的可视化：<strong>非常好图片</strong></p>
+<ul>
+<li>最高的就是泛化误差的期望</li>
+<li>信心越强，<span class="math inline">\(\delta\)</span>越小,<span class="math inline">\(\epsilon\)</span>就越大（能接受的泛化误差）
+gap就越大</li>
+</ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929173533871.png" alt="image-20230929173533871" style="zoom:50%;"></p>
 <p>下面讨论怎么样得出样本量，错误率和置信程度的一个公式（这破玩意看了快一下午）</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929190656757.png" alt="image-20230929190656757" style="zoom:50%;"></p>
@@ -2158,6 +4056,7 @@ P(R(h)&lt;=\epsilon)&gt;=1-\delta
 \]</span> 解得： <span class="math display">\[
 m&gt;= {4 \over \epsilon}*ln({4\over\delta})
 \]</span> 揭示了训练样本量和泛化误差<span class="math inline">\(\epsilon\)</span>,信心指数<span class="math inline">\(\delta\)</span>的关系</p>
+<p>同时有了要达到希望的错误率，使用$m,$的关系</p>
 <p>（为什么放缩这么一家伙？）</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929194534646.png" alt="image-20230929194534646" style="zoom:50%;"></p>
 <p>这里展示了一些三者之间的函数关系图，可以看到：</p>
@@ -2175,7 +4074,8 @@ m&gt;= {4 \over \epsilon}*ln({4\over\delta})
 <p>所以：</p>
 <ul>
 <li>经验预估检测错误率（empirically estimated test
-errors）应该比这个低很多 （训练集上算的？）</li>
+errors）应该比这个低很多
+（训练集上算的？，<strong>也是从真分布上估计出来的</strong>）</li>
 <li>这个也应该比实际的上界松很多，是一个非常general的上界</li>
 </ul>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929195059752.png" alt="image-20230929195059752" style="zoom:50%;"></p>
@@ -2196,10 +4096,12 @@ errors）应该比这个低很多 （训练集上算的？）</li>
 给定样本量和置信度，可以达到多大的误差。</li>
 </ul>
 <p>当然这俩都得要你算出来有限假设集的大小才行</p>
-<p>成立的前提是，这是一个一致假设，</p>
+<p>成立的前提是，<strong>存在</strong>一个一致假设…<strong>consistent
+hypothesis, one with zero empirical risk</strong>，</p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929205824865.png" alt="image-20230929205824865" style="zoom:67%;"></p>
 <p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20230929205745657.png" alt="image-20230929205745657" style="zoom:67%;"></p>
 <p><strong>后面对于这个公式（<span class="math inline">\(m&gt;=\)</span>)给了证明，不过没太看懂</strong></p>
+<p>？为什么这边还单独对有限假设类给了另一个公式</p>
 <p>下面给出例子进行详细说明</p>
 <p>对于一种相对简单的情况：</p>
 <h3 id="boolean-conjunctions">Boolean conjunctions</h3>
@@ -2211,6 +4113,7 @@ errors）应该比这个低很多 （训练集上算的？）</li>
 |H|=3^d
 \]</span> 每一个变量要么正，要么否，要么不出现——承认无关变量的可能</p>
 <h3 id="任意布尔公式">任意布尔公式</h3>
+<p>？怎么区分到底是3为底还是2</p>
 <p>若有<span class="math inline">\(d\)</span>个变量，每一个都可以为正或负，那么输入空间<span class="math inline">\(X\)</span> <span class="math display">\[
 |X| = 2^d
 \]</span> 考虑到并的存在，一个假设<span class="math inline">\(h\)</span>就是一个子集<span class="math inline">\(S\)</span>的每一项并集</p>
@@ -2228,6 +4131,563 @@ errors）应该比这个低很多 （训练集上算的？）</li>
 <p>下面还讨论了一点有限假设集不一致的情况，从公式来看是多了一点项</p>
 <h2 id="参考">参考：</h2>
 <p>https://theigrams.github.io/zjblog/2021/07/22/pac.html</p>
+<h1 id="l3-pac-learning的拓展">L3 PAC learning的拓展</h1>
+<p>上面学的，一个是假设 假设类是矩形，一个是假设 假设类是有限的</p>
+<p>但是在现实中，有更多不依赖这种前提的问题（SVM的hyperplane，神经网络的连续输入）</p>
+<p>所以我们希望有更好的工具来分析这些案例</p>
+<h2 id="vc-dimension">VC dimension</h2>
+<p>可以说是一个用来衡量假说类容量的概念，用来适用于不同的理论</p>
+<h1 id="lecture-4-model-selection">Lecture 4 Model selection</h1>
+<ul>
+<li>给定数据集 怎么算<span class="math inline">\(R(h),R(h*),R*\)</span>?</li>
+</ul>
+<p>开始一个大型的名词解释来整清楚上面这个过程：</p>
+<h4 id="bayes-error">Bayes error</h4>
+<p>给定数据（<span class="math inline">\(X,Y\)</span>）的分布，能够实现的最小误差</p>
+<p><span class="math inline">\(R^*\)</span></p>
+<ul>
+<li><p>算不出来，但可以用下面介绍的方式分解</p></li>
+<li><p>generalization error<span class="math inline">\(R(h)\)</span>也算不出来</p></li>
+<li><p>是一个用来衡量最好表现的理论工具</p></li>
+</ul>
+<h5 id="bayes-classifier">Bayes classifier</h5>
+<p>一个假设<span class="math inline">\(h\)</span>，能实现<span class="math inline">\(R(h) = R^∗\)</span>泛化误差等于Bayes error的称之为
+<strong>Bayes classfier</strong></p>
+<h5 id="noise">noise</h5>
+<p>Bayes classifier 实现的平均误差是<strong>noise</strong></p>
+<p>noise的期望 就是Bayes error</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208204056083.png" alt="image-20231208204056083" style="zoom:50%;"></p>
+<p>不过这张图里，noise是对于每一个<span class="math inline">\(x\)</span>
+预测概率较小的那一项的概率？</p>
+<h4 id="excess-error">excess error</h4>
+<p>衡量一个假设<span class="math inline">\(h\)</span>相对于最优误差的
+Bayes classifier，会达到多少泛化误差</p>
+<p>通常会这么分解：</p>
+<figure>
+<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208204814056.png" alt="image-20231208204814056">
+<figcaption aria-hidden="true">image-20231208204814056</figcaption>
+</figure>
+<ul>
+<li>泛化误差的差就是我们感兴趣的东西</li>
+</ul>
+<h5 id="estimation-error">estimation error</h5>
+<p><span class="math inline">\(\epsilon_{est}= R(h) −
+R(h∗)\)</span>这一部分称为估计误差，是目前<span class="math inline">\(h\)</span>距离<span class="math inline">\(h`∈H\)</span> ，假设类中最优的一个，的距离</p>
+<ul>
+<li>这一部分也被称为variance，好像能达到</li>
+</ul>
+<h5 id="approximation-error">approximation error</h5>
+<ul>
+<li><span class="math inline">\(\epsilon_{approxiamation}== R(h ∗ ) −
+R∗\)</span> 这一部分成为估计误差，描述假设类和最佳假设类的距离
+<ul>
+<li>这部分称为bias，难以消除</li>
+</ul></li>
+</ul>
+<hr>
+<p>下面给出一个理想情况下计算的例子：</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208204450075.png" alt="image-20231208204450075" style="zoom:50%;"></p>
+<ul>
+<li>X均匀分布</li>
+<li>分类器会将概率最大的作为预测输出</li>
+<li><span class="math inline">\(R^*\)</span> 计算了对于每一个X的概率
+乘以他的预测小标签的概率的和</li>
+</ul>
+<p>为了拟合这个分布，我们提出了一个假设类<span class="math inline">\(H\)</span>：</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208205315166.png" alt="image-20231208205315166" style="zoom:50%;"></p>
+<p><span class="math inline">\(H\)</span>中最好的<span class="math inline">\(h^`\)</span>,将3以下的数字标为0，3标为1</p>
+<p>他的泛化误差<span class="math inline">\(R(h^`)\)</span>就是这么算的：，通过没有达到设计的那一部分数据的影响</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208205523218.png" alt="image-20231208205523218" style="zoom:50%;"></p>
+<p>然后目前，我们在一个13个数据的训练集上，训练出了1个h，能够将1标为正，其他为0</p>
+<p>他能达到最好的empirical
+error<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208205709230.png" alt="image-20231208205709230" style="zoom: 50%;">=0.384（虽然没什么用），</p>
+<p>利用上面的真数据分布计算出的generalization
+error（在这个例子中都算错的项
+对应的概率）是0.433（有点奇怪，因为干的事情就不一样）</p>
+<p>最后以R(h)的形状展示出来</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208210055643.png" alt="image-20231208210055643" style="zoom:67%;"></p>
+<hr>
+<p>总结：</p>
+<ul>
+<li><span class="math inline">\(\epsilon\)</span>estimation = R(h) − R(h
+`) 这一部分可以通过PAC理论估计出来
+<ul>
+<li>？PAC估计的是什么来着</li>
+</ul></li>
+</ul>
+<p>可以看出来，<span class="math inline">\(\epsilon_{app}=approximation
+= R(h ∗ ) − R ∗\)</span>
+这一部分搞不出来，因为i不知道概念类和目标的差异——无法评估概念类的好坏！</p>
+<p>在我们使<span class="math inline">\(H\)</span>
+更复杂的时候，我们就有更大机会包括离 Bayes classifer 更近的<span class="math inline">\(h\)</span>，降低 approximation error</p>
+<p><strong>但是会让<span class="math inline">\(h\)</span>更难学！——增大Estimation
+error，generalization bounds 更松，VC维更高</strong></p>
+<p>下来要干的事情： 尽可能好的训练模型，使得它既有加好的 empirical
+error，又有较好的复杂性（在当前数据上表现好，但代价不太高）</p>
+<h2 id="regularization-based-algorithms">Regularization-based
+algorithms</h2>
+<p>我们将假设类按照复杂度分层划分，<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208220455948.png" alt="image-20231208220455948" style="zoom: 67%;"><span class="math inline">\(\gamma\)</span>就是他的复杂度，可以是布尔的变量数也可以是神经网络的大小</p>
+<p>需要挑选合适的<span class="math inline">\(\gamma\)</span></p>
+<p>希望对模型中的大权重进行惩罚，下面的讨论将给予线性函数：<span class="math inline">\(x → w^T x\)</span></p>
+<p>这里的<span class="math inline">\(\gamma\)</span>就是<span class="math inline">\(w\)</span>的范数<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208220643143.png" alt="image-20231208220643143" style="zoom:67%;"></p>
+<h4 id="范数">范数</h4>
+<p>范数常用有两种算法：</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208220715969.png" alt="image-20231208220715969" style="zoom:50%;"></p>
+<hr>
+<p>对于L2来说，算他的Rademacher complexity是有捷径的</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208220759112.png" alt="image-20231208220759112" style="zoom: 67%;"></p>
+<p>一般来说，可以用<span class="math inline">\(w\)</span>的范数来当作这个假设类的Rm上界</p>
+<hr>
+<p>回到最开始的想法，学习的目标应该是最小化一个函数，考虑到经验误差和模型的复杂性，这里给出形式化定义：</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231208220932936.png" alt="image-20231208220932936" style="zoom:67%;"></p>
+<h2 id="model-selection-by-using-a-validation-set">Model selection by
+using a validation set</h2>
+<p>这里给出了一般的训练集/验证集和测试集划分手段</p>
+<ul>
+<li>使用网格搜，来寻找在验证集上表现最好的超参数
+<ul>
+<li>代价大！</li>
+</ul></li>
+<li>有意思的是，找到了最好的超参数后，<strong>在训练集和验证集上共同</strong>重新训练最后的模型，
+<ul>
+<li>再去测试集验证</li>
+</ul></li>
+<li>验证集：
+<ul>
+<li>防止过拟合</li>
+<li>如果测试集拿来找超参，可能过分乐观
+<ul>
+<li>测试集不能参与贡献！</li>
+</ul></li>
+</ul></li>
+<li>怎么分？
+<ul>
+<li>一个分法是分层分，每一个类中都挑出等比例的，最后合并</li>
+<li>防止有的小类没被见过</li>
+</ul></li>
+</ul>
+<h3 id="交叉验证-cross-validation">交叉验证 Cross-validation</h3>
+<p>这一部分的内容目的是考虑普通的验证集和测试集划分，仍然可能存在一定问题：</p>
+<ul>
+<li>训练集 测试集可能虽然小但还是有噪声/outliers</li>
+<li>训练过程仍然有随机性（初始化）</li>
+</ul>
+<p>————我们希望通过多搞几次（averaging multiple
+splits）来克服这些问题！</p>
+<ul>
+<li>最好的超参数由N个验证集上平均最好的给出</li>
+</ul>
+<h4 id="搞验证集">搞验证集</h4>
+<p>这一步的前提是你已经留好了一个不变的测试集</p>
+<ol type="1">
+<li>当然，你可以重复随机划分</li>
+<li>但是我们这里用更科学的方法——</li>
+</ol>
+<h5 id="n-fold">n-Fold</h5>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209034508916.png" alt="image-20231209034508916" style="zoom:50%;"></p>
+<h4 id="leave-one-out-cross-validation-loo">Leave-one-out
+cross-validation (LOO)</h4>
+<p>每次只把一个当作验证集，其他全部当成训练集</p>
+<p>——很强，但计算代价大</p>
+<h4 id="测试集一起搞">测试集一起搞</h4>
+<p>n-fold的问题是，单个选择的测试集仍然肯恩恶搞有偏差</p>
+<p>使用</p>
+<h5 id="nested-cross-validation">Nested cross-validation</h5>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209034657651.png" alt="image-20231209034657651" style="zoom:50%;"></p>
+<p>两层循环，先留测试集，剩下的内容上再N-fold搞训练集/验证集划分</p>
+<h1 id="线性模型linear-models">线性模型，Linear models</h1>
+<p>这一章开始学习具体的模型，内容包括</p>
+<ul>
+<li>模型的任务</li>
+<li>模型是如何构建的
+<ul>
+<li>包括几何意义</li>
+</ul></li>
+<li>如何优化（损失函数）
+<ul>
+<li>错误是什么形式</li>
+<li>错误又应该如何更新</li>
+<li>对损失函数的证明/优化</li>
+</ul></li>
+<li>收敛条件
+<ul>
+<li>能对付什么样子的数据？
+<ul>
+<li>（是否收敛） 收敛速度</li>
+</ul></li>
+<li>数据大小，要求 分布</li>
+</ul></li>
+</ul>
+<hr>
+<p>这一章全部都是在做分类任务，甚至集中在线性分类</p>
+<ul>
+<li>先介绍任务</li>
+<li>在介绍线性分类器
+<ul>
+<li>在其基础上介绍感知机</li>
+</ul></li>
+<li>再介绍逻辑回归（确实是在做分类的）</li>
+</ul>
+<h2 id="线性分类器">线性分类器：</h2>
+<p>输入是多维实数，分类为正负例<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209035700649.png" alt="image-20231209035700649" style="zoom:50%;"></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209035755025.png" alt="image-20231209035755025" style="zoom:50%;"></p>
+<p>假设类长这个样子，向量乘一下，再加上偏置项 然后再激活</p>
+<h4 id="优点">优点：</h4>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209035919977.png" alt="image-20231209035919977" style="zoom:50%;"></p>
+<ul>
+<li>好理解</li>
+<li>空间小</li>
+<li>简单（好学习）</li>
+</ul>
+<p><strong>应该是第一个尝试的算法！</strong></p>
+<h4 id="空间解释">空间解释：</h4>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040225218.png" alt="image-20231209040225218" style="zoom:50%;"></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040015503.png" alt="image-20231209040015503" style="zoom:50%;"></p>
+<ul>
+<li>线是<span class="math inline">\(wx\)</span></li>
+<li>法向量是<span class="math inline">\(w\)</span></li>
+<li>其他分别标注出了
+<ul>
+<li>它到原点的距离</li>
+<li>偏置项会导致法向量方向和超平面的关系</li>
+<li>点和平面距离</li>
+</ul></li>
+</ul>
+<h2 id="线性分类器的学习过程">线性分类器的学习过程</h2>
+<p>可以看出来
+原来的式子<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040329651.png" alt="image-20231209040329651" style="zoom:50%;">可以写的更简单</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040341303.png" alt="image-20231209040341303" style="zoom:50%;"></p>
+<p>分类后的点的函数值对应向量和法向量所成的角度与正负例有关</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040430231.png" alt="image-20231209040430231" style="zoom:50%;"></p>
+<p>这里学习到了一个重要的概念：</p>
+<h4 id="margin">Margin</h4>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040541458.png" alt="image-20231209040541458" style="zoom:50%;"></p>
+<p>大概就是标准化过的点到超平面的距离向量，再和判断是否正确乘一下,&lt;0就是错了</p>
+<p><strong>我们会希望这个margin大于0</strong></p>
+<h2 id="感知机-perceptron">感知机 Perceptron</h2>
+<p>第一个机器学习算法，1956，用来做二分类问题</p>
+<p>形式是这样子的：</p>
+<figure>
+<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040800184.png" alt="image-20231209040800184">
+<figcaption aria-hidden="true">image-20231209040800184</figcaption>
+</figure>
+<p>训练过程是这样的：</p>
+<figure>
+<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040814241.png" alt="image-20231209040814241">
+<figcaption aria-hidden="true">image-20231209040814241</figcaption>
+</figure>
+<p>直到全部都分类正确</p>
+<h4 id="具体训练过程">具体训练过程</h4>
+<p><strong>主要研究对象是训练集</strong></p>
+<p>在干什么呢？</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209040904307.png" alt="image-20231209040904307" style="zoom:50%;"></p>
+<ul>
+<li><span class="math inline">\(yixi\)</span>被当作错误代价用来更新权重向量</li>
+<li>我们来看一看对于一个（错误分类的点），它的margin会如何迭代：</li>
+<li>可以看到它的下次margin就是这次再加上<span class="math inline">\(x^2\)</span>,一直在增大
+<ul>
+<li>当然不能保证一次更新就行</li>
+</ul></li>
+</ul>
+<p>大概就是这样的一个过程：平面的法向量在转，就分好了</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209041204053.png" alt="image-20231209041204053" style="zoom:50%;"></p>
+<h4 id="若干好性质">若干好性质</h4>
+<ul>
+<li>只要两个类是线性可分的，就一定能超平面收敛</li>
+</ul>
+<h5 id="theorem-novikoff">Theorem （Novikoff)</h5>
+<p>** 应用条件 应该是两个线性可分的类和感知机**</p>
+<p>证明对于一个知道了</p>
+<ul>
+<li>大小</li>
+<li>最大模(衡量数据集有多分散)</li>
+</ul>
+<p>的测试集</p>
+<p>并且满足某条件</p>
+<ul>
+<li><span class="math inline">\(\gamma\)</span> 是最大可实现的margin
+<ul>
+<li>衡量数据集中两个类的分离程度</li>
+</ul></li>
+</ul>
+<p><strong>可以证明训练的收敛步数上界</strong></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209043016830.png" alt="image-20231209043016830" style="zoom:50%;"></p>
+<p>?为什么这边<span class="math inline">\(w\)</span>都是标准化过的</p>
+<p>但是，对于非线性可分数据来说，<strong>算法不会停止！</strong></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209043207610.png" alt="image-20231209043207610" style="zoom:50%;"></p>
+<h4 id="损失函数的形式化表达">损失函数的形式化表达</h4>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209043302587.png" alt="image-20231209043302587" style="zoom:50%;"></p>
+<p>可以看出这个损失函数是凸的，所以有很好的性质：</p>
+<ul>
+<li>局部最小也是全局最小</li>
+<li>比较好通过逐步更新减少loss
+<ul>
+<li>不是NP-hard</li>
+</ul></li>
+</ul>
+<hr>
+<p>但是现在，我们希望还有一个比感知机更好的算法，<strong>离最优比较近就终止</strong>就行了</p>
+<h2 id="logistic-regression">Logistic regression</h2>
+<p>它确实是分类器</p>
+<ul>
+<li><p>logistic函数</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209043827299.png" alt="image-20231209043827299" style="zoom:50%;"></p></li>
+<li><p>logit函数</p>
+<ul>
+<li>是他的反函数</li>
+<li><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209043904187.png" alt="image-20231209043904187" style="zoom:50%;"></li>
+</ul></li>
+</ul>
+<hr>
+<p>logistic regression
+认为<img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209044136286.png" alt="image-20231209044136286" style="zoom:50%;">可以用底下的式子写出来</p>
+<ul>
+<li>随之而来的它的margin</li>
+</ul>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209044129577.png" alt="image-20231209044129577" style="zoom:50%;"></p>
+<h4 id="loss">loss</h4>
+<p>我们希望能够最大化训练集上的正确的条件概率分布，将其表示为<span class="math inline">\(w^*\)</span></p>
+<p>两边取对数再稍作变形，得到它的相反数，<strong>loss</strong></p>
+<p>最大化可能性，就是最小化loss</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209044613396.png" alt="image-20231209044613396" style="zoom:50%;"></p>
+<p>这是一个单调递减的可微凸函数，他还有好性质：</p>
+<ul>
+<li>离谱的时候值大，</li>
+<li>正确的时候很慢——不会对已经分的比较好的继续努力</li>
+</ul>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209044808627.png" alt="image-20231209044808627" style="zoom:50%;"></p>
+<h4 id="训练">训练</h4>
+<p>我们希望能够求出这个loss的最小值</p>
+<p>因为它不是线性的，所以没办法直接给——使用随机梯度下降<strong>stochastic
+gradient descent</strong></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209045002927.png" alt="image-20231209045002927" style="zoom:50%;"></p>
+<p>梯度就是<span class="math inline">\(J\)</span>对所有变量的偏导，组成的一个向量</p>
+<p>算还是正经算，算出来发现仍然能扯回去</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209045159599.png" alt="image-20231209045159599" style="zoom:50%;"></p>
+<p>作为对比，原始的条件概率是这样的：</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209045222049.png" alt="image-20231209045222049" style="zoom: 67%;"></p>
+<p>对每个训练输入<span class="math inline">\(x\)</span>,计算出来他的梯度向量,最后发现直接乘对应向量就可以了</p>
+<p><strong>这个梯度向量给出了最快下降的方向</strong></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209045550298.png" alt="image-20231209045550298" style="zoom:50%;"></p>
+<p>但是算这个东西其实很烦,因为对每个<span class="math inline">\(x\)</span>都要算这么一家伙(如果算全体梯度的话</p>
+<h5 id="随机梯度下降">随机梯度下降</h5>
+<p>每次从全体样本中抽一条,用它的样本更新<span class="math inline">\(w\)</span></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209050651227.png" alt="image-20231209050651227" style="zoom:50%;"></p>
+<p>显然,它的期望是和全梯度一样的(随机抽取的)</p>
+<p>?更新了y不是不一样了</p>
+<h5 id="过程">过程:</h5>
+<p><strong>初始化<span class="math inline">\(w=0\)</span></strong></p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209050739626.png" alt="image-20231209050739626" style="zoom:50%;"></p>
+<h5 id="stepsize">stepsize</h5>
+<p>SGD 代表随机梯度下降（Stochastic Gradient Descent）</p>
+<p>学习率被称为η, stepsize</p>
+<ul>
+<li>如果使用固定学习率
+<ul>
+<li>太大太小都不好</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209050923754.png" alt="image-20231209050923754" style="zoom:50%;"></p>
+<ul>
+<li>也可以使用关于训练轮数的动态学习率
+<ul>
+<li>仍然需要多次调整衰减系数<span class="math inline">\(\alpha\)</span></li>
+</ul></li>
+</ul>
+<h5 id="停止条件">停止条件</h5>
+<p>可能的选择:</p>
+<ul>
+<li>最大训练次数
+<ul>
+<li>需要为每个数据集单独设立</li>
+</ul></li>
+<li>梯度条件
+<ul>
+<li>梯度的维度小于某阈值</li>
+</ul></li>
+<li>一般来说,常用的是都能分类对就行了
+<ul>
+<li>loss收敛前就能达到</li>
+</ul></li>
+</ul>
+<hr>
+<p>这个东西还不是太理解</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209051425440.png" alt="image-20231209051425440" style="zoom:50%;"></p>
+<p>?? 这两个具体是啥什么区别?</p>
+<ul>
+<li>functional margin
+<ul>
+<li><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209190340424.png" alt="image-20231209190340424" style="zoom:50%;"></li>
+<li>加了符号(判断是否正确的) 分类映射后的x</li>
+<li>衡量离超平面有多远,可以认为是信心程度</li>
+</ul></li>
+<li>geometric margin
+<ul>
+<li><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209190504366.png" alt="image-20231209190504366" style="zoom:50%;"></li>
+<li>上面那个东西的标准化,</li>
+<li>带方向的,到超平面的距离:</li>
+</ul></li>
+<li><span class="math inline">\(|g(x)|/|w|\)</span>
+<ul>
+<li>不带方向的距离</li>
+</ul></li>
+</ul>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209191349201.png" alt="image-20231209191349201" style="zoom:50%;"></p>
+<h1 id="svm">SVM</h1>
+<p>这一章延续上一章logistic模型和感知机,在最大化functional
+margin的基础上 提出了怎么找这样一个模型,这就是SVM</p>
+<p>但是,对于支持向量的阐述其实并没有很明白</p>
+<p>这一章的主题大概按照以下思路</p>
+<ul>
+<li>怎么找最大margin
+<ul>
+<li>functional margin没啥意义 要最大化 geometry margin</li>
+<li><strong>这里需要明确<span class="math inline">\(\gamma\)</span></strong>是什么
+做了一个巧妙变形,后面的优化求解问题建立在这个假设上</li>
+</ul></li>
+<li>首先讨论的是硬间隔
+<ul>
+<li>它有若干好性质</li>
+<li>在其上讨论了它的VCD和 Rademacher</li>
+</ul></li>
+<li>其次考虑到线性不可分数据,我们希望模型能够对他仍然有处理能力
+<ul>
+<li>提出了软间隔模型,对每一个误分类加以代价的情况允许存在</li>
+<li>在其上讨论了它的loss,称为<span class="math inline">\(L_{Hinge}\)</span>
+<ul>
+<li>通过不可导处定义使得梯度下降可行</li>
+</ul></li>
+<li>讨论了它的损失优化和梯度</li>
+</ul></li>
+<li>最后讨论了对偶软间隔SVM
+<ul>
+<li>认为超平面法向量可以写成支持向量的线性组合</li>
+<li>然后将目标函数(也就是总错误)写成了含有<span class="math inline">\(a_i\)</span>的拉格朗日形式 求最小的优化问题
+<ul>
+<li>在此基础上讨论了一点核技巧</li>
+</ul></li>
+<li>下来把<span class="math inline">\(\alpha\)</span>像<span class="math inline">\(w\)</span>一样讨论了一下他的优化过程</li>
+</ul></li>
+</ul>
+<hr>
+<p>?是0-1损失的上界有什么好处?</p>
+<p><img src="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/image-20231209204644767.png" alt="image-20231209204644767" style="zoom:50%;"></p>
+<p><br>
+</p>
+<h1 id="section"></h1>
+<p>为什么|w| 就是评估过拟合的指标?</p>
+<h1 id="面向考试学习">面向考试学习</h1>
+<h2 id="a1">A1</h2>
+<h3 id="基于l1">基于L1</h3>
+<ul>
+<li>给任务 ，选择对应的模型
+<ul>
+<li>回归/排序/多标签分类/二元分类</li>
+</ul></li>
+<li>对于给定结果，不同损失函数哪个代价更高？
+<ul>
+<li>MSE</li>
+<li>MAE</li>
+</ul></li>
+<li>基础概念，
+<ul>
+<li>假设，假设类，假设集</li>
+<li>损失函数的定义，用途等</li>
+</ul></li>
+<li>不同指标的定义，计算
+<ul>
+<li>precision</li>
+<li>recall</li>
+<li>accuracy</li>
+</ul></li>
+</ul>
+<h2 id="a2">A2</h2>
+<h3 id="基于l2">基于L2</h3>
+<ul>
+<li>PAC learnable 理论
+<ul>
+<li>里面的符号定义</li>
+<li>generalisation error 怎么算，含义</li>
+</ul></li>
+<li>boolean conjunctions classifier
+<ul>
+<li>是什么</li>
+<li>要达到若干准确度需要多少组合</li>
+</ul></li>
+</ul>
+<h3 id="基于l3">基于L3</h3>
+<ul>
+<li>VC维的概念</li>
+<li>分类器VC维是x，意味什么？</li>
+<li>估计需要多少训练样本，才能让test error 到达多少
+<ul>
+<li>才能让基于VC dimension complexity 降到多少一下</li>
+<li>和<span class="math inline">\(\delta\)</span>的关系</li>
+</ul></li>
+<li>generalisation bound 是什么？</li>
+</ul>
+<h2 id="a3">A3</h2>
+<h3 id="l45">L4，5</h3>
+<ul>
+<li>计算Bayes classifier的 Byes error
+<ul>
+<li>x和y的条件概率</li>
+<li>h，x的分布</li>
+</ul></li>
+<li>Percetron Algorithm
+<ul>
+<li>不同类型标准化的影响</li>
+<li>类的线性可分</li>
+<li>Novikoff`s theorem
+<ul>
+<li>标准化对于权重矩阵的影响</li>
+<li>迭代次数和标准化的影响</li>
+</ul></li>
+</ul></li>
+<li>通过 cross-validation 选择最好的超参数
+<ul>
+<li>nested cross validation
+<ul>
+<li>5-fold</li>
+</ul></li>
+<li>Roc-Auc 分数</li>
+<li>Stochastic gradient algorithm</li>
+</ul></li>
+<li>row-wise normalization</li>
+</ul>
+<h2 id="a4">A4</h2>
+<h3 id="l467">L4,6,7</h3>
+<ul>
+<li>polynomial kernel
+<ul>
+<li>explicit feature space
+<ul>
+<li>degree</li>
+</ul></li>
+<li>定义polynomial 的向量空间维度</li>
+</ul></li>
+</ul>
+<p>（L6)</p>
+<ul>
+<li>SVM,随机梯度下降，原始方法</li>
+</ul>
+<p>（L7)</p>
+<ul>
+<li><p>SVC，sklearn中的</p></li>
+<li><p>在 compliexity model和 emperical error 取得平衡</p></li>
+<li><p>Kernel method</p>
+<ul>
+<li>从已知的kernel中搞到一个新的</li>
+<li>给出参数 看看是不是给了一个半正定的核</li>
+</ul></li>
+<li><p>Gaussian kernel （RBF）</p>
+<ul>
+<li>对应的表达式</li>
+<li>gradient</li>
+<li>结合 Gaussian kernel 和 概率密度函数的gradient</li>
+<li>看看新的核是不是半正定</li>
+</ul></li>
+</ul>
 ]]></content>
       <categories>
         <category>Substance</category>
