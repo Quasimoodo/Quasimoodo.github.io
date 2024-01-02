@@ -4697,4 +4697,61 @@ margin的基础上 提出了怎么找这样一个模型,这就是SVM</p>
         <tag>Course</tag>
       </tags>
   </entry>
+  <entry>
+    <title>论文笔记-Constitutional AI: Harmlessness From AI Feedback</title>
+    <url>/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/</url>
+    <content><![CDATA[<p>这篇论文(?)还蛮好玩的 大概半个小时就能看完 有点看小说一样的感觉了....
+<span id="more"></span> 看之前: 我去 作者Princeton 的博士 什么神 看完:
+原来纯prompt和pipeline的东西也能写这么长 难怪只能挂arxiv(乐)</p>
+<p>这篇论文的目的是通过某种微调,来实现更好的LM性能.作者将LM的性能在这里划为两个维度,一个是无害性,需要符合各种政治正确,防止生成反人类反社会的内容;另一个维度是有效性,毕竟谁也不希望这里有一个只会说I
+don`t know的安全家伙.</p>
+<p>贡献基本也就写在名字里了:Constitutional AI.
+好处基本就是可以使用更少的人类做标签,相比于传统的纯RLHF(Reinforceent
+Learning Human Feedback),这里用了
+RLAIF(偷我Idea!).而把这个做成了一个pipeline,从而使大模型的微调阶段可以更好地和目标对齐.</p>
+<p>训练大概分成两个部分,第一部分是有监督的,第二部分类似于RL</p>
+<ol type="1">
+<li>从已经生成好的预训练模型开始微调,由于这里关注的是无害性,所以这里的预训练模型都是比较有用的.</li>
+<li>让模型对问题给出反馈,再自我批评,作为下一阶段的语料
+<ol type="1">
+<li>这里面对稍微狠一点的问题,给出来的回答一般harmlessness做得都很差</li>
+<li>再给一个prompt,让他找自己这一段对话违背了那些原则,这里的prompt称为<strong>Principle</strong></li>
+<li>再给一个问题,让他对上面1.给出的回答做出修订</li>
+<li>supviserd
+就在这一阶段:人来对这阶段生成的输出进行采样,采样结果作为下一阶段训练语料</li>
+</ol></li>
+<li>进行强化学习拟合
+<ol type="1">
+<li>用上面的语料进行训练,但给出两个选项,让LM自己评价哪个更好</li>
+</ol></li>
+</ol>
+<p>Pipeline如图:</p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png" alt="image-20240102030455207" style="zoom: 67%;"></p>
+<p>最后得出的结论是
+这样的作法效果还不错,在减少了crowdworker的同时能获得较好的效果(也不用让人去做诱导LM说怪话的烂活儿了)</p>
+<p>还提到了一个东西,CoT(Chain of Thought),其实就是一个<em>Let’s think
+step-by-step:</em>的Prompt,引用自 Chain of thought prompting elicits
+reasoning in large language models.
+说是这个能略微改善性能,但主要还是增加透明度</p>
+<p>样例如图:</p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030537172.png" alt="image-20240102030537172" style="zoom:67%;"></p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030654559.png" alt="image-20240102030654559" style="zoom:67%;"></p>
+<p>基本就完了 下面是 fun fact:</p>
+<ol type="1">
+<li>由principal生成constitution,而这里的constitution其实就是被批判过的错误回答,错误原因和改正结果,好像判例法一样.唉,美国的技术里夹杂普世价值!</li>
+<li>在平衡harmlessness和helpfulness之间存在紧张的张力,难怪现实中有人会完全地滑向另一端:还没有AI有追求.</li>
+<li>在考虑需不需要2.2的批判阶段作者也进行来实验,答案是大模型差别不大,但小模型差别显著,更像人了.</li>
+<li>原来放两个选项就能叫强化学习了吗…我虽然没怎么学过但也知道应该有奖惩函数什么的.</li>
+<li>文章没深入讨论怎么具体同时提升helpfulness和harmlessness,稍微有点失望.</li>
+</ol>
+<p>link: https://arxiv.org/abs/2212.08073</p>
+]]></content>
+      <categories>
+        <category>Substance</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>NLP</tag>
+      </tags>
+  </entry>
 </search>

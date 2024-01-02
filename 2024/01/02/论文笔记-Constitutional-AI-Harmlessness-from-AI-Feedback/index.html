@@ -20,30 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"quasimoodo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？">
+    <meta name="description" content="这篇论文(?)还蛮好玩的 大概半个小时就能看完 有点看小说一样的感觉了....">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Philip Larkin 诗鉴赏">
-<meta property="og:url" content="https://quasimoodo.github.io/2022/06/04/Philip-Larkin/index.html">
+<meta property="og:title" content="论文笔记-Constitutional AI: Harmlessness From AI Feedback">
+<meta property="og:url" content="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/index.html">
 <meta property="og:site_name" content="MetaExistential">
-<meta property="og:description" content="今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？">
+<meta property="og:description" content="这篇论文(?)还蛮好玩的 大概半个小时就能看完 有点看小说一样的感觉了....">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-04T17:26:03.000Z">
-<meta property="article:modified_time" content="2022-08-08T09:22:41.981Z">
+<meta property="og:image" content="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030537172.png">
+<meta property="og:image" content="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030654559.png">
+<meta property="article:published_time" content="2024-01-02T00:44:42.000Z">
+<meta property="article:modified_time" content="2024-01-02T01:27:13.316Z">
 <meta property="article:author" content="Quasimoodo">
-<meta property="article:tag" content="Poem">
-<meta property="article:tag" content="Literary criticism">
-<meta property="article:tag" content="Philip Larkin">
+<meta property="article:tag" content="Note">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png">
 
 
-<link rel="canonical" href="https://quasimoodo.github.io/2022/06/04/Philip-Larkin/">
+<link rel="canonical" href="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://quasimoodo.github.io/2022/06/04/Philip-Larkin/","path":"2022/06/04/Philip-Larkin/","title":"Philip Larkin 诗鉴赏"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/","path":"2024/01/02/论文笔记-Constitutional-AI-Harmlessness-from-AI-Feedback/","title":"论文笔记-Constitutional AI: Harmlessness From AI Feedback"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Philip Larkin 诗鉴赏 | MetaExistential</title>
+<title>论文笔记-Constitutional AI: Harmlessness From AI Feedback | MetaExistential</title>
   
 
 
@@ -209,7 +212,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2022/06/04/Philip-Larkin/">
+    <link itemprop="mainEntityOfPage" href="https://quasimoodo.github.io/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/taffy.png">
@@ -222,12 +225,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Philip Larkin 诗鉴赏 | MetaExistential">
+      <meta itemprop="name" content="论文笔记-Constitutional AI: Harmlessness From AI Feedback | MetaExistential">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Philip Larkin 诗鉴赏
+          论文笔记-Constitutional AI: Harmlessness From AI Feedback
         </h1>
 
         <div class="post-meta-container">
@@ -237,15 +240,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-06-04 20:26:03" itemprop="dateCreated datePublished" datetime="2022-06-04T20:26:03+03:00">2022-06-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-08 12:22:41" itemprop="dateModified" datetime="2022-08-08T12:22:41+03:00">2022-08-08</time>
+      <time title="Created: 2024-01-02 02:44:42 / Modified: 03:27:13" itemprop="dateCreated datePublished" datetime="2024-01-02T02:44:42+02:00">2024-01-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,7 +250,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Metaphysics/" itemprop="url" rel="index"><span itemprop="name">Metaphysics</span></a>
+          <a href="/categories/Substance/" itemprop="url" rel="index"><span itemprop="name">Substance</span></a>
         </span>
     </span>
 
@@ -267,20 +264,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天读到了Philip Larkin(菲利普·拉金) 觉得他确实写出了一些人类的共有困境，是超越东西方的 也不好说是现代视角或者古典视角。用诗歌描述一种……symptom？没有意象的堆叠或者是故作惊人之语。恰到好处的建筑与音韵意识又不喧宾夺主，克制的情感流露并着个人色彩。 类似于散文诗？</p>
-<span id="more"></span>
-<p>现摘在这里这一首，「Love Songs in Age」<br>She kept her songs, they kept so little space,<br>The covers pleased her:<br>One bleached<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="floating, drift,漂白
-">1</span></a></sup> from lying in a sunny place,<br>One marked in circles by a vase of water,<br>One mended<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="repair,patch,修补
-">2</span></a></sup>, when a tidy fit had seized her,<br>And coloured, by her daughter -<br>So they had waited, till, in widowhood<br>She found them, looking for something else, and stood</p>
-<p>Relearning how each frank submissive chord<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="和弦
-">3</span></a></sup><br>Had ushered<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="（迎宾员式的）引导
-">4</span></a></sup> in<br>Word after sprawling hyphenated<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="连字符
-[^6 ]:great brightness,耀眼的
-">5</span></a></sup> word,<br>And the unfailing sense of being young<br>Spread out like a spring-woken tree, wherein<br>That hidden freshness sung,<br>That certainty of time laid up in store<br>As when she played them first. But, even more,</p>
-<p>The glare<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label>6</span></a></sup> of that much-mentionned brilliance, love,<br>Broke out, to show<br>Its bright incipience<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="beginning to exist or to be apparent
-">7</span></a></sup> sailing above,<br>Still promising to solve, and satisfy,<br>And set unchangeably in order. So<br>To pile them back, to cry,<br>Was hard, without lamely<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="in a weak and unconvincing manner">8</span></a></sup> admitting how<br>It had not done so then, and could not now.</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">floating, drift,漂白<a href="#fnref:1" rev="footnote">↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">repair,patch,修补<a href="#fnref:2" rev="footnote">↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">和弦<a href="#fnref:3" rev="footnote">↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">（迎宾员式的）引导<a href="#fnref:4" rev="footnote">↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">连字符
-[^6 ]:great brightness,耀眼的<a href="#fnref:5" rev="footnote">↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">beginning to exist or to be apparent<a href="#fnref:7" rev="footnote">↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">in a weak and unconvincing manner<a href="#fnref:8" rev="footnote">↩</a></span></li></ol></div></div>
+        <p>这篇论文(?)还蛮好玩的 大概半个小时就能看完 有点看小说一样的感觉了....
+<span id="more"></span> 看之前: 我去 作者Princeton 的博士 什么神 看完:
+原来纯prompt和pipeline的东西也能写这么长 难怪只能挂arxiv(乐)</p>
+<p>这篇论文的目的是通过某种微调,来实现更好的LM性能.作者将LM的性能在这里划为两个维度,一个是无害性,需要符合各种政治正确,防止生成反人类反社会的内容;另一个维度是有效性,毕竟谁也不希望这里有一个只会说I
+don`t know的安全家伙.</p>
+<p>贡献基本也就写在名字里了:Constitutional AI.
+好处基本就是可以使用更少的人类做标签,相比于传统的纯RLHF(Reinforceent
+Learning Human Feedback),这里用了
+RLAIF(偷我Idea!).而把这个做成了一个pipeline,从而使大模型的微调阶段可以更好地和目标对齐.</p>
+<p>训练大概分成两个部分,第一部分是有监督的,第二部分类似于RL</p>
+<ol type="1">
+<li>从已经生成好的预训练模型开始微调,由于这里关注的是无害性,所以这里的预训练模型都是比较有用的.</li>
+<li>让模型对问题给出反馈,再自我批评,作为下一阶段的语料
+<ol type="1">
+<li>这里面对稍微狠一点的问题,给出来的回答一般harmlessness做得都很差</li>
+<li>再给一个prompt,让他找自己这一段对话违背了那些原则,这里的prompt称为<strong>Principle</strong></li>
+<li>再给一个问题,让他对上面1.给出的回答做出修订</li>
+<li>supviserd
+就在这一阶段:人来对这阶段生成的输出进行采样,采样结果作为下一阶段训练语料</li>
+</ol></li>
+<li>进行强化学习拟合
+<ol type="1">
+<li>用上面的语料进行训练,但给出两个选项,让LM自己评价哪个更好</li>
+</ol></li>
+</ol>
+<p>Pipeline如图:</p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png" alt="image-20240102030455207" style="zoom: 67%;"></p>
+<p>最后得出的结论是
+这样的作法效果还不错,在减少了crowdworker的同时能获得较好的效果(也不用让人去做诱导LM说怪话的烂活儿了)</p>
+<p>还提到了一个东西,CoT(Chain of Thought),其实就是一个<em>Let’s think
+step-by-step:</em>的Prompt,引用自 Chain of thought prompting elicits
+reasoning in large language models.
+说是这个能略微改善性能,但主要还是增加透明度</p>
+<p>样例如图:</p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030537172.png" alt="image-20240102030537172" style="zoom:67%;"></p>
+<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030654559.png" alt="image-20240102030654559" style="zoom:67%;"></p>
+<p>基本就完了 下面是 fun fact:</p>
+<ol type="1">
+<li>由principal生成constitution,而这里的constitution其实就是被批判过的错误回答,错误原因和改正结果,好像判例法一样.唉,美国的技术里夹杂普世价值!</li>
+<li>在平衡harmlessness和helpfulness之间存在紧张的张力,难怪现实中有人会完全地滑向另一端:还没有AI有追求.</li>
+<li>在考虑需不需要2.2的批判阶段作者也进行来实验,答案是大模型差别不大,但小模型差别显著,更像人了.</li>
+<li>原来放两个选项就能叫强化学习了吗…我虽然没怎么学过但也知道应该有奖惩函数什么的.</li>
+<li>文章没深入讨论怎么具体同时提升helpfulness和harmlessness,稍微有点失望.</li>
+</ol>
+<p>link: https://arxiv.org/abs/2212.08073</p>
+
     </div>
 
     
@@ -289,23 +318,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Poem/" rel="tag"># Poem</a>
-              <a href="/tags/Literary-criticism/" rel="tag"># Literary criticism</a>
-              <a href="/tags/Philip-Larkin/" rel="tag"># Philip Larkin</a>
+              <a href="/tags/Note/" rel="tag"># Note</a>
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/28/%E7%81%AB%E6%9F%B4/" rel="prev" title="火柴">
-                  <i class="fa fa-chevron-left"></i> 火柴
+                <a href="/2023/09/27/Note-for-Class-CS-E4710-Machine-Learning-Supervised-Methods-D/" rel="prev" title="Note for Class CS-E4710 - Machine Learning: Supervised Methods D">
+                  <i class="fa fa-chevron-left"></i> Note for Class CS-E4710 - Machine Learning: Supervised Methods D
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/20/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Automated-Generation-of-Constraints-from-Use-Case-Specifications-to-Support-System-Testing/" rel="next" title="论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing">
-                  论文笔记 Automated Generation of Constraints From Use Case Specifications to Support System Testing <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
