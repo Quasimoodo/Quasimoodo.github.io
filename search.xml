@@ -4698,8 +4698,8 @@ margin的基础上 提出了怎么找这样一个模型,这就是SVM</p>
       </tags>
   </entry>
   <entry>
-    <title>论文笔记-Constitutional AI: Harmlessness From AI Feedback</title>
-    <url>/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/</url>
+    <title>PNote-Constitutional AI: Harmlessness From AI Feedback</title>
+    <url>/2024/01/02/PNote-Constitutional-AI-Harmlessness-from-AI-Feedback/</url>
     <content><![CDATA[<p>这篇论文(?)还蛮好玩的 大概半个小时就能看完 有点看小说一样的感觉了....
 <span id="more"></span> 看之前: 我去 作者Princeton 的博士 什么神 看完:
 原来纯prompt和pipeline的东西也能写这么长 难怪只能挂arxiv(乐)</p>
@@ -4726,7 +4726,7 @@ RLAIF(偷我Idea!).而把这个做成了一个pipeline,从而使大模型的微�
 </ol></li>
 </ol>
 <p>Pipeline如图:</p>
-<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png" alt="image-20240102030455207" style="zoom: 67%;"></p>
+<p><img src="/2024/01/02/PNote-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030455207.png" alt="image-20240102030455207" style="zoom: 67%;"></p>
 <p>最后得出的结论是
 这样的作法效果还不错,在减少了crowdworker的同时能获得较好的效果(也不用让人去做诱导LM说怪话的烂活儿了)</p>
 <p>还提到了一个东西,CoT(Chain of Thought),其实就是一个<em>Let’s think
@@ -4734,8 +4734,8 @@ step-by-step:</em>的Prompt,引用自 Chain of thought prompting elicits
 reasoning in large language models.
 说是这个能略微改善性能,但主要还是增加透明度</p>
 <p>样例如图:</p>
-<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030537172.png" alt="image-20240102030537172" style="zoom:67%;"></p>
-<p><img src="/2024/01/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030654559.png" alt="image-20240102030654559" style="zoom:67%;"></p>
+<p><img src="/2024/01/02/PNote-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030537172.png" alt="image-20240102030537172" style="zoom:67%;"></p>
+<p><img src="/2024/01/02/PNote-Constitutional-AI-Harmlessness-from-AI-Feedback/image-20240102030654559.png" alt="image-20240102030654559" style="zoom:67%;"></p>
 <p>基本就完了 下面是 fun fact:</p>
 <ol type="1">
 <li>由principal生成constitution,而这里的constitution其实就是被批判过的错误回答,错误原因和改正结果,好像判例法一样.唉,美国的技术里夹杂普世价值!</li>
@@ -4751,7 +4751,7 @@ reasoning in large language models.
       </categories>
       <tags>
         <tag>Note</tag>
-        <tag>NLP</tag>
+        <tag>nlp</tag>
       </tags>
   </entry>
 </search>
